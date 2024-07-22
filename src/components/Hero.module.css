@@ -1,0 +1,169 @@
+.hero-shoe {
+    position: absolute;
+    z-index: 5;
+    transform: translateY(12em) translateX(7em);
+    height: 30vw;
+}
+
+.dotted-circle {
+    position: absolute;
+    width: 0;
+    z-index: 4;
+    transform: translateY(0em) translateX(4.5em) rotate(10deg);
+}
+
+.rectangle-beige {
+    position: absolute;
+    transform: translateY(40em);
+    z-index: 3;
+    width: 70vw;
+}
+
+.rectangle-blue {
+    position: absolute;
+    transform: translateY(44em);
+    width: 90vw;
+}
+
+.hero-heading {
+    position: absolute;
+    transform: translateX(-4em);
+    z-index: 5;
+    right: 0;
+}
+
+.hero-heading h1 {
+    font-size: 7em;
+    font-weight: 700;
+    color: #3C4C64;
+    padding: 0.1em 1em;
+    background-color: #EBE7E4;
+    margin: 0;
+    margin-top: 0.8em;
+    text-align: center;
+}
+
+.hero-heading p:nth-of-type(1) {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.3em;
+    color: #C0A797;
+    padding-left: 18em;
+    margin-bottom: 0;
+}
+
+.hero-heading p:nth-of-type(2) {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 3.4em;
+    color: #878787;
+    padding-left: 2em;
+    width: 18em;
+    text-align: right;
+    margin: 0;
+}
+
+.button {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #3C4C64;
+    background-color: #EBE7E4;
+    border: none;
+    font-size: 1.9em;
+    padding: 1em 7em;
+    transform: translateX(16.2em);
+    margin-top: 1em;
+    box-shadow: 0.3em 0.3em 0.5em rgba(0, 0, 0, 0.345);
+}
+
+section {
+    margin: auto;
+}
+
+@media (max-width: 1600px) {
+    body {
+        font-size: 14px;
+    }
+
+    .hero-shoe {
+        transform: translateY(18em) translateX(7em);
+    }
+
+    .button {
+        transform: translateX(16em);
+    }
+}
+
+@media (max-width: 1200px) {
+    body {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 979px) {
+    body {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 8px;
+    }
+
+    .hero-shoe {
+        height: 22em;
+        transform: translateY(22em) translateX(6em);
+    }
+
+    .dotted-circle {
+        width: 0;
+    }
+
+    .rectangle-beige {
+        width: 50em;
+    }
+
+    .rectangle-blue {
+        width: 70em;
+        transform: translateY(43em);
+    }
+
+    .button {
+        padding: 0.8em 4em;
+        transform: translateX(22em) translateY(-0.6em);
+    }
+}
+
+@media (max-width: 700px) {
+    .hero-heading h1 {
+        margin-top: 0;
+        width: 97%;
+        padding: 0.1em 0.1em;
+    }
+
+    .hero-heading {
+        transform: none;
+        width: 90%;
+        margin: 1em 4em;
+    }
+}
+
+@media (max-width: 580px) {
+    body {
+        font-size: 7px;
+    }
+}
+
+
+@media (max-width: 515px) {
+    body {
+        font-size: 6px;
+    }
+}
+
+@media (max-width: 436px) {
+    body {
+        font-size: 5px;
+    }
+}
