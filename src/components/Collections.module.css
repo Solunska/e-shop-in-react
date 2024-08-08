@@ -10,6 +10,7 @@
     border-radius: 0.5em;
     margin-bottom: 2em;
     position: absolute;
+    cursor: pointer;
 }
 
 h1 {
@@ -58,7 +59,7 @@ h1 {
 }
 
 .collections {
-    transform: translateY(53em);
+    transform: translateY(56em);
 }
 
 @media (max-width: 580px) {
