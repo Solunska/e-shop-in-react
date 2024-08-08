@@ -5,6 +5,7 @@ ul {
     align-items: center;
     justify-content: space-between;
     padding: 0;
+    flex-wrap: wrap;
 }
 
 .logo-container {
@@ -79,14 +80,16 @@ input:focus {
 
     .logo-container {
         order: 1;
+        position: absolute;
+        left: 0;
+        margin: 5em;
     }
 
     .icon-button-container {
         order: 2;
-    }
-
-    .search-bar-container {
-        order: 3;
+        right: 0;
+        position: absolute;
+        margin: 5em;
     }
 
     .icon-image {
@@ -101,13 +104,16 @@ input:focus {
 
     .search-bar-container {
         width: 101%;
-    }
-    .search-bar{
-        padding:  1em;
-        margin: 1em;
+        margin-top: 14em;
+        order: 3;
     }
 
-    .input{
+    .search-bar {
+        padding: 1em;
+        margin: 0.5em;
+    }
+
+    .input {
         font-size: 1.5em;
     }
 }
@@ -121,5 +127,9 @@ input:focus {
     .icon-button {
         height: 1.8em;
         width: 2.8em;
+    }
+
+    .search-bar {
+        font-size: 1.3em;
     }
 }

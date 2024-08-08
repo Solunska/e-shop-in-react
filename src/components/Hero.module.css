@@ -72,13 +72,15 @@
     font-size: 1.9em;
     padding: 1em 7em;
     transform: translateX(16.2em);
-    margin-top: 1em;
+    margin-top: 0.3em;
     box-shadow: 0.3em 0.3em 0.5em rgba(0, 0, 0, 0.345);
 }
 
 section {
     margin: auto;
 }
+
+
 
 @media (max-width: 1600px) {
     body {
@@ -132,6 +134,7 @@ section {
     .button {
         padding: 0.8em 4em;
         transform: translateX(22em) translateY(-0.6em);
+        margin-top: 1em;
     }
 }
 
@@ -146,6 +149,11 @@ section {
         transform: none;
         width: 90%;
         margin: 1em 4em;
+
+    }
+
+    .hero-heading h1 {
+        margin-left: 0.06em;
     }
 }
 
