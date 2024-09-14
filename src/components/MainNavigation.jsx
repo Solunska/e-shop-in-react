@@ -11,7 +11,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 export default function MainNavigation() {
     return <>
         <nav className={styles.nav}>
-            <ul className={styles.ul}>
+            <ul className={styles.ulClass}>
                 <li className={styles['logo-container']}>
                     <NavLink
                         to="/">

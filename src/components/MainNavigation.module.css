@@ -72,7 +72,7 @@ input:focus {
         width: 12em;
     }
 
-    ul {
+    .ulClass {
         flex-direction: column;
         align-items: center;
         justify-content: center;
