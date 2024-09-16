@@ -1,11 +1,17 @@
 import { useRef } from 'react';
-import { NEW_ARRIVALS } from "../data";
 import CardImage from "../UI/CardImages";
 import classes from './CardSlider.module.css';
 import Button from '../UI/Button';
+import { useFetch } from '../hooks/useFetch';
+import { fetchSneakers } from '../http';
 
 export default function CardSlider() {
     const carouselRef = useRef(null);
+
+    const { fetchedData: sneakers, isFetching, error } = useFetch(fetchSneakers, []);
+
+    if (isFetching) return <p>Loading sneakers...</p>;
+    if (error) return <p>{error.message}</p>;
 
     const getScrollDistance = () => {
         const screenWidth = window.innerWidth;
@@ -41,11 +47,11 @@ export default function CardSlider() {
             <div className={classes.carouselContainer}>
                 <button className={classes.scrollButton} onClick={scrollLeft}><span className={classes.spanClass}>←</span></button>
                 <ul ref={carouselRef} className={classes.carousel}>
-                    {NEW_ARRIVALS.map((item) => (
+                    {sneakers.map((item) => (
                         <CardImage
                             key={item.id}
-                            url={item.image.src}
-                            alt={item.image.alt}
+                            url={item.photos[0]}
+                            alt={item.name}
                             cardStyles={classes.card}
                             imgContainerStyles={classes.imgContainer}
                             imgStyles={classes.image}
