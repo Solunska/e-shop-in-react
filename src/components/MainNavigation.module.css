@@ -69,7 +69,11 @@ input:focus {
 
 @media (max-width: 700px) {
     .logo {
-        width: 12em;
+        width: 25em;
+    }
+
+    .nav {
+        margin: 0 4em;
     }
 
     .ulClass {
@@ -77,6 +81,7 @@ input:focus {
         align-items: center;
         justify-content: center;
     }
+
 
     .logo-container {
         order: 1;
@@ -93,13 +98,13 @@ input:focus {
     }
 
     .icon-image {
-        width: 2em;
-        height: 2em;
+        width: 2em !important;
+        height: 2em !important;
     }
 
     .icon-button {
-        height: 2.8em;
-        width: 2.8em;
+        height: 3em;
+        width: 3em;
     }
 
     .search-bar-container {

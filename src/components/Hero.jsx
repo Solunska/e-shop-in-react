@@ -3,8 +3,12 @@ import circle from '../assets/ellipse.png';
 import rectangleBlue from '../assets/rectangle-blue.png';
 import rectangleBeige from '../assets/rectangle-beige.png';
 import shoe from '../assets/hero-shoe.png';
+import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
+
+    const navigate = useNavigate();
+
     return <>
         <section className={styles.container}>
             <div>
@@ -18,7 +22,7 @@ export default function Hero() {
                 <h1>Step Into Style</h1>
                 <p>Discover Your Perfect Sneakers</p>
                 <p>Unleash the Butterfly Effect with Every Step</p>
-                <button className={styles.button}>Shop Now</button>
+                <button className={styles.button} onClick={() => { navigate('/products') }}>Shop Now</button>
             </div>
         </section>
     </>
