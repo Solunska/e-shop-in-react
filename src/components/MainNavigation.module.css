@@ -73,7 +73,7 @@ input:focus {
 
 @media (max-width: 700px) {
     .logo {
-        width: 25em;
+        width: 19em;
     }
 
     .nav {
