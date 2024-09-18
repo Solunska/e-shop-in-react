@@ -21,14 +21,15 @@ ul {
 }
 
 .nav {
-    margin: 1em 4em;
+    margin: 0 4em;
 }
 
 .search-bar {
-    background-color: #e1e0de6f;
+    background-color: #d6ccb842;
     padding: 0.4em 2em 0.4em 0.5em;
     border-radius: 0.5em;
     z-index: 6;
+    width: 30em;
 }
 
 i {
@@ -42,10 +43,9 @@ input {
     height: 2em;
     width: 85%;
     background-color: transparent;
-    font-size: 1.3em;
+    font-size: 1.4em;
     color: #878787;
     caret-color: rgb(0, 0, 0);
-    /* Change caret color to make it more visible */
 }
 
 input:focus {
@@ -67,6 +67,10 @@ input:focus {
     height: 2.4em;
 }
 
+.logoIconsContainer{
+    height: 10em;
+}
+
 @media (max-width: 700px) {
     .logo {
         width: 25em;
@@ -74,12 +78,14 @@ input:focus {
 
     .nav {
         margin: 0 4em;
+        margin-top: 3em;
     }
 
     .ulClass {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        height: 17em;
     }
 
 
@@ -88,6 +94,7 @@ input:focus {
         position: absolute;
         left: 0;
         margin: 5em;
+        transform: translateY(-5em);
     }
 
     .icon-button-container {
@@ -95,6 +102,7 @@ input:focus {
         right: 0;
         position: absolute;
         margin: 5em;
+        transform: translateY(-5em);
     }
 
     .icon-image {
@@ -109,17 +117,18 @@ input:focus {
 
     .search-bar-container {
         width: 101%;
-        margin-top: 14em;
+        margin-top: 7em;
         order: 3;
     }
 
     .search-bar {
         padding: 1em;
         margin: 0.5em;
+        width: 93%;
     }
 
     .input {
-        font-size: 1.5em;
+        font-size: 2em;
     }
 }
 
@@ -135,6 +144,10 @@ input:focus {
     }
 
     .search-bar {
-        font-size: 1.3em;
+        font-size: 1.5em;
+    }
+
+    .search-bar-container{
+        margin-top: 7em;
     }
 }

@@ -75,6 +75,13 @@
     margin-top: 0.3em;
     box-shadow: 0.3em 0.3em 0.5em rgba(0, 0, 0, 0.345);
     cursor: pointer;
+    transition: background-color 0.3s ease; 
+    
+}
+
+.button:hover {
+    background-color: #cdc7c2;
+
 }
 
 section {

@@ -9,7 +9,7 @@ import styles from './MainNavigation.module.css';
 import { NavbarContext } from '../context/NavBarContext';
 
 export default function MainNavigation() {
-    const { toggleCategories, hideCategories } = useContext(NavbarContext); // Access toggle and hide functions
+    const { toggleCategories, hideCategories } = useContext(NavbarContext);
 
     useEffect(() => {
         const handleEscape = (event) => {

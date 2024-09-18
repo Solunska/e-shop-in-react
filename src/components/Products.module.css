@@ -1,0 +1,107 @@
+.heding {
+    margin: 1em 2em;
+    font-size: 2em !important;
+    color: #453221;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin: 0 3em;
+    align-items: center;
+}
+
+.cardContainer {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2.5em;
+}
+
+.image {
+    width: 90%;
+    object-fit: contain;
+    border-radius: 1em;
+    box-shadow: #4532215b 0px 5px 15px;
+}
+
+.namePriceContainer {
+    margin: 1em 0;
+}
+
+.name,
+.price {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    color: #453221;
+    font-weight: 600;
+}
+
+.button {
+    border: none;
+    background-color: #d6ccb8a7;
+    color: #453221;
+    font-weight: 600;
+    padding: 0.7em 2em;
+    border-radius: 0.7em;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #928a79a7;
+}
+
+@media (max-width: 1200px) {
+    .cardContainer {
+        width: 33%;
+    }
+
+    .heding {
+        margin: 1em 1.6em;
+        font-size: 3em !important;
+    }
+
+    .name,
+    .price {
+        font-size: 1.5em;
+    }
+
+    .namePriceContainer {
+        margin: 2em 0;
+    }
+}
+
+@media (max-width: 750px) {
+    .cardContainer {
+        width: 50%;
+        margin-bottom: 4em;
+    }
+
+    .heding {
+        font-size: 3.3em !important;
+    }
+
+    .name,
+    .price {
+        font-size: 2em;
+    }
+
+    .namePriceContainer {
+        margin: 2.5em 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .cardContainer {
+        width: 100%;
+        margin-bottom: 7em;
+    }
+
+    .name,
+    .price {
+        font-size: 3em;
+    }
+}

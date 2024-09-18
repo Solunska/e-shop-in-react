@@ -11,6 +11,11 @@
     margin-bottom: 2em;
     position: absolute;
     cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.collection-button:hover{
+    background-color: #ebe7e4f2;
 }
 
 h1 {
