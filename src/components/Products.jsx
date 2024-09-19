@@ -14,7 +14,7 @@ export default function ProductsCollection() {
                     image={sneakers.image.src}
                     name={sneakers.name}
                     price={sneakers.price}
-                    />
+                />
             )}
         </div>
 
