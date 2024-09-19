@@ -85,7 +85,7 @@
     border-radius: 0.2em;
     margin-left: 4rem;
     margin-top: 0.5em;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
 }
 
 .button:hover {
@@ -109,21 +109,28 @@
         margin: 0 2em;
     }
 
-    .scrollButton{
+    .scrollButton {
         width: 3.5em;
         height: 3.5em;
         margin: 0 3.5em;
     }
 
-    .heading{
+    .heading {
         margin: 0 2rem;
     }
 
-    .paragraph{
+    .paragraph {
         margin: 0 2rem;
     }
 
-    .button{
-        margin-left: 2em;
+    .button {
+        margin-left: 1.7em;
+        font-size: 3.5em;
+    }
+}
+
+@media (max-width: 515px) {
+    .wrapper {
+        transform: translateY(49em);
     }
 }
