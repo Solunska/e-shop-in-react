@@ -11,7 +11,7 @@ export const NEW_ARRIVALS = [
             alt: 'shoe1'
         },
         price: 100,
-        sizes: [37, 38, 39, 40, 41, 42],
+        sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46],
         reviews: {
             5: 10,
             4: 10,
@@ -29,7 +29,7 @@ export const NEW_ARRIVALS = [
             alt: 'shoe2'
         },
         price: 100,
-        sizes: [37, 38, 39, 40, 41, 42],
+        sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46],
         reviews: {
             5: 10,
             4: 10,
@@ -47,7 +47,7 @@ export const NEW_ARRIVALS = [
             alt: 'shoe3'
         },
         price: 100,
-        sizes: [37, 38, 39, 40, 41, 42],
+        sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46],
         reviews: {
             5: 10,
             4: 10,
@@ -65,7 +65,7 @@ export const NEW_ARRIVALS = [
             alt: 'shoe1'
         },
         price: 100,
-        sizes: [37, 38, 39, 40, 41, 42],
+        sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46],
         reviews: {
             5: 10,
             4: 10,
@@ -83,7 +83,7 @@ export const NEW_ARRIVALS = [
             alt: 'shoe2'
         },
         price: 100,
-        sizes: [37, 38, 39, 40, 41, 42],
+        sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46],
         reviews: {
             5: 10,
             4: 10,
@@ -101,7 +101,7 @@ export const NEW_ARRIVALS = [
             alt: 'shoe3'
         },
         price: 100,
-        sizes: [37, 38, 39, 40, 41, 42],
+        sizes: [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46],
         reviews: {
             5: 10,
             4: 10,
