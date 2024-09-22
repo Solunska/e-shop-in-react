@@ -15,7 +15,7 @@
 
 .imagesContainer {
     display: flex;
-    gap: 1.75em;
+    gap: 1.5em;
     width: 60%;
 }
 
@@ -36,8 +36,15 @@
 }
 
 .image {
-    width: 105%;
+    width: 100%;
     aspect-ratio: 1 /1;
+    border-radius: 0.7em;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: transform 0.3s ease;
+}
+
+.image:hover {
+    transform: scale(1.05);
 }
 
 .mainImage {
@@ -47,6 +54,8 @@
 .mainImage img {
     height: 100%;
     aspect-ratio: 1/1;
+    border-radius: 0.7em;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .label {
@@ -65,28 +74,29 @@
 .selectedSize {
     width: 7em;
     text-align: center;
-    padding: 1.3em 0;
+    padding: 0.5em 0;
     border-radius: 0.3em;
     margin: 0;
-    border: 1px solid rgba(65, 112, 182, 0.59);
-    color: rgba(65, 112, 182, 0.59);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid rgba(65, 112, 182, 0.181);
+    color: rgba(65, 112, 182, 0.89);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .size:hover {
-    background-color: rgba(65, 112, 182, 0.312);
+    background-color: rgba(65, 112, 182, 0.44);
     color: white;
 }
 
 .selectedSize {
+    box-shadow: rgba(65, 112, 182, 0.273) 0px 5px 15px;
     border: none;
-    background-color: rgba(65, 112, 182, 0.44);
+    background-color: rgba(65, 112, 182, 0.463);
     color: white;
     transition: background-color 0.3s ease;
 }
 
 .selectedSize:hover {
-    background-color: rgba(65, 112, 182, 0.563);
+    background-color: rgba(65, 112, 182, 0.463);
 }
 
 .name {
@@ -115,10 +125,16 @@
     height: 3em;
     border: none;
     border-radius: 0.3em;
-    font-size: 2em;
-    background-color: rgba(76, 76, 76, 91);
+    font-size: 1.5em;
+    background-color: rgba(60, 76, 100, 91);
     color: white;
     font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #3c3c3c;
+    transform: scale(1.01);
 }
 
 .starYellow {
@@ -132,6 +148,121 @@
 .radio {
     display: none;
 }
+
+.bottomContainer {
+    display: flex;
+    margin: 3em 4em;
+    gap: 5em;
+    justify-content: space-between;
+}
+
+.description {
+    width: 40%;
+    color: #4C4C4C;
+}
+
+.description p:first-child {
+    font-weight: 700;
+}
+
+.sideBar {
+    width: 43.5%;
+    margin-right: 1.4em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.rating {
+    background-color: rgba(214, 204, 184, 0.21);
+    height: 20em;
+    padding: 2em 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2em;
+    border-radius: 0.75em;
+}
+
+
+.benefits {
+    background-color: rgba(214, 204, 184, 0.21);
+    height: 13em;
+    display: flex;
+    justify-content: center;
+    padding: 0 3em;
+    align-items: center;
+    gap: 4em;
+    border-radius: 0.75em;
+}
+
+.progressContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.progressBar {
+    width: 80%;
+    height: 1.8em;
+    background-color: #D9D9D9;
+    border-radius: 2em;
+}
+
+.progressBarsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+    justify-content: center;
+}
+
+.progressContainer p {
+    width: 4%;
+    margin: 0;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 600;
+    color: #3c3c3c;
+}
+
+.progressContainer p:first-child {
+    color: #b0b0b0;
+}
+
+.progress {
+    background-color: #EACC57;
+}
+
+.starsRatingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.starsRatingContainer p {
+    margin: 0;
+    font-size: 2em;
+    color: #4C4C4C;
+    font-weight: 600;
+}
+
+.logoLabelContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    align-items: center;
+    height: 40%;
+}
+
+.logoLabelContainer img {
+    width: 3em;
+}
+
+.logoLabelContainer p {
+    margin: 0;
+    text-align: center;
+}
+
 
 @media(max-width: 1470px) {
     .imagesContainer {
@@ -160,11 +291,37 @@
     .imagesContainer {
         width: 50%;
     }
+
+    .benefits {
+        gap: 2em;
+    }
 }
 
-@media (max-width: 979px) {
+@media (max-width:1200px) {
+    .rating {
+        height: 22em;
+    }
+
+    .description p {
+        font-size: 1.5em;
+    }
+
+    .benefits {
+        gap: 1em;
+    }
+}
+
+@media (max-width: 980px) {
     .container {
         font-size: 10px;
+    }
+
+    .rating {
+        height: 25em;
+    }
+
+    .logoLabelContainer p {
+        font-size: 1.3em;
     }
 }
 
@@ -189,7 +346,7 @@
     .size,
     .selectedSize {
         width: 8em;
-        height: 1.6em;
+        height: 2.5em;
         font-size: 1.5em;
     }
 
@@ -206,16 +363,81 @@
     .button {
         margin-top: 1em;
     }
+
+    .bottomContainer {
+        flex-direction: column;
+        gap: 3em;
+    }
+
+    .description {
+        width: 100%;
+    }
+
+    .sideBar {
+        width: 100%;
+    }
+
+    .rating {
+        height: 27em;
+    }
+
+    .logoLabelContainer p {
+        font-size: 1.5em;
+    }
+
+    .description p:nth-of-type(2) {
+        margin: 0;
+    }
+
+    .benefits {
+        gap: 4em;
+    }
+}
+
+@media (max-width: 580px) {
+    .rating {
+        height: 30em;
+    }
+
+    .description p {
+        font-size: 2em;
+    }
+
+    .progressBar{
+        height: 1.4em;
+    }
 }
 
 @media (max-width: 515px) {
     .container {
         margin: 1.5em 2.5em;
     }
-    .productInfoContainer{
+
+    .productInfoContainer {
         margin-right: 0em;
     }
 
+    .logoLabelContainer {
+        flex-direction: column;
+    }
+
+    .logoLabelContainer p {
+        font-size: 2em;
+    }
+
+    .rating {
+        height: 36em;
+        justify-content: center;
+    }
+
+    .benefits {
+        height: 20em;
+        gap: 4em;
+    }
+
+    .starsRatingContainer p{
+        font-size: 3em;
+    }
 }
 
 @media (max-width:436px) {
@@ -223,8 +445,13 @@
         grid-template-columns: repeat(auto-fill, minmax(9.3em, 1fr));
         gap: 2.2em;
     }
+
     .size,
-    .selectedSize{
+    .selectedSize {
         width: 6.2em;
+    }
+
+    .description p {
+        font-size: 2.5em;
     }
 }

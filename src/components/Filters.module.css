@@ -7,7 +7,7 @@
     background-color: #3c4c64f6;
     padding: 5em 4em;
     border-radius: 1.5em;
-    height: 40rem;
+    height: 50rem;
     position: absolute;
     z-index: 10;
     left: 50%;
@@ -107,7 +107,7 @@
     width: 40%;
     margin-right: 3em;
     padding-right: 4em;
-    border-right: 1px solid #ccc;
+    border-right: 3px solid #cccccc7a;
 }
 
 .container:nth-of-type(3) {
@@ -118,7 +118,7 @@
 @media (max-width: 1200px) {
 
     .mainContainer {
-        height: 30rem;
+        height: 38rem;
     }
 
     .category {
@@ -135,6 +135,7 @@
     .mainContainer {
         flex-direction: column;
         height: 330em;
+        width: 90%;
     }
 
     .container {
@@ -163,7 +164,7 @@
         width: 3em;
         height: 3em
     }
-    
+
     .searchButton {
         font-size: 3em;
         margin-top: 2em;
@@ -175,7 +176,7 @@
         width: 40%;
         margin-right: 0;
         padding-right: 0;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 3px solid #cccccc7a;
         border-right: none;
     }
 

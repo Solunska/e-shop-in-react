@@ -2,6 +2,7 @@
     margin: 1em 2em;
     font-size: 2em !important;
     color: #453221;
+    margin-top: 0;
 }
 
 .container {
@@ -10,6 +11,7 @@
     justify-content: start;
     margin: 0 3em;
     align-items: center;
+    row-gap: 2.5em;
 }
 
 .cardContainer {
@@ -17,14 +19,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 2.5em;
+}
+
+a {
+    width: 90%;
 }
 
 .image {
-    width: 90%;
+    width: 100%;
     object-fit: contain;
     border-radius: 1em;
     box-shadow: #4532215b 0px 5px 15px;
+    transition: transform 0.3s ease;
+}
+
+.image:hover {
+    transform: scale(1.05);
 }
 
 .namePriceContainer {
@@ -42,8 +52,8 @@
 
 .button {
     border: none;
-    background-color: #d6ccb8a7;
-    color: #453221;
+    background-color: #6980a3;
+    color: white;
     font-weight: 600;
     padding: 0.7em 2em;
     border-radius: 0.7em;
@@ -51,7 +61,7 @@
 }
 
 .button:hover {
-    background-color: #928a79a7;
+    background-color: #3C4C64;
 }
 
 @media (max-width: 1200px) {
@@ -71,6 +81,10 @@
 
     .namePriceContainer {
         margin: 2em 0;
+    }
+
+    .button{
+        font-size: 1.3em;
     }
 }
 
@@ -92,6 +106,10 @@
     .namePriceContainer {
         margin: 2.5em 0;
     }
+
+    .button{
+        font-size: 2em;
+    }
 }
 
 @media (max-width: 500px) {
@@ -103,5 +121,9 @@
     .name,
     .price {
         font-size: 3em;
+    }
+
+    .button{
+        font-size: 2.5em;
     }
 }

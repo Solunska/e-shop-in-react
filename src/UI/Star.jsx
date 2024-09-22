@@ -1,5 +1,5 @@
-export default function StarIcon({ starClass }) {
-    return <svg className={starClass} baseProfile="tiny" height="24px" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+export default function StarIcon({ starClass,size }) {
+    return <svg className={starClass} baseProfile="tiny" height={size} viewBox="0 0 24 24" width={size} xmlns="http://www.w3.org/2000/svg">
         <g>
             <path
                 d="M9.362,9.158c0,0-3.16,0.35-5.268,0.584c-0.19,0.023-0.358,0.15-0.421,0.343s0,0.394,0.14,0.521    

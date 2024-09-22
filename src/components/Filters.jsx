@@ -72,11 +72,11 @@ export default function Filters() {
                         <Checkbox label="$Above $200" type="radio" name="price" />
                     </div>
                     <div>
-                        <h3 className={classes.category}>Size</h3>
-                        <Checkbox label="US Sizes" type="radio" name="size" />
-                        <Checkbox label="EU Sizes" type="radio" name="size" />
-                        <Checkbox label="UK Sizes" type="radio" name="size" />
-                        <Checkbox label="Half Sizes" type="radio" name="size" />
+                        <h3 className={classes.category}>Sort by</h3>
+                        <Checkbox label="popularity" type="radio" name="sort" />
+                        <Checkbox label="prices" type="radio" name="sort" />
+                        <Checkbox label="newest arrivals" type="radio" name="sort" />
+                        <Checkbox label="newest arrivals" type="radio" name="sort" />
                     </div>
                 </div>
                 <div>
