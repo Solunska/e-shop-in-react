@@ -1,6 +1,7 @@
 .mainContainer {
     display: flex;
     margin: 3rem 13rem;
+    gap: 3em;
 }
 
 .shoppingCartItems {
@@ -32,10 +33,21 @@
     flex-direction: column;
     text-align: left;
     font-size: 1.5em;
+    gap: 1em;
 }
 
-.productDetails p:nth-child(2) {
+.productDetails p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.productDetails div p {
     font-size: 0.7em;
+    font-weight: 400;
+}
+
+.productDetails div p:nth-of-type(2) {
+    color: rgba(0, 0, 0, 0.448);
 }
 
 .heading {
@@ -47,14 +59,14 @@
 td {
     vertical-align: top;
     text-align: center;
-    padding: 1em;
+    padding: 2em 1em;
 }
 
 th {
     padding: 0.5em 0;
     font-size: 1em;
-    color: rgba(0, 0, 0, 0.685);
-    font-weight: 500;
+    color: rgba(0, 0, 0, 0.585);
+    font-weight: 600;
     text-align: center;
 }
 
@@ -100,6 +112,7 @@ table {
 
 .heading {
     font-size: 1.5em;
+    margin: 0;
 }
 
 tr td:first-child {
@@ -157,11 +170,17 @@ tr td:last-child {
 
     td {
         height: 10em;
+        vertical-align: middle;
     }
 
     .productDetails {
         font-size: 1.5em;
         gap: 0.2em;
+        justify-content: center;
+    }
+
+    .price {
+        margin: 0;
     }
 
     .productDetails p {

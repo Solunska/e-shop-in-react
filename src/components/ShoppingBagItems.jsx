@@ -21,8 +21,10 @@ export default function ShoppingBagItems() {
                                     <img src={item.image.src} alt={item.image.alt} />
                                     <div className={classes.productDetails}>
                                         <p>{item.name}</p>
-                                        <p>${item.price}.00</p>
-                                        <p>{item.sizes[0]}</p>
+                                        <div>
+                                            <p>${item.price}.00</p>
+                                            <p>{item.sizes[0]} size of shoe</p>
+                                        </div>
                                     </div>
                                 </div>
                             </td>
@@ -42,8 +44,8 @@ export default function ShoppingBagItems() {
                 </tbody>
             </table>
         </div>
-        <div className={classes.summary}>
-            SUMMARY
+        <div className={classes.heading}>
+            Order Summary
         </div>
     </div >
 }
