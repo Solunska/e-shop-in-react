@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { NEW_ARRIVALS } from "../data";
-import classes from './Product.module.css';
+import classes from './ProductDetails.module.css';
 import ShoeSize from "../UI/ShoeSize";
 import Button from "../UI/Button";
 import StarIcon from "../UI/Star";

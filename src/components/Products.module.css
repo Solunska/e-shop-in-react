@@ -1,15 +1,16 @@
 .heding {
-    margin: 1em 2em;
-    font-size: 2em !important;
+    margin: 0 4rem;
+    font-size: 1.5em !important;
     color: #453221;
     margin-top: 0;
+    font-weight: 600;
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
-    margin: 0 3em;
+    margin: 1em 3em;
     align-items: center;
     row-gap: 2.5em;
 }
@@ -52,7 +53,7 @@ a {
 
 .button {
     border: none;
-    background-color: #6980a3;
+    background-color: #607594;
     color: white;
     font-weight: 600;
     padding: 0.7em 2em;
@@ -70,8 +71,8 @@ a {
     }
 
     .heding {
-        margin: 1em 1.6em;
-        font-size: 3em !important;
+        margin: 1em 2.5em;
+        font-size: 2em !important;
     }
 
     .name,
@@ -83,7 +84,7 @@ a {
         margin: 2em 0;
     }
 
-    .button{
+    .button {
         font-size: 1.3em;
     }
 }
@@ -95,7 +96,8 @@ a {
     }
 
     .heding {
-        font-size: 3.3em !important;
+        margin: 1em 2em;
+        font-size: 2.5em !important;
     }
 
     .name,
@@ -107,7 +109,7 @@ a {
         margin: 2.5em 0;
     }
 
-    .button{
+    .button {
         font-size: 2em;
     }
 }
@@ -123,7 +125,7 @@ a {
         font-size: 3em;
     }
 
-    .button{
+    .button {
         font-size: 2.5em;
     }
 }

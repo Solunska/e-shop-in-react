@@ -26,16 +26,20 @@ ul {
 
 .search-bar {
     background-color: #d6ccb842;
-    padding: 0.4em 2em 0.4em 0.5em;
+    padding: 0.4em 2em 0.4em 1em;
     border-radius: 0.5em;
     z-index: 6;
-    width: 30em;
+    width: 34em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
 }
 
-i {
-    padding: 0.5em;
+.search-bar img {
     color: #8787878f;
-    font-size: 1.2em;
+    width: 1.5em;
+    height: 1.5em;
+    aspect-ratio: 1 /1;
 }
 
 input {
@@ -63,11 +67,11 @@ input:focus {
 }
 
 .icon-image {
-    width: 2.4em;
-    height: 2.4em;
+    width: 2em;
+    height: 2em;
 }
 
-.logoIconsContainer{
+.logoIconsContainer {
     height: 10em;
 }
 
@@ -125,6 +129,7 @@ input:focus {
         padding: 1em;
         margin: 0.5em;
         width: 97%;
+
     }
 
     .input {
@@ -134,8 +139,8 @@ input:focus {
 
 @media (max-width: 515px) {
     .icon-image {
-        width: 4.5em !important;;
-        height: 4.5em !important;;
+        width: 4em !important;
+        height: 4em !important;
     }
 
     .icon-button {
@@ -147,7 +152,7 @@ input:focus {
         font-size: 1.5em;
     }
 
-    .search-bar-container{
+    .search-bar-container {
         margin-top: 7em;
     }
 }

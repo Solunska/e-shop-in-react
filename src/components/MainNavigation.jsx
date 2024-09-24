@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import search from '../assets/search.png';
 import categories from '../assets/categories.png';
 import profile from '../assets/profile.png';
 import shoppingBag from '../assets/shopping-cart.png';
@@ -10,6 +11,7 @@ import { NavbarContext } from '../context/NavBarContext';
 
 export default function MainNavigation() {
     const { toggleCategories, hideCategories } = useContext(NavbarContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleEscape = (event) => {
@@ -46,6 +48,7 @@ export default function MainNavigation() {
                             image={shoppingBag}
                             alt='shopping bag logo'
                             imgStyles={styles['icon-image']}
+                            onHandleClick={() => { navigate('/shopping-cart') }}
                         />
                         <NavButton
                             styles={styles['icon-button']}
@@ -57,7 +60,7 @@ export default function MainNavigation() {
                 </li>
                 <li className={styles['search-bar-container']}>
                     <div className={styles['search-bar']}>
-                        <i className="fas fa-search search-icon"></i>
+                        <img src={search} alt='search icon' />
                         <input className={styles.input} type='text' placeholder='Search...' />
                     </div>
                 </li>

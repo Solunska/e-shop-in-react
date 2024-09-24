@@ -1,4 +1,4 @@
-import Product from "../components/Product";
+import Product from "../components/ProductDetails";
 import Filters from "../components/Filters";
 
 export default function ProductDetailsPage() {

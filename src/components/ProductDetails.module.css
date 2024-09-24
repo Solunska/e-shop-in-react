@@ -126,14 +126,14 @@
     border: none;
     border-radius: 0.3em;
     font-size: 1.5em;
-    background-color: rgba(60, 76, 100, 91);
+    background-color: #607594;
     color: white;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .button:hover {
-    background-color: #3c3c3c;
+    background-color: rgba(60, 76, 100, 91);
     transform: scale(1.01);
 }
 

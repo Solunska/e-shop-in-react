@@ -4,6 +4,7 @@ import RootLayout from './pages/Root'
 import HomePage from './pages/Home';
 import ProductsPage from './pages/Products';
 import ProductDetailsPage from './pages/ProductDetails';
+import ShoppingCartPage from './pages/ShoppingCart';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,11 @@ const router = createBrowserRouter([
       {
         path: 'products/:productId',
         element: <ProductDetailsPage />
-      }
+      },
+      {
+        path: 'shopping-cart',
+        element: <ShoppingCartPage />
+      },
     ]
   }
 ])

@@ -1,4 +1,4 @@
-import classes from '../components/Product.module.css';
+import classes from '../components/ProductDetails.module.css';
 
 export default function ShoeSize({ size, selectedSize, setSelectedSize }) {
     const isSelected = selectedSize == size;
