@@ -1,5 +1,6 @@
 import classes from './ShoppingBagItems.module.css';
 import { NEW_ARRIVALS } from '../data';
+import Button from '../UI/Button';
 
 export default function ShoppingBagItems() {
     return <div className={classes.mainContainer}>
@@ -44,8 +45,27 @@ export default function ShoppingBagItems() {
                 </tbody>
             </table>
         </div>
-        <div className={classes.heading}>
-            Order Summary
+        <div className={classes.summary}>
+            <p className={classes.heading}>Order Summary</p>
+            <div className={classes.order}>
+                <div className={classes.subtotalDiscount}>
+                    <div className={classes.subtotal}>
+                        <p>Subtotal</p>
+                        <p>$2000.00</p>
+                    </div>
+                    <div className={classes.discount}>
+                        <p>Discount</p>
+                        <p>$0</p>
+                    </div>
+                </div>
+                <div className={classes.totalCheckout}>
+                    <div className={classes.total}>
+                        <p>Total</p>
+                        <p>$2000.00</p>
+                    </div>
+                    <Button>Checkout</Button>
+                </div>
+            </div>
         </div>
     </div >
 }
