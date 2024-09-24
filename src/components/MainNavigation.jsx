@@ -1,30 +1,32 @@
-import { useContext, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import search from '../assets/search.png';
-import categories from '../assets/categories.png';
 import profile from '../assets/profile.png';
 import shoppingBag from '../assets/shopping-cart.png';
 import NavButton from '../UI/NavigationButton';
 import styles from './MainNavigation.module.css';
-import { NavbarContext } from '../context/NavBarContext';
+import { useEffect, useState } from 'react';
 
 export default function MainNavigation() {
-    const { toggleCategories, hideCategories } = useContext(NavbarContext);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const handleEscape = (event) => {
-            if (event.key === 'Escape') {
-                hideCategories();
+        const handleResize = () => {
+            const screenWidth = window.innerWidth;
+            if (screenWidth >= 1200) {
+                setIsMenuOpen(false);
             }
         };
-        document.addEventListener('keydown', handleEscape);
 
-        return () => {
-            document.removeEventListener('keydown', handleEscape);
-        };
-    }, [hideCategories]);
+        window.addEventListener('resize', handleResize);
+
+        handleResize();
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <nav className={styles.nav}>
@@ -35,28 +37,37 @@ export default function MainNavigation() {
                     </NavLink>
                 </li>
                 <li className={styles['icon-button-container']}>
-                    <div>
-                        <NavButton
-                            styles={styles['icon-button']}
-                            image={categories}
-                            alt='categories logo'
-                            imgStyles={styles['icon-image']}
-                            onHandleClick={toggleCategories}
-                        />
-                        <NavButton
-                            styles={styles['icon-button']}
-                            image={shoppingBag}
-                            alt='shopping bag logo'
-                            imgStyles={styles['icon-image']}
-                            onHandleClick={() => { navigate('/shopping-cart') }}
-                        />
-                        <NavButton
-                            styles={styles['icon-button']}
-                            image={profile}
-                            alt='profile logo'
-                            imgStyles={styles['icon-image']}
-                        />
-                    </div>
+                    <button className={styles.burgerMenu} onClick={toggleMenu}>
+                        ☰
+                    </button>
+                    {isMenuOpen ?
+                        <div className={styles.openMenu}>
+                            <p onClick={() => {
+                                navigate('/products')
+                                toggleMenu();
+                            }}>Products</p>
+                            <p onClick={() => {
+                                navigate('/shopping-cart')
+                                toggleMenu();
+                            }}>Shopping cart</p>
+                            <p>Favorites</p>
+                            <p>Profile</p>
+                        </div>
+                        : null}
+                    <span onClick={() => { navigate('/products') }}>All products</span>
+                    <NavButton
+                        styles={styles['icon-button']}
+                        image={shoppingBag}
+                        alt='shopping bag logo'
+                        imgStyles={styles['icon-image']}
+                        onHandleClick={() => { navigate('/shopping-cart') }}
+                    />
+                    <NavButton
+                        styles={styles['icon-button']}
+                        image={profile}
+                        alt='profile logo'
+                        imgStyles={styles['icon-image']}
+                    />
                 </li>
                 <li className={styles['search-bar-container']}>
                     <div className={styles['search-bar']}>

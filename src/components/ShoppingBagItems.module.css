@@ -272,7 +272,7 @@ tr td:last-child {
 
 @media(max-width:500px) {
     .summary {
-        height: 43em;
+        height: 45em;
     }
 
     .totalCheckout button {
