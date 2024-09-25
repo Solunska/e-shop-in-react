@@ -5,10 +5,15 @@ import profile from '../assets/profile.png';
 import shoppingBag from '../assets/shopping-cart.png';
 import NavButton from '../UI/NavigationButton';
 import styles from './MainNavigation.module.css';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import Modal from './Modal';
+import { NavbarContext } from '../context/NavBarContext';
+import Login from './Login';
 
 export default function MainNavigation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { isModalOpen, setIsModalOpen } = useContext(NavbarContext);
+
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const navigate = useNavigate();
@@ -51,7 +56,10 @@ export default function MainNavigation() {
                                 toggleMenu();
                             }}>Shopping cart</p>
                             <p>Favorites</p>
-                            <p>Profile</p>
+                            <p onClick={() => {
+                                setIsModalOpen(true)
+                                toggleMenu();
+                            }}>Profile</p>
                         </div>
                         : null}
                     <span onClick={() => { navigate('/products') }}>All products</span>
@@ -67,6 +75,7 @@ export default function MainNavigation() {
                         image={profile}
                         alt='profile logo'
                         imgStyles={styles['icon-image']}
+                        onHandleClick={() => { setIsModalOpen(true) }}
                     />
                 </li>
                 <li className={styles['search-bar-container']}>
@@ -76,6 +85,10 @@ export default function MainNavigation() {
                     </div>
                 </li>
             </ul>
+            <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)} modalStyles={styles.modal}>
+                <Login />
+            </Modal>
         </nav>
+
     );
 }

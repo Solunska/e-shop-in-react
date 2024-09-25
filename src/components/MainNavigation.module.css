@@ -29,7 +29,7 @@ ul {
 
 .search-bar {
     background-color: #F6F6F6;
-    padding: 0.4em 2em 0.4em 1em;
+    padding: 0.5em 2em 0.5em 1em;
     border-radius: 0.5em;
     z-index: 6;
     width: 34em;
@@ -40,8 +40,8 @@ ul {
 
 .search-bar img {
     color: #8787878f;
-    width: 1.5em;
-    height: 1.5em;
+    width: 1em;
+    height: 1em;
     aspect-ratio: 1 /1;
 }
 
@@ -50,7 +50,7 @@ input {
     height: 2em;
     width: 85%;
     background-color: transparent;
-    font-size: 1.4em;
+    font-size: 1em;
     color: #878787;
     caret-color: rgb(0, 0, 0);
 }
@@ -65,7 +65,7 @@ input:focus {
     background-color: transparent;
     border: none;
     height: 4em;
-    width: 4em;
+    width: 3em;
     cursor: pointer;
 }
 
@@ -113,7 +113,8 @@ input:focus {
 .openMenu {
     width: 40em;
     height: 60em;
-    background-color: #607594f6;
+    background: #a9b5c88a;
+    backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
     right: 0;
@@ -127,16 +128,26 @@ input:focus {
     gap: 2em;
 }
 
-.openMenu p{
+.openMenu p {
     font-size: 2.5em;
     font-weight: 500;
-    color: white;
+    color: #30415af6;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.openMenu p:hover{
+.openMenu p:hover {
     transform: scale(1.2);
+}
+
+.modal {
+    background-color: white;
+    height: 80vh;
+    width: 30rem;
+    border: none;
+    border-radius: 2em;
+    background: #a9b5c88a;
+    backdrop-filter: blur(10px);
 }
 
 @media(max-width:1200px) {
@@ -154,6 +165,10 @@ input:focus {
     .icon-image {
         width: 3em !important;
         height: 3em !important;
+    }
+
+    .search-bar {
+        font-size: 1.5em;
     }
 }
 
@@ -213,24 +228,30 @@ input:focus {
     }
 
     .search-bar {
-        padding: 1em;
         margin: 0.5em;
         width: 97%;
-
     }
 
     .input {
-        font-size: 2em;
+        font-size: 1.5em;
     }
 
     .burgerMenu {
         font-size: 4em;
     }
 
-    .openMenu p{
+    .openMenu p {
         font-size: 3em;
     }
 
+    .search-bar img {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    .modal {
+        width: 80%;
+    }
 }
 
 @media (max-width: 515px) {
@@ -256,7 +277,7 @@ input:focus {
         font-size: 5em;
     }
 
-    .openMenu p{
+    .openMenu p {
         font-size: 3.5em;
     }
 
