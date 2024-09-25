@@ -35,7 +35,8 @@
     margin-top: 0.5em;
 }
 
-.image {
+.image,
+.selectedImage {
     width: 100%;
     aspect-ratio: 1 /1;
     border-radius: 0.7em;
@@ -43,8 +44,9 @@
     transition: transform 0.3s ease;
 }
 
-.image:hover {
-    transform: scale(1.05);
+.image:hover,
+.selectedImage {
+    transform: scale(1.1);
 }
 
 .mainImage {
@@ -52,7 +54,7 @@
 }
 
 .mainImage img {
-    height: 100%;
+    width: 100%;
     aspect-ratio: 1/1;
     border-radius: 0.7em;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -77,26 +79,26 @@
     padding: 0.5em 0;
     border-radius: 0.3em;
     margin: 0;
-    border: 1px solid rgba(65, 112, 182, 0.181);
-    color: rgba(65, 112, 182, 0.89);
+    border: 1px solid rgba(47, 84, 138, 0.536);
+    color: rgba(47, 84, 138, 0.536);
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .size:hover {
-    background-color: rgba(65, 112, 182, 0.44);
+    background-color: rgba(47, 84, 138, 0.536);
     color: white;
 }
 
 .selectedSize {
     box-shadow: rgba(65, 112, 182, 0.273) 0px 5px 15px;
     border: none;
-    background-color: rgba(65, 112, 182, 0.463);
+    background-color: rgba(47, 84, 138, 0.536);
     color: white;
     transition: background-color 0.3s ease;
 }
 
 .selectedSize:hover {
-    background-color: rgba(65, 112, 182, 0.463);
+    background-color: rgba(47, 84, 138, 0.536);
 }
 
 .name {
@@ -263,6 +265,10 @@
     text-align: center;
 }
 
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
 
 @media(max-width: 1470px) {
     .imagesContainer {
@@ -389,7 +395,7 @@
         font-size: 1.5em;
     }
 
-    .description p{
+    .description p {
         margin-bottom: 0;
     }
 
@@ -411,7 +417,7 @@
         height: 1.4em;
     }
 
-    .bottomContainer{
+    .bottomContainer {
         margin: 3em 5.5em;
     }
 }
