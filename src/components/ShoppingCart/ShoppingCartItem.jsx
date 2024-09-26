@@ -1,15 +1,25 @@
+import { useContext } from 'react';
 import classes from './ShoppingCartItem.module.css';
+import CartContext from '../../context/CartContext';
 
-export default function shoppingCartItem({item}) {
+export default function ShoppingCartItem({ item }) {
+    const { addItem } = useContext(CartContext);
+
+    const price = item.price * item.quantity;
+
+    function handleAddItemToCart(item) {
+        addItem(item, item.size, item.quantity);
+    }
+
     return <tr key={item.id}>
         <td>
             <div className={classes.product}>
-                <img src={item.image.src} alt={item.image.alt} />
+                <img src={item.photos[0]} alt={item.name} />
                 <div className={classes.productDetails}>
                     <p>{item.name}</p>
                     <div>
                         <p>${item.price}.00</p>
-                        <p>{item.sizes[0]} size of shoe</p>
+                        <p>{item.size} size of shoe</p>
                     </div>
                 </div>
             </div>
@@ -18,12 +28,12 @@ export default function shoppingCartItem({item}) {
         <td>
             <div className={classes.quantityContainer}>
                 <button>-</button>
-                <p>1</p>
-                <button>+</button>
+                <p>{item.quantity}</p>
+                <button onClick={() => handleAddItemToCart(item)}>+</button>
             </div>
         </td>
         <td>
-            <p className={classes.price}>$450.00</p>
+            <p className={classes.price}>${price}.00</p>
         </td>
     </tr>
 }

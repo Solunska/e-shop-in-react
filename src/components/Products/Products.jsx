@@ -6,11 +6,16 @@ import { NavbarContext } from '../../context/NavBarContext';
 import { useContext, useEffect } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { fetchSneakers } from '../../http';
+import CartContext from '../../context/CartContext';
 
 export default function ProductsCollection() {
-
+    const cartContext = useContext(CartContext);
     const { toggleCategories, hideCategories } = useContext(NavbarContext);
     const { fetchedData: sneakers, isFetching, error } = useFetch(fetchSneakers, []);
+
+    function handleAddItemToCart(item) {
+        cartContext.addItem(item);
+    }
 
     useEffect(() => {
         const handleEscape = (event) => {
@@ -48,6 +53,7 @@ export default function ProductsCollection() {
                     image={sneaker.photos[0]}
                     name={sneaker.name}
                     price={sneaker.price}
+                    onHandleClick={() => handleAddItemToCart(sneaker)}
                 />
             )}
         </div>

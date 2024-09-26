@@ -1,9 +1,12 @@
 import classes from './ShoppingCart.module.css';
-import { NEW_ARRIVALS } from '../../data';
 import ShoppingCartItem from './ShoppingCartItem';
 import Summary from './Summary';
+import { useContext } from 'react';
+import CartContext from '../../context/CartContext';
 
 export default function ShoppingCart() {
+    const cartContext = useContext(CartContext);
+
     return <div className={classes.mainContainer}>
         <div className={classes.shoppingCartItems}>
             <p className={classes.heading}>Shopping Bag</p>
@@ -16,7 +19,7 @@ export default function ShoppingCart() {
                     </tr>
                 </thead>
                 <tbody>
-                    {NEW_ARRIVALS.map(item =>
+                    {cartContext.items.map(item =>
                         <ShoppingCartItem key={item} item={item} />
                     )}
                 </tbody>

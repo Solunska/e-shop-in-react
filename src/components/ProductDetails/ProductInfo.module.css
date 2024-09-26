@@ -52,6 +52,73 @@
     transform: scale(1.01);
 }
 
+.modal {
+    width: 25rem;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3em;
+    border-radius: 2em;
+    background: #a9b5c88a;
+    backdrop-filter: blur(10px);
+    border: none;
+    padding: 2em;
+}
+
+.modal label {
+    font-size: 1rem;
+    color: #30415af6;
+}
+
+.modal div {
+    display: flex;
+    gap: 0.25em;
+    font-size: 1rem;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+}
+
+.modal input {
+    color: #30415af6;
+    background-color: #6f7d9471;
+    padding: 1.5em 1em;
+    width: 30%;
+    border-radius: 0.5rem;
+}
+
+.buttonPrimary,
+.buttonSecondary {
+    border: none;
+    width: 90%;
+    padding: 0.5em 1em;
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background-color: #536580f6;
+    color: white;
+    font-weight: 500;
+}
+
+.buttonSecondary {
+    background-color: transparent;
+    border: 1px solid #536580f6;
+    color: #536580f6;
+}
+
+.closeButton {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #30415af6;
+    cursor: pointer;
+}
 
 @media(max-width: 1470px) {
     .productInfoContainer {

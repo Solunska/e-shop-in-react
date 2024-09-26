@@ -47,6 +47,7 @@
 
 .quantityContainer p {
     margin: 0;
+    width: 2em;
 }
 
 .quantityContainer button {
