@@ -1,7 +1,7 @@
 import styles from './Hero.module.css';
-import rectangleBlue from '../assets/rectangle-blue.png';
-import rectangleBeige from '../assets/rectangle-beige.png';
-import shoe from '../assets/hero-shoe.png';
+import rectangleBlue from '../../assets/rectangle-blue.png';
+import rectangleBeige from '../../assets/rectangle-beige.png';
+import shoe from '../../assets/hero-shoe.png';
 
 export default function Hero() {
 

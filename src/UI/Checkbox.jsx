@@ -1,4 +1,4 @@
-import classes from '../components/Filters.module.css'
+import classes from '../components/Products/Filters.module.css'
 
 export default function Checkbox({ label, type, name }) {
     return <div className={classes.checkboxContainer}>

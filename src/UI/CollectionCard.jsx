@@ -1,10 +1,9 @@
 import Button from "./Button";
-import styles from "../components/Collections.module.css";
 
-export default function CollectionCard({ label, classes }) {
+export default function CollectionCard({ label, containerClass, buttonClass }) {
     return <>
-        <div className={`${styles.card} ${classes}`}>
-            <Button classes={styles['collection-button']}>{label}</Button>
+        <div className={containerClass}>
+            <Button classes={buttonClass}>{label}</Button>
         </div>
     </>
 }

@@ -1,12 +1,11 @@
 import classes from './Products.module.css';
-import ProductCard from '../UI/ProductCard';
-import NavButton from '../UI/NavigationButton';
-import styles from './MainNavigation.module.css';
-import filter from '../assets/filter.png';
-import { NavbarContext } from '../context/NavBarContext';
+import ProductCard from '../../UI/ProductCard';
+import NavButton from '../../UI/NavigationButton';
+import filter from '../../assets/filter.png';
+import { NavbarContext } from '../../context/NavBarContext';
 import { useContext, useEffect } from 'react';
-import { useFetch } from '../hooks/useFetch';
-import { fetchSneakers } from '../http';
+import { useFetch } from '../../hooks/useFetch';
+import { fetchSneakers } from '../../http';
 
 export default function ProductsCollection() {
 
@@ -33,10 +32,10 @@ export default function ProductsCollection() {
         <div className={classes.headingContainer}>
             <p className={classes.heding}>Sneakers Collection</p>
             <NavButton
-                styles={styles['icon-button']}
+                styles={classes.iconButton}
                 image={filter}
                 alt='categories logo'
-                imgStyles={styles['icon-image']}
+                imgStyles={classes.iconImage}
                 onHandleClick={toggleCategories}
             />
         </div>

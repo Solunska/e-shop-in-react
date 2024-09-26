@@ -6,9 +6,9 @@ import shoppingBag from '../assets/shopping-cart.png';
 import NavButton from '../UI/NavigationButton';
 import styles from './MainNavigation.module.css';
 import { useContext, useEffect, useState } from 'react';
-import Modal from './Modal';
+import Modal from '../UI/Modal';
 import { NavbarContext } from '../context/NavBarContext';
-import Login from './Login';
+import Login from './Auth/Login';
 
 export default function MainNavigation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

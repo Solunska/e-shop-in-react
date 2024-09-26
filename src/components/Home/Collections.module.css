@@ -1,4 +1,4 @@
-.collection-button {
+.collectionButton {
     background-color: #ebe7e4b3;
     color: #4C4C4C;
     text-transform: uppercase;
@@ -14,7 +14,7 @@
     transition: background-color 0.3s ease; 
 }
 
-.collection-button:hover{
+.collectionButton:hover{
     background-color: #ebe7e4f2;
 }
 
@@ -50,17 +50,17 @@ h1 {
 }
 
 .men {
-    background-image: url('../assets/man.png');
+    background-image: url('../../assets/man.png');
 
 }
 
 .women {
-    background-image: url('../assets/women.png');
+    background-image: url('../../assets/women.png');
 
 }
 
 .kid {
-    background-image: url('../assets/kids.jpg');
+    background-image: url('../../assets/kids.jpg');
 
 }
 

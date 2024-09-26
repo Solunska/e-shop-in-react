@@ -1,16 +1,18 @@
 import { useParams } from "react-router-dom";
 import classes from './ProductDetails.module.css';
-import ShoeSize from "../UI/ShoeSize";
-import Button from "../UI/Button";
-import StarIcon from "../UI/Star";
-import comfortImg from '../assets/comfort.png';
-import recycleImg from '../assets/recycle.png';
-import returnImg from '../assets/return.png';
-import ProgressBar from "../UI/ProgressBar";
-import LogoLabel from "../UI/LogoLabel";
-import { useFetch } from "../hooks/useFetch";
-import { fetchSneakers } from "../http";
+import ShoeSize from "../../UI/ShoeSize";
+import Button from "../../UI/Button";
+import StarIcon from "../../UI/Star";
+import comfortImg from '../../assets/comfort.png';
+import recycleImg from '../../assets/recycle.png';
+import returnImg from '../../assets/return.png';
+import ProgressBar from "../../UI/ProgressBar";
+import LogoLabel from "../../UI/LogoLabel";
+import { useFetch } from "../../hooks/useFetch";
+import { fetchSneakers } from "../../http";
 import { useEffect, useMemo, useState } from "react";
+
+const predefinedSizes = [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47];
 
 export default function Product() {
     const { productId } = useParams();
@@ -35,8 +37,6 @@ export default function Product() {
         return <p>Product not found</p>;
     }
 
-    const predefinedSizes = [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47];
-
     const reviewCount = Object.values(item.reviews).reduce((count, reviews) => count + reviews, 0);
 
     const percentageStars = {};
@@ -44,7 +44,6 @@ export default function Product() {
         const count = item.reviews[star] || 0;
         percentageStars[star] = (reviewCount > 0 ? (count / reviewCount) * 100 : 0).toFixed(0);
     }
-    console.log(percentageStars);
 
     const totalScore = Object.entries(item.reviews).reduce((total, [stars, count]) => total + (count * stars), 0);
     const averageRatingFullNumber = (totalScore / reviewCount).toFixed(0);

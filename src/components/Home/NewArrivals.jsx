@@ -1,11 +1,11 @@
 import { useRef } from 'react';
-import CardImage from "../UI/CardImages";
-import classes from './CardSlider.module.css';
-import Button from '../UI/Button';
-import { useFetch } from '../hooks/useFetch';
-import { fetchSneakers } from '../http';
+import CardImage from "../../UI/CardImages";
+import classes from './NewArrivals.module.css';
+import Button from '../../UI/Button';
+import { useFetch } from '../../hooks/useFetch';
+import { fetchSneakers } from '../../http';
 
-export default function CardSlider() {
+export default function NewArrivals() {
     const carouselRef = useRef(null);
 
     const { fetchedData: sneakers, isFetching, error } = useFetch(fetchSneakers, []);

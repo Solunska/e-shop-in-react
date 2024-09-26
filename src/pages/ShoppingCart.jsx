@@ -1,7 +1,7 @@
-import ShoppingBagItems from "../components/ShoppingBagItems";
+import ShoppingCart from "../components/ShoppingCart/ShoppingCart";
 
 export default function ShoppingCartPage(){
     return <>
-        <ShoppingBagItems/>
+        <ShoppingCart/>
     </>
 }

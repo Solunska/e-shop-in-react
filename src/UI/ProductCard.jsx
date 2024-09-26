@@ -1,5 +1,5 @@
 import Button from "./Button";
-import classes from '../components/Products.module.css';
+import classes from '../components/Products/Products.module.css';
 import { Link } from "react-router-dom";
 
 export default function ProductCard({ id, image, alt, name, price }) {

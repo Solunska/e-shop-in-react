@@ -1,6 +1,6 @@
 
-import Filters from "../components/Filters";
-import ProductsCollection from "../components/Products";
+import Filters from "../components/Products/Filters";
+import ProductsCollection from "../components/Products/Products";
 
 export default function ProductsPage() {
     return <>

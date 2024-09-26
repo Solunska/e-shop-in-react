@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import classes from './Filters.module.css';
-import { NavbarContext } from '../context/NavBarContext';
-import Checkbox from '../UI/Checkbox';
-import Button from '../UI/Button';
+import { NavbarContext } from '../../context/NavBarContext';
+import Checkbox from '../../UI/Checkbox';
+import Button from '../../UI/Button';
 
 export default function Filters() {
 

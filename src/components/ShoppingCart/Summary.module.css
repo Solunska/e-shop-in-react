@@ -1,0 +1,107 @@
+.summary {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 29em;
+    justify-content: space-between;
+}
+
+.heading {
+    font-size: 1.5em;
+    margin: 0;
+    color: #607594;
+    font-weight: 600;
+}
+
+
+.order {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.156);
+    border-radius: 0.75em;
+    padding: 4em 3em;
+    gap: 1em;
+}
+
+.subtotal,
+.discount,
+.total {
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+.subtotalDiscount,
+.totalCheckout {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.subtotalDiscount {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+}
+
+.subtotal p:first-child,
+.discount p:first-child,
+.discount p:nth-of-type(2) {
+    font-size: 1em;
+    color: rgba(76, 76, 76, 0.50);
+    font-weight: 500;
+}
+
+.subtotal p:nth-of-type(2) {
+    color: rgba(76, 76, 76, 0.70);
+    font-weight: 600;
+}
+
+.totalCheckout button {
+    border: none;
+    background-color: #607594;
+    color: white;
+    font-size: 1.3em;
+    padding: 0.5em 0;
+    border-radius: 0.2em;
+}
+
+
+@media(max-width:1200px) {
+    .summary {
+        height: 40em;
+        width: 100%;
+    }
+
+    .subtotal,
+    .discount,
+    .total {
+        font-size: 2em;
+    }
+
+    .totalCheckout button {
+        font-size: 2em;
+        width: 15em;
+    }
+
+    .heading {
+        font-size: 3em;
+    }
+}
+
+@media(max-width:900px) {
+    .subtotal,
+    .discount,
+    .total {
+        font-size: 2.5em;
+    }
+}
+
+@media(max-width:500px) {
+    .summary {
+        height: 45em;
+    }
+
+    .totalCheckout button {
+        font-size: 2.5em;
+        width: 100%;
+    }
+}

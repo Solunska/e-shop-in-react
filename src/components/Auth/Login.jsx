@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import styles from './Login.module.css'
-import { NavbarContext } from '../context/NavBarContext';
+import { NavbarContext } from '../../context/NavBarContext';
 
 export default function Login() {
     const [isNewUser, setIsNewUser] = useState(false);
