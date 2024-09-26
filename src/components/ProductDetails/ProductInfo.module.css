@@ -1,0 +1,88 @@
+.productInfoContainer {
+    width: 40%;
+    margin-right: 7.6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 4em;
+    gap: 1em;
+}
+
+.name {
+    font-size: 2.25em;
+    font-weight: 700;
+    color: #4C4C4C;
+    margin: 0;
+}
+
+.reviewsContainer {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    margin-top: 0.5em;
+}
+
+.reviews {
+    font-size: 1.25em;
+    color: #CACACA;
+    font-weight: 700;
+    margin: 0;
+}
+
+.price {
+    font-size: 4em;
+    color: #4C4C4C;
+    font-weight: 600;
+    margin: 0;
+}
+
+.button {
+    height: 3em;
+    border: none;
+    border-radius: 0.3em;
+    font-size: 1.5em;
+    background-color: #607594;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: rgba(60, 76, 100, 91);
+    transform: scale(1.01);
+}
+
+
+@media(max-width: 1470px) {
+    .productInfoContainer {
+        width: 50%;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .productInfoContainer {
+        width: 100%;
+    }
+
+    .nameRatingContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .reviewsContainer {
+        margin-top: 0;
+    }
+
+    .button {
+        margin-top: 1em;
+    }
+
+}
+
+@media (max-width: 515px) {
+    .productInfoContainer {
+        margin-right: 0em;
+    }
+}

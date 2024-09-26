@@ -3,75 +3,6 @@
     margin: 1.5em 4em;
 }
 
-.productInfoContainer {
-    width: 40%;
-    margin-right: 7.6em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 4em;
-    gap: 1em;
-}
-
-.imagesContainer {
-    display: flex;
-    gap: 1.5em;
-    width: 60%;
-}
-
-.sideImages {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1.5em;
-    flex: 1;
-    width: 20%;
-}
-
-.reviewsContainer {
-    display: flex;
-    align-items: center;
-    gap: 1.5em;
-    margin-top: 0.5em;
-}
-
-.image,
-.selectedImage {
-    width: 100%;
-    aspect-ratio: 1 /1;
-    border-radius: 0.7em;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    transition: transform 0.3s ease;
-}
-
-.image:hover,
-.selectedImage {
-    transform: scale(1.1);
-}
-
-.mainImage {
-    width: 80%;
-}
-
-.mainImage img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    border-radius: 0.7em;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.label {
-    font-size: 1.5em;
-    color: #4C4C4C;
-}
-
-.sizes {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(6em, 1fr));
-    grid-template-rows: auto auto auto;
-    gap: 1em 1.3em;
-}
-
 .size,
 .selectedSize {
     width: 7em;
@@ -99,52 +30,6 @@
 
 .selectedSize:hover {
     background-color: rgba(47, 84, 138, 0.536);
-}
-
-.name {
-    font-size: 2.25em;
-    font-weight: 700;
-    color: #4C4C4C;
-    margin: 0;
-}
-
-.reviews {
-    font-size: 1.25em;
-    color: #CACACA;
-    font-weight: 700;
-    margin: 0;
-
-}
-
-.price {
-    font-size: 4em;
-    color: #4C4C4C;
-    font-weight: 600;
-    margin: 0;
-}
-
-.button {
-    height: 3em;
-    border: none;
-    border-radius: 0.3em;
-    font-size: 1.5em;
-    background-color: #607594;
-    color: white;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.button:hover {
-    background-color: rgba(60, 76, 100, 91);
-    transform: scale(1.01);
-}
-
-.starYellow {
-    fill: #EACC57;
-}
-
-.starGray {
-    fill: #CACACA;
 }
 
 .radio {
@@ -186,7 +71,6 @@
     border-radius: 0.75em;
 }
 
-
 .benefits {
     background-color: rgba(214, 204, 184, 0.21);
     height: 13em;
@@ -209,13 +93,6 @@
     height: 1.8em;
     background-color: #D9D9D9;
     border-radius: 2em;
-}
-
-.progressBarsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6em;
-    justify-content: center;
 }
 
 .progressContainer p {
@@ -271,33 +148,6 @@
 }
 
 @media(max-width: 1470px) {
-    .imagesContainer {
-        flex-direction: column-reverse;
-    }
-
-    .sideImages {
-        flex-direction: row;
-        width: 100%;
-    }
-
-    .sideImages img {
-        width: 22%;
-    }
-
-    .mainImage,
-    .mainImage img {
-        width: 100%;
-        height: auto;
-    }
-
-    .productInfoContainer {
-        width: 50%;
-    }
-
-    .imagesContainer {
-        width: 50%;
-    }
-
     .benefits {
         gap: 2em;
     }
@@ -341,18 +191,6 @@
         flex-direction: column-reverse;
     }
 
-    .imagesContainer {
-        width: 100%;
-    }
-
-    .productInfoContainer {
-        width: 100%;
-    }
-
-    .sizes {
-        grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
-    }
-
     .size,
     .selectedSize {
         width: 8em;
@@ -360,29 +198,12 @@
         font-size: 1.5em;
     }
 
-    .nameRatingContainer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .reviewsContainer {
-        margin-top: 0;
-    }
-
-    .button {
-        margin-top: 1em;
-    }
-
     .bottomContainer {
         flex-direction: column;
         gap: 3em;
     }
 
-    .description {
-        width: 100%;
-    }
-
+    .description,
     .sideBar {
         width: 100%;
     }
@@ -427,10 +248,6 @@
         margin: 1.5em 2.5em;
     }
 
-    .productInfoContainer {
-        margin-right: 0em;
-    }
-
     .logoLabelContainer {
         flex-direction: column;
     }
@@ -455,10 +272,6 @@
 }
 
 @media (max-width:436px) {
-    .sizes {
-        grid-template-columns: repeat(auto-fill, minmax(9.3em, 1fr));
-        gap: 2.2em;
-    }
 
     .size,
     .selectedSize {

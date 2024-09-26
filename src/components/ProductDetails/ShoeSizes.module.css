@@ -1,0 +1,24 @@
+.label {
+    font-size: 1.5em;
+    color: #4C4C4C;
+}
+
+.sizes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(6em, 1fr));
+    grid-template-rows: auto auto auto;
+    gap: 1em 1.3em;
+}
+
+@media (max-width: 900px) {
+    .sizes {
+        grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+    }
+}
+
+@media (max-width:436px) {
+    .sizes {
+        grid-template-columns: repeat(auto-fill, minmax(9.3em, 1fr));
+        gap: 2.2em;
+    }
+}
