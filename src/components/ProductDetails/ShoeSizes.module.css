@@ -1,6 +1,7 @@
 .label {
     font-size: 1.5em;
     color: #4C4C4C;
+    margin: 0;
 }
 
 .sizes {
@@ -10,15 +11,36 @@
     gap: 1em 1.3em;
 }
 
+@media (max-width: 1200px) {
+    .sizes{
+        font-size: 1.5em;
+    }
+    .label {
+        font-size: 2em;
+    }
+}
+
 @media (max-width: 900px) {
     .sizes {
         grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+    }
+    .sizes{
+        font-size: 1em;
+    }
+    .label {
+        font-size: 1.5em;
     }
 }
 
 @media (max-width:436px) {
     .sizes {
         grid-template-columns: repeat(auto-fill, minmax(9.3em, 1fr));
-        gap: 2.2em;
+        gap: 1.5em;
+    }
+    .sizes{
+        font-size: 1em;
+    }
+    .label {
+        font-size: 1.5em;
     }
 }

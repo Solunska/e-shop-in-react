@@ -5,24 +5,25 @@ import profile from '../assets/profile.png';
 import shoppingBag from '../assets/shopping-cart.png';
 import NavButton from '../UI/NavigationButton';
 import styles from './MainNavigation.module.css';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import Modal from '../UI/Modal';
 import { NavbarContext } from '../context/NavBarContext';
 import Login from './Auth/Login';
+import Button from '../UI/Button';
+import CloseButton from '../UI/CloseButton';
 
 export default function MainNavigation() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { isModalOpen, setIsModalOpen } = useContext(NavbarContext);
+    const { isModalOpen, setIsModalOpen, isMenuModalOpen, setIsMenuModalOpen } = useContext(NavbarContext);
 
+    const toggleMenu = () => setIsMenuModalOpen(!isMenuModalOpen);
 
-    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const navigate = useNavigate();
 
     useEffect(() => {
         const handleResize = () => {
             const screenWidth = window.innerWidth;
             if (screenWidth >= 1200) {
-                setIsMenuOpen(false);
+                setIsMenuModalOpen(false);
             }
         };
 
@@ -30,8 +31,17 @@ export default function MainNavigation() {
 
         handleResize();
 
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+        if (isModalOpen || isMenuModalOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+
+        return () => {
+            document.body.style.overflow = 'auto';
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [setIsMenuModalOpen, isMenuModalOpen, isModalOpen]);
 
     return (
         <nav className={styles.nav}>
@@ -42,27 +52,33 @@ export default function MainNavigation() {
                     </NavLink>
                 </li>
                 <li className={styles['icon-button-container']}>
-                    <button className={styles.burgerMenu} onClick={toggleMenu}>
+                    <button className={styles.burgerMenu} onClick={() => { setIsMenuModalOpen(true) }}>
                         ☰
                     </button>
-                    {isMenuOpen ?
-                        <div className={styles.openMenu}>
-                            <p onClick={() => {
-                                navigate('/products')
-                                toggleMenu();
-                            }}>Products</p>
-                            <p onClick={() => {
-                                navigate('/shopping-cart')
-                                toggleMenu();
-                            }}>Shopping cart</p>
-                            <p>Favorites</p>
-                            <p onClick={() => {
-                                setIsModalOpen(true)
-                                toggleMenu();
-                            }}>Profile</p>
-                        </div>
+                    {isMenuModalOpen ?
+                        <Modal open={isMenuModalOpen} onClose={() => setIsMenuModalOpen(false)} modalStyles={styles.modal}>
+                            <div className={styles.openMenu}>
+                                <CloseButton onHandleClick={() => setIsMenuModalOpen(false)} />
+                                <p onClick={() => {
+                                    navigate('/products')
+                                    toggleMenu();
+                                }}>Products</p>
+                                <p onClick={() => {
+                                    navigate('/shopping-cart')
+                                    toggleMenu();
+                                }}>Shopping cart</p>
+                                <p>Favorites</p>
+                                <p onClick={() => {
+                                    setIsModalOpen(true)
+                                    toggleMenu();
+                                }}>Profile</p>
+                            </div>
+                        </Modal>
                         : null}
-                    <span onClick={() => { navigate('/products') }}>All products</span>
+                    <Button
+                        variant="secondary"
+                        size="small"
+                        onHandleClick={() => { navigate('/products') }}>All products</Button>
                     <NavButton
                         styles={styles['icon-button']}
                         image={shoppingBag}

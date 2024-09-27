@@ -51,43 +51,8 @@
     gap: 1.5em;
 }
 
-.primaryButton,
-.secondaryButton {
-    border: none;
-    padding: 0.7rem 2rem;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    background-color: #536580f6;
-    color: white;
-    font-weight: 500;
-}
-
-.secondaryButton {
-    background-color: transparent;
-    border: 1px solid #536580f6;
-    color: #536580f6;
-}
-
-.closeButton {
-    position: absolute;
-    top: 0.5em;
-    right: 0.5em;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: #30415af6;
-    cursor: pointer;
-}
-
 @media (max-width:500px) {
-
-    .primaryButton,
-    .secondaryButton {
-        font-size: 2em;
-    }
-
     .inputGroup {
         font-size: 2em;
     }
-
 }

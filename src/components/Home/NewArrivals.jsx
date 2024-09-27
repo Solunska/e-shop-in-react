@@ -16,9 +16,9 @@ export default function NewArrivals() {
     const getScrollDistance = () => {
         const screenWidth = window.innerWidth;
         if (screenWidth > 1024) {
-            return 800; 
+            return 800;
         } else if (screenWidth < 580) {
-            return 330; 
+            return 330;
         }
     };
 
@@ -60,7 +60,12 @@ export default function NewArrivals() {
                 </ul>
                 <button className={classes.scrollButton} onClick={scrollRight}>→</button>
             </div>
-            <Button classes={classes.button}>Shop New Arrivals</Button>
+            <div className={classes.btnContainer}>
+                <Button
+                    variant="primary"
+                    size="large"
+                    onHandleClick={() => { }}>Shop New Arrivals</Button>
+            </div>
         </div>
     );
 }

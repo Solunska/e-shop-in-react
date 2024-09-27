@@ -58,33 +58,9 @@
     margin: 0;
 }
 
-.button {
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #607594;
-    background-color: #EBE7E4;
-    border: none;
-    font-size: 1.9em;
-    padding: 1em 7em;
-    transform: translateX(16.2em);
-    margin-top: 0.3em;
-    box-shadow: 0.3em 0.3em 0.5em rgba(0, 0, 0, 0.345);
-    cursor: pointer;
-    border-radius: 0.4rem;
-    transition: background-color 0.3s ease;
-
-}
-
-.button:hover {
-    background-color: #cdc7c2;
-
-}
-
 section {
     margin: auto;
 }
-
-
 
 @media (max-width: 1600px) {
     body {
@@ -93,10 +69,6 @@ section {
 
     .hero-shoe {
         transform: translateY(18em) translateX(7em);
-    }
-
-    .button {
-        transform: translateX(16em);
     }
 }
 
@@ -133,12 +105,6 @@ section {
     .rectangle-blue {
         width: 70em;
         transform: translateY(43em);
-    }
-
-    .button {
-        padding: 0.8em 4em;
-        transform: translateX(22em) translateY(-0.6em);
-        margin-top: 1em;
     }
 }
 
@@ -191,14 +157,6 @@ section {
         width: 16em;
         text-align: left;
     }
-
-    .button {
-        padding: 1.2em 9em;
-        transform: translateX(0em) translateY(0);
-        margin-top: 1em;
-        font-size: 3em !important;
-    }
-
 }
 
 @media (max-width: 436px) {

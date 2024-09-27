@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin-top: 4em;
-    gap: 1em;
+    gap: 2em;
 }
 
 .name {
@@ -36,21 +36,6 @@
     margin: 0;
 }
 
-.button {
-    height: 3em;
-    border: none;
-    border-radius: 0.3em;
-    font-size: 1.5em;
-    background-color: #607594;
-    color: white;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.button:hover {
-    background-color: rgba(60, 76, 100, 91);
-    transform: scale(1.01);
-}
 
 .modal {
     width: 25rem;
@@ -89,26 +74,6 @@
     border-radius: 0.5rem;
 }
 
-.buttonPrimary,
-.buttonSecondary {
-    border: none;
-    width: 90%;
-    padding: 0.5em 1em;
-    border: none;
-    padding: 0.7rem 2rem;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    background-color: #536580f6;
-    color: white;
-    font-weight: 500;
-}
-
-.buttonSecondary {
-    background-color: transparent;
-    border: 1px solid #536580f6;
-    color: #536580f6;
-}
-
 .closeButton {
     position: absolute;
     top: 0.5em;
@@ -120,12 +85,7 @@
     cursor: pointer;
 }
 
-@media(max-width: 1470px) {
-    .productInfoContainer {
-        width: 50%;
-    }
 
-}
 
 @media (max-width: 900px) {
     .productInfoContainer {
@@ -151,5 +111,17 @@
 @media (max-width: 515px) {
     .productInfoContainer {
         margin-right: 0em;
+    }
+
+    .nameRatingContainer{
+        flex-direction: column;
+        align-items: start;
+        gap: 0.5em;
+    }
+
+    .reviewsContainer{
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
     }
 }

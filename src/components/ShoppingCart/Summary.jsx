@@ -26,7 +26,10 @@ export default function Summary() {
                     <p>Total</p>
                     <p>${total}.00</p>
                 </div>
-                <Button>Checkout</Button>
+                <Button
+                    variant="primary"
+                    size="medium"
+                    onHandleClick={() => { }}>Checkout</Button>
             </div>
         </div>
     </div>

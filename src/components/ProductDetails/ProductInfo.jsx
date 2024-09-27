@@ -35,7 +35,10 @@ export default function ProductInfo({ item, averageRating, reviewCount, availabl
             predefinedSizes={predefinedSizes}
             selectedSize={selectedSize}
             setSelectedSize={setSelectedSize} />
-        <Button classes={classes.button} onHandleClick={() => toggleQuantityModal()}>Add to cart</Button>
+        <Button
+            variant="primary"
+            size="large"
+            onHandleClick={() => toggleQuantityModal()}>Add to cart</Button>
         {isQuantityModalOpen && (
             <Modal open={isQuantityModalOpen} onClose={() => setIsQuantityModalOpen(false)} modalStyles={classes.modal}>
                 <button className={classes.closeButton} onClick={() => setIsQuantityModalOpen(false)}>
@@ -43,12 +46,17 @@ export default function ProductInfo({ item, averageRating, reviewCount, availabl
                 </button>
                 <Input label="Set quantity" type="number" name="quantity" ref={inputRef} />
                 <div>
-                    <Button classes={classes.buttonSecondary} onHandleClick={() => setIsQuantityModalOpen(false)}>Cancel</Button>
-                    <Button classes={classes.buttonPrimary} onHandleClick={() => {
-                        handleAddItemToCart(item, selectedSize, inputRef.current.value)
-                        setIsQuantityModalOpen(false)
-                    }
-                    }>OK</Button>
+                    <Button
+                        variant="secondary"
+                        size="medium"
+                        onHandleClick={() => setIsQuantityModalOpen(false)}>Cancel</Button>
+                    <Button
+                        variant="primary"
+                        size="medium"
+                        onHandleClick={() => {
+                            handleAddItemToCart(item, selectedSize, inputRef.current.value)
+                            setIsQuantityModalOpen(false)
+                        }}>OK</Button>
                 </div>
             </Modal>
         )}

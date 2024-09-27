@@ -80,7 +80,7 @@ export default function Filters() {
                     </div>
                 </div>
                 <div>
-                    <Button classes={classes.searchButton}>Search </Button>
+                    <Button classes={classes.searchButton}>Search</Button>
                 </div>
             </div>
         </div>

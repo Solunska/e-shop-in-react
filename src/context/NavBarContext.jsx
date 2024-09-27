@@ -5,6 +5,7 @@ export const NavbarContext = createContext();
 export function NavbarProvider({ children }) {
     const [showCategories, setShowCategories] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
 
     const toggleCategories = () => {
         setShowCategories(prevState => !prevState);
@@ -15,7 +16,7 @@ export function NavbarProvider({ children }) {
     };
 
     return (
-        <NavbarContext.Provider value={{ showCategories, toggleCategories, hideCategories, isModalOpen, setIsModalOpen }}>
+        <NavbarContext.Provider value={{ showCategories, toggleCategories, hideCategories, isModalOpen, setIsModalOpen, isMenuModalOpen, setIsMenuModalOpen }}>
             {children}
         </NavbarContext.Provider>
     );

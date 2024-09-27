@@ -1,12 +1,96 @@
-*{
+* {
     font-family: "Poppins", sans-serif;
 }
-body{
+
+body {
     margin: 0;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
 }
 
+/* Base button styles */
+.button {
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.3s, color 0.3s, border 0.3s, transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Variants */
+.button-primary {
+    background-color: #536580f6;
+    color: white;
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: #536580f6;
+    border: 1px solid #536580f6;
+}
+
+.button-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.button-search {
+    background-color: #8C9EB9;
+    color: white;
+}
+
+/* Disabled state */
+.button-disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+/* Sizes */
+.button-small {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.8rem;
+}
+
+.button-medium {
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+}
+
+.button-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+}
+
+/* Hover effects */
+
+.button-primary:hover {
+    background-color: #283242;
+}
+
+.button-secondary:hover {
+    background-color: #536580f6;
+    border-color: transparent;
+    color: white;
+}
+
+.button-danger:hover {
+    background-color: #c82333;
+}
+
+.closeButton {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #30415af6;
+    cursor: pointer;
+}
