@@ -2,7 +2,7 @@ import classes from './Products.module.css';
 import ProductCard from '../../UI/ProductCard';
 import NavButton from '../../UI/NavigationButton';
 import filter from '../../assets/filter.png';
-import { NavbarContext } from '../../context/NavBarContext';
+import { ModalContext } from '../../context/ModalContext';
 import { useContext, useEffect } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { fetchSneakers } from '../../http';
@@ -14,7 +14,7 @@ import Modal from '../../UI/Modal';
 export default function ProductsCollection() {
     const cartContext = useContext(CartContext);
     const { fetchedData: sneakers, isFetching, error } = useFetch(fetchSneakers, []);
-    const { isFiltersModalOpen, setIsFiltersModalOpen } = useContext(NavbarContext);
+    const { isFiltersModalOpen, setIsFiltersModalOpen } = useContext(ModalContext);
 
     function handleAddItemToCart(item) {
         cartContext.addItem(item);

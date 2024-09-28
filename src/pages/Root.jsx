@@ -1,17 +1,17 @@
 import MainNavigation from "../components/MainNavigation";
 import { Outlet } from "react-router-dom";
-import { NavbarProvider } from "../context/NavBarContext";
+import { ModalProvider } from "../context/ModalContext";
 import { CartContextProvider } from "../context/CartContext";
 
 export default function RootLayout() {
     return (
         <CartContextProvider>
-            <NavbarProvider>
+            <ModalProvider>
                 <MainNavigation />
                 <main>
                     <Outlet />
                 </main>
-            </NavbarProvider>
+            </ModalProvider>
         </CartContextProvider>
     );
 }

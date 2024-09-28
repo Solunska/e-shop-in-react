@@ -2,21 +2,24 @@ import Button from '../../UI/Button'
 import classes from './ProductInfo.module.css'
 import Stars from './Stars'
 import ShoeSizes from './ShoeSizes'
-import { useContext, useRef } from 'react';
+import { useContext, useState } from 'react';
 import CartContext from '../../context/CartContext';
-import Modal from '../../UI/Modal';
-import Input from '../../UI/Input'
 
 export default function ProductInfo({ item, averageRating, reviewCount, availableSizes, predefinedSizes, selectedSize, setSelectedSize }) {
-    const { addItem, setIsQuantityModalOpen, isQuantityModalOpen } = useContext(CartContext);
-    const inputRef = useRef();
+    const { addItem } = useContext(CartContext);
+    const [quantity, setQuantity] = useState(1);
+
 
     function handleAddItemToCart(item, size, quantity) {
         addItem(item, size, quantity);
     }
 
-    function toggleQuantityModal() {
-        setIsQuantityModalOpen(!isQuantityModalOpen)
+    function decreaseQuantity() {
+        if (quantity == 1) {
+            return null
+        } else {
+            setQuantity(quantity - 1)
+        }
     }
 
     return <div className={classes.productInfoContainer}>
@@ -35,30 +38,16 @@ export default function ProductInfo({ item, averageRating, reviewCount, availabl
             predefinedSizes={predefinedSizes}
             selectedSize={selectedSize}
             setSelectedSize={setSelectedSize} />
-        <Button
-            variant="primary"
-            size="large"
-            onHandleClick={() => toggleQuantityModal()}>Add to cart</Button>
-        {isQuantityModalOpen && (
-            <Modal open={isQuantityModalOpen} onClose={() => setIsQuantityModalOpen(false)} modalStyles={classes.modal}>
-                <button className={classes.closeButton} onClick={() => setIsQuantityModalOpen(false)}>
-                    &times;
-                </button>
-                <Input label="Set quantity" type="number" name="quantity" ref={inputRef} />
-                <div>
-                    <Button
-                        variant="secondary"
-                        size="medium"
-                        onHandleClick={() => setIsQuantityModalOpen(false)}>Cancel</Button>
-                    <Button
-                        variant="primary"
-                        size="medium"
-                        onHandleClick={() => {
-                            handleAddItemToCart(item, selectedSize, inputRef.current.value)
-                            setIsQuantityModalOpen(false)
-                        }}>OK</Button>
-                </div>
-            </Modal>
-        )}
+        <div className={classes.addToCartContainer}>
+            <Button
+                variant="primary"
+                size="large"
+                onHandleClick={() => handleAddItemToCart(item, selectedSize, quantity)}>Add to cart</Button>
+            <div className={classes.quantityContainer}>
+                <button onClick={() => decreaseQuantity()}>-</button>
+                <p>{quantity}</p>
+                <button onClick={() => setQuantity(quantity + 1)}>+</button>
+            </div>
+        </div>
     </div>
 }

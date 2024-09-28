@@ -3,10 +3,10 @@ import Checkbox from '../../UI/Checkbox';
 import Button from '../../UI/Button';
 import CloseButton from '../../UI/CloseButton';
 import { useContext } from 'react';
-import { NavbarContext } from '../../context/NavBarContext';
+import { ModalContext } from '../../context/ModalContext';
 
 export default function Filters() {
-    const { setIsFiltersModalOpen } = useContext(NavbarContext);
+    const { setIsFiltersModalOpen } = useContext(ModalContext);
 
     return <>
         <CloseButton onHandleClick={() => setIsFiltersModalOpen(false)} />

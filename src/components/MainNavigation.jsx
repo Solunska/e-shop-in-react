@@ -7,13 +7,13 @@ import NavButton from '../UI/NavigationButton';
 import styles from './MainNavigation.module.css';
 import { useContext, useEffect } from 'react';
 import Modal from '../UI/Modal';
-import { NavbarContext } from '../context/NavBarContext';
+import { ModalContext } from '../context/ModalContext';
 import Login from './Auth/Login';
 import Button from '../UI/Button';
 import CloseButton from '../UI/CloseButton';
 
 export default function MainNavigation() {
-    const { isAuthModalOpen, setIsAuthModalOpen, isMenuModalOpen, setIsMenuModalOpen } = useContext(NavbarContext);
+    const { isAuthModalOpen, setIsAuthModalOpen, isMenuModalOpen, setIsMenuModalOpen } = useContext(ModalContext);
 
     const toggleMenu = () => setIsMenuModalOpen(!isMenuModalOpen);
 

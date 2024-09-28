@@ -1,6 +1,8 @@
 .categories {
     display: flex;
     justify-content: center;
+    background-color: #ece9e9;
+    margin-bottom: 1em;
 }
 
 .categories button {

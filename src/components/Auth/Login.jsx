@@ -1,12 +1,12 @@
 import { useContext, useState } from 'react';
 import styles from './Login.module.css'
-import { NavbarContext } from '../../context/NavBarContext';
+import { ModalContext } from '../../context/ModalContext';
 import Button from '../../UI/Button';
 import CloseButton from '../../UI/CloseButton';
 
 export default function Login() {
     const [isNewUser, setIsNewUser] = useState(false);
-    const { setIsAuthModalOpen } = useContext(NavbarContext);
+    const { setIsAuthModalOpen } = useContext(ModalContext);
 
     return <div className={styles.modalContent}>
         <CloseButton onHandleClick={() => setIsAuthModalOpen(false)} />
