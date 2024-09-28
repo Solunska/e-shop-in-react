@@ -13,7 +13,7 @@ import Button from '../UI/Button';
 import CloseButton from '../UI/CloseButton';
 
 export default function MainNavigation() {
-    const { isModalOpen, setIsModalOpen, isMenuModalOpen, setIsMenuModalOpen } = useContext(NavbarContext);
+    const { isAuthModalOpen, setIsAuthModalOpen, isMenuModalOpen, setIsMenuModalOpen } = useContext(NavbarContext);
 
     const toggleMenu = () => setIsMenuModalOpen(!isMenuModalOpen);
 
@@ -31,7 +31,7 @@ export default function MainNavigation() {
 
         handleResize();
 
-        if (isModalOpen || isMenuModalOpen) {
+        if (isAuthModalOpen || isMenuModalOpen) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'auto';
@@ -41,7 +41,7 @@ export default function MainNavigation() {
             document.body.style.overflow = 'auto';
             window.removeEventListener('resize', handleResize);
         };
-    }, [setIsMenuModalOpen, isMenuModalOpen, isModalOpen]);
+    }, [setIsMenuModalOpen, isMenuModalOpen, isAuthModalOpen]);
 
     return (
         <nav className={styles.nav}>
@@ -62,16 +62,20 @@ export default function MainNavigation() {
                                 <p onClick={() => {
                                     navigate('/products')
                                     toggleMenu();
-                                }}>Products</p>
+                                }}>All Products</p>
                                 <p onClick={() => {
-                                    navigate('/shopping-cart')
+                                    navigate('/products')
                                     toggleMenu();
-                                }}>Shopping cart</p>
+                                }}>Men</p>
+                                <p onClick={() => {
+                                    navigate('/products')
+                                    toggleMenu();
+                                }}>Women</p>
+                                <p onClick={() => {
+                                    navigate('/products')
+                                    toggleMenu();
+                                }}>Kids</p>
                                 <p>Favorites</p>
-                                <p onClick={() => {
-                                    setIsModalOpen(true)
-                                    toggleMenu();
-                                }}>Profile</p>
                             </div>
                         </Modal>
                         : null}
@@ -91,7 +95,7 @@ export default function MainNavigation() {
                         image={profile}
                         alt='profile logo'
                         imgStyles={styles['icon-image']}
-                        onHandleClick={() => { setIsModalOpen(true) }}
+                        onHandleClick={() => { setIsAuthModalOpen(true) }}
                     />
                 </li>
                 <li className={styles['search-bar-container']}>
@@ -101,7 +105,7 @@ export default function MainNavigation() {
                     </div>
                 </li>
             </ul>
-            <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)} modalStyles={styles.modal}>
+            <Modal open={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} modalStyles={styles.modal}>
                 <Login />
             </Modal>
         </nav>

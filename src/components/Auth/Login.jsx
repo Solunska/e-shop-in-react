@@ -6,14 +6,14 @@ import CloseButton from '../../UI/CloseButton';
 
 export default function Login() {
     const [isNewUser, setIsNewUser] = useState(false);
-    const { setIsModalOpen } = useContext(NavbarContext);
+    const { setIsAuthModalOpen } = useContext(NavbarContext);
 
     return <div className={styles.modalContent}>
-        <CloseButton onHandleClick={() => setIsModalOpen(false)} />
+        <CloseButton onHandleClick={() => setIsAuthModalOpen(false)} />
         <h2>Login</h2>
         <form onSubmit={(e) => {
             e.preventDefault();
-            setIsModalOpen(false); // Close modal on successful login
+            setIsAuthModalOpen(false); // Close modal on successful login
             // Add login logic here
         }}>
             <div className={styles.formContent}>

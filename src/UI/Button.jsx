@@ -5,12 +5,14 @@ export default function Button({
     type = 'button',
     onHandleClick,
     disabled = false,
-    className
+    className,
+    border
 }) {
     const buttonClass = `
     button 
     button-${variant} 
     button-${size} 
+    border-${border}
     ${className ? className : ''} 
     ${disabled ? 'button-disabled' : ''}
   `.trim();

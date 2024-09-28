@@ -29,7 +29,7 @@ ul {
 
 .search-bar {
     background-color: #F6F6F6;
-    padding: 0.5em 2em 0.5em 1em;
+    padding: 0.5rem 2rem 0.5rem 1rem;
     border-radius: 0.5em;
     z-index: 6;
     width: 34em;
@@ -40,17 +40,17 @@ ul {
 
 .search-bar img {
     color: #8787878f;
-    width: 1em;
-    height: 1em;
+    width: 1rem;
+    height: 1rem;
     aspect-ratio: 1 /1;
 }
 
 input {
     border: none;
-    height: 2em;
+    height: 2rem;
     width: 85%;
     background-color: transparent;
-    font-size: 1em;
+    font-size: 1rem;
     color: #878787;
     caret-color: rgb(0, 0, 0);
 }
@@ -58,20 +58,19 @@ input {
 input:focus {
     border: none;
     outline: none;
-
 }
 
 .icon-button {
     background-color: transparent;
     border: none;
-    height: 4em;
-    width: 3em;
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
 }
 
 .icon-image {
-    width: 2em;
-    height: 2em;
+    width: 2rem;
+    height: 2rem;
     transition: transform 0.3s ease;
 }
 
@@ -144,28 +143,17 @@ input:focus {
 }
 
 @media(max-width:1200px) {
-
-    .icon-button-container span,
-    .icon-button-container button:nth-of-type(2),
-    .icon-button-container button:nth-of-type(3) {
-        display: none;
-    }
-
-    .burgerMenu {
-        display: inline;
-    }
-
-    .icon-image {
+    .icon-image,
+    .icon-button {
         width: 3em !important;
         height: 3em !important;
     }
-
-    .search-bar {
-        font-size: 1.5em;
-    }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
+    .icon-button-container button:nth-of-type(2) {
+        display: none;
+    }
 
     .logo {
         width: 19em;
@@ -183,7 +171,6 @@ input:focus {
         height: 17em;
     }
 
-
     .logo-container {
         order: 1;
         position: absolute;
@@ -193,19 +180,19 @@ input:focus {
     }
 
     .icon-button-container {
+        flex-direction: row-reverse;
         order: 2;
         right: 0;
         position: absolute;
         margin: 5em;
         transform: translateY(-5em);
+        gap: 1em;
     }
 
     .icon-image,
     .icon-button {
-        width: 4em !important;
-        height: 4em !important;
-        margin-bottom: 0.7em;
-        margin-right: 0.7em;
+        padding: 0;
+        margin-bottom: 0.4em;
     }
 
     .search-bar-container {
@@ -217,6 +204,7 @@ input:focus {
     .search-bar {
         margin: 0.5em;
         width: 97%;
+        font-size: 1.5em;
     }
 
     .input {
@@ -224,7 +212,8 @@ input:focus {
     }
 
     .burgerMenu {
-        font-size: 4em;
+        font-size: 3em;
+        display: inline;
     }
 
     .openMenu p {
@@ -242,12 +231,10 @@ input:focus {
 }
 
 @media (max-width: 515px) {
-
     .icon-image,
     .icon-button {
         width: 5em !important;
         height: 5em !important;
-
     }
 
     .search-bar {

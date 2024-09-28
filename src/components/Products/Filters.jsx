@@ -1,19 +1,17 @@
-import { useContext } from 'react';
 import classes from './Filters.module.css';
-import { NavbarContext } from '../../context/NavBarContext';
 import Checkbox from '../../UI/Checkbox';
 import Button from '../../UI/Button';
+import CloseButton from '../../UI/CloseButton';
+import { useContext } from 'react';
+import { NavbarContext } from '../../context/NavBarContext';
 
 export default function Filters() {
-
-    const { showCategories } = useContext(NavbarContext);
-
-    if (!showCategories) {
-        return null;
-    }
+    const { setIsFiltersModalOpen } = useContext(NavbarContext);
 
     return <>
+        <CloseButton onHandleClick={() => setIsFiltersModalOpen(false)} />
         <div className={classes.mainContainer}>
+
             <div className={classes.container}>
                 <div className={classes.categoryContainer}>
                     <h3 className={classes.category}>Men&apos;s Comfy Sneakers</h3>

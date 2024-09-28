@@ -1,3 +1,12 @@
+.categories {
+    display: flex;
+    justify-content: center;
+}
+
+.categories button {
+    padding: 1rem;
+}
+
 .heding {
     margin: 0 1em;
     font-size: 1.5em !important;
@@ -72,25 +81,55 @@ a {
     align-items: center;
 }
 
-.headingContainer button{
+.headingContainer button {
     margin-right: 0.5em;
 }
 
-.iconButton{
+.iconButton {
     background-color: transparent;
     border: none;
-    height: 4em;
-    width: 3em;
+    height: 2rem;
+    width: 2rem;
     cursor: pointer;
 }
-.iconImage{
-    width: 2em;
-    height: 2em;
+
+.iconImage {
+    width: 2rem;
+    height: 2rem;
     transition: transform 0.3s ease;
 }
 
 .iconImage:hover {
     transform: scale(1.2);
+}
+
+.modal {
+    background: transparent;
+    width: 94%;
+    height: 90vh;
+    border: none;
+    border-radius: 2em;
+    background: #a9b5c88a;
+    backdrop-filter: blur(10px);
+    padding: 6rem 4rem;
+}
+
+.modal::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
 }
 
 @media (max-width: 1200px) {
@@ -115,9 +154,37 @@ a {
     .button {
         font-size: 1.3em;
     }
+
+    .modal {
+        height: 80vh;
+        padding: 4rem 2rem;
+    }
+}
+
+@media(max-width:980px) {
+    .modal {
+        height: 60vh;
+    }
+}
+
+
+@media(max-width:900px) {
+    .categories {
+        display: none;
+    }
+
+    .modal {
+        padding: 2rem;
+        width: 80%;
+    }
 }
 
 @media (max-width: 750px) {
+
+    .modal {
+        height: 80vh;
+    }
+
     .cardContainer {
         width: 50%;
         margin-bottom: 4em;
@@ -141,17 +208,18 @@ a {
         font-size: 2em;
     }
 
-    .headingContainer{
+    .headingContainer {
         margin: 0 2.5rem;
     }
 
-    .iconButton {
-        height: 5em;
-        width: 5em;
-    }
 }
 
 @media (max-width: 500px) {
+
+    a {
+        width: 94%;
+    }
+
     .cardContainer {
         width: 100%;
         margin-bottom: 7em;
@@ -166,8 +234,9 @@ a {
         font-size: 2.5em;
     }
 
-    .iconButton {
-        height: 4.8em;
-        width: 6.8em;
+    .iconButton,
+    .iconImage {
+        height: 1.5rem;
+        width: 1.5rem;
     }
 }

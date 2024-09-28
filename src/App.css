@@ -12,7 +12,6 @@ body {
     padding: 0;
 }
 
-/* Base button styles */
 .button {
     padding: 0.7rem 2rem;
     font-size: 1rem;
@@ -23,7 +22,6 @@ body {
     cursor: pointer;
 }
 
-/* Variants */
 .button-primary {
     background-color: #536580f6;
     color: white;
@@ -32,7 +30,7 @@ body {
 .button-secondary {
     background-color: transparent;
     color: #536580f6;
-    border: 1px solid #536580f6;
+    border: 1px solid #53658062;
 }
 
 .button-danger {
@@ -45,14 +43,16 @@ body {
     color: white;
 }
 
-/* Disabled state */
+.border-off{
+    border: none;
+}
+
 .button-disabled {
     background-color: #cccccc;
     color: #666666;
     cursor: not-allowed;
 }
 
-/* Sizes */
 .button-small {
     padding: 0.5rem 1.5rem;
     font-size: 0.8rem;
@@ -68,8 +68,6 @@ body {
     font-size: 1.2rem;
 }
 
-/* Hover effects */
-
 .button-primary:hover {
     background-color: #283242;
 }
@@ -82,6 +80,12 @@ body {
 
 .button-danger:hover {
     background-color: #c82333;
+}
+
+.border-off:hover{
+    background-color: transparent;
+    color: #333e4ff6;
+    transform: scale(1.05);
 }
 
 .closeButton {

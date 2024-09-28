@@ -1,26 +1,17 @@
 .mainContainer {
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 100%;
+    height: 100%;
     justify-content: space-between;
     justify-items: center;
-    background-color: #3c4c64f6;
-    padding: 5em 4em;
-    border-radius: 1.5em;
-    height: 50rem;
-    position: absolute;
-    z-index: 10;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    width: 25em;
     justify-content: space-between;
     margin-left: 0.8em;
-
 }
 
 .checkboxContainer {
@@ -32,44 +23,31 @@
     margin-bottom: 0.3em;
 }
 
-.inputCheckbox {
-    width: 0.8em;
-    height: 0.8em;
+.inputCheckbox,
+.inputRadio {
+    width: 1em;
+    height: 1em;
     appearance: none;
     background-color: transparent;
-    border: 1px solid white;
+    border: 1px solid #30415af6;
     border-radius: 3px;
     cursor: pointer;
-}
-
-.inputCheckbox:checked {
-    background-color: #ffffff6f;
-    border: 1px solid white;
-    border-radius: 3px;
-}
-
-.inputCheckbox:hover {
-    border-color: #ffffff6f;
 }
 
 .inputRadio {
-    width: 0.8em;
-    height: 0.8em;
-    appearance: none;
-    background-color: transparent;
-    border: 1px solid white;
     border-radius: 50%;
-    cursor: pointer;
 }
 
+.inputCheckbox:checked,
 .inputRadio:checked {
-    background-color: #ffffff6f;
-    border: 1px solid white;
-    border-radius: 50%;
+    background-color: #30415a4e;
+    border: 1px solid #30415af6;
 }
 
+.inputCheckbox:hover,
 .inputRadio:hover {
-    border-color: #ffffff6f;
+    background-color: #30415a4e;
+    border-color: #30415af6;
 }
 
 .labelParagraph {
@@ -77,13 +55,13 @@
     margin-block-end: 0;
     font-weight: 400;
     font-size: 1.25em;
-    color: rgba(255, 255, 255, 0.664);
+    color: #30415af6;
 }
 
 .category {
     font-weight: 600;
     font-size: 1.5em;
-    color: white;
+    color: #30415af6;
     margin: 0;
     margin-bottom: 0.5em;
 }
@@ -92,21 +70,12 @@
     margin-bottom: 2em;
 }
 
-.searchButton {
-    background-color: #8C9EB9;
-    color: white;
-    padding: 1em 3em;
-    border: none;
-    border-radius: 0.75em;
-    font-size: 1.5em;
-}
-
 .container:nth-of-type(1),
 .container:nth-of-type(2) {
     width: 40%;
     margin-right: 3em;
     padding-right: 4em;
-    border-right: 3px solid #cccccc7a;
+    border-right: 3px solid #30415a45;
 }
 
 .container:nth-of-type(3) {
@@ -116,12 +85,8 @@
 
 @media (max-width: 1200px) {
 
-    .mainContainer {
-        height: 38rem;
-    }
-
     .category {
-        font-size: 1.5em;
+        font-size: 1.75em;
     }
 
     .labelParagraph {
@@ -129,39 +94,31 @@
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
+    .mainContainer{
+        padding: 4em 0;
+    }
+}
 
+@media (max-width: 750px) {
     .mainContainer {
         flex-direction: column;
-        height: 330em;
-        width: 90%;
+        height: auto;
+        gap: 4em;
     }
 
     .container {
         width: 100% !important;
-        margin-bottom: 3em;
+        gap: 2em;
+        margin-left: 0;
     }
 
     .category {
-        font-size: 4.5em;
+        font-size: 3.5em;
     }
 
     .labelParagraph {
-        font-size: 4em;
-    }
-
-    .categoryContainer {
-        margin-bottom: 3em;
-    }
-
-    .inputCheckbox {
-        width: 3em;
-        height: 3em;
-    }
-
-    .inputRadio {
-        width: 3em;
-        height: 3em
+        font-size: 2.5em;
     }
 
     .searchButton {
@@ -169,13 +126,12 @@
         margin-top: 2em;
     }
 
-
     .container:nth-of-type(1),
     .container:nth-of-type(2) {
-        width: 40%;
         margin-right: 0;
         padding-right: 0;
-        border-bottom: 3px solid #cccccc7a;
+        padding-bottom: 3em;
+        border-bottom: 3px solid #30415a45;
         border-right: none;
     }
 

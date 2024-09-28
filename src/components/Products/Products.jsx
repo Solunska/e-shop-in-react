@@ -7,33 +7,42 @@ import { useContext, useEffect } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { fetchSneakers } from '../../http';
 import CartContext from '../../context/CartContext';
+import Button from '../../UI/Button';
+import Filters from './Filters'
+import Modal from '../../UI/Modal';
 
 export default function ProductsCollection() {
     const cartContext = useContext(CartContext);
-    const { toggleCategories, hideCategories } = useContext(NavbarContext);
     const { fetchedData: sneakers, isFetching, error } = useFetch(fetchSneakers, []);
+    const { isFiltersModalOpen, setIsFiltersModalOpen } = useContext(NavbarContext);
 
     function handleAddItemToCart(item) {
         cartContext.addItem(item);
     }
-
     useEffect(() => {
-        const handleEscape = (event) => {
-            if (event.key === 'Escape') {
-                hideCategories();
-            }
-        };
-        document.addEventListener('keydown', handleEscape);
+
+        if (isFiltersModalOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
 
         return () => {
-            document.removeEventListener('keydown', handleEscape);
+            document.body.style.overflow = 'auto';
         };
-    }, [hideCategories]);
+    }, [isFiltersModalOpen]);
+
+    const toggleFilter = () => setIsFiltersModalOpen(!isFiltersModalOpen);
 
     if (isFetching) return <p>Loading sneakers...</p>;
     if (error) return <p>{error.message}</p>;
 
-    return <div>
+    return <>
+        <div className={classes.categories}>
+            <Button variant="secondary" border="off" size='large'>Men</Button>
+            <Button variant="secondary" border="off" size='large'>Women</Button>
+            <Button variant="secondary" border="off" size='large'>Kids</Button>
+        </div>
         <div className={classes.headingContainer}>
             <p className={classes.heding}>Sneakers Collection</p>
             <NavButton
@@ -41,7 +50,7 @@ export default function ProductsCollection() {
                 image={filter}
                 alt='categories logo'
                 imgStyles={classes.iconImage}
-                onHandleClick={toggleCategories}
+                onHandleClick={() => toggleFilter()}
             />
         </div>
         <div className={classes.container}>
@@ -58,5 +67,8 @@ export default function ProductsCollection() {
             )}
         </div>
 
-    </div>
+        <Modal open={isFiltersModalOpen} onClose={() => setIsFiltersModalOpen(false)} modalStyles={classes.modal}>
+            <Filters />
+        </Modal>
+    </>
 }
