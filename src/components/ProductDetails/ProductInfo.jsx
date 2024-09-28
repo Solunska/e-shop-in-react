@@ -38,15 +38,18 @@ export default function ProductInfo({ item, averageRating, reviewCount, availabl
             predefinedSizes={predefinedSizes}
             selectedSize={selectedSize}
             setSelectedSize={setSelectedSize} />
-        <div className={classes.addToCartContainer}>
-            <Button
-                variant="primary"
-                size="large"
-                onHandleClick={() => handleAddItemToCart(item, selectedSize, quantity)}>Add to cart</Button>
-            <div className={classes.quantityContainer}>
-                <button onClick={() => decreaseQuantity()}>-</button>
-                <p>{quantity}</p>
-                <button onClick={() => setQuantity(quantity + 1)}>+</button>
+        <div>
+            <p className={classes.quantity}>Choose quantity</p>
+            <div className={classes.addToCartContainer}>
+                <div className={classes.quantityContainer}>
+                    <button onClick={() => decreaseQuantity()}>-</button>
+                    <p>{quantity}</p>
+                    <button onClick={() => setQuantity(quantity + 1)}>+</button>
+                </div>
+                <Button
+                    variant="primary"
+                    size="large"
+                    onHandleClick={() => handleAddItemToCart(item, selectedSize, quantity)}>Add to cart</Button>
             </div>
         </div>
     </div>

@@ -88,6 +88,7 @@
 .addToCartContainer {
     display: flex;
     justify-content: space-between;
+    gap: 1em;
 }
 
 .addToCartContainer button {
@@ -99,6 +100,7 @@
     gap: 1em;
     align-items: center;
     justify-content: center;
+    width: 30%;
 }
 
 .quantityContainer p {
@@ -115,10 +117,16 @@
     border-radius: 0.5em;
     background-color: #607594af;
     color: white;
+    height: 100%;
 }
 
 .quantityContainer button:hover {
     background-color: #607594d8;
+}
+
+.quantity {
+    font-size: 1.5em;
+    color: #4C4C4C;
 }
 
 @media (max-width: 900px) {
@@ -157,5 +165,17 @@
         width: 100%;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .addToCartContainer {
+        flex-direction: column;
+    }
+
+    .addToCartContainer button {
+        width: 100%;
+    }
+
+    .quantityContainer button {
+        aspect-ratio: 1/1;
     }
 }
