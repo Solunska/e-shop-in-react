@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { FiltersContext } from '../../context/FiltersContext';
 
 export default function Filters() {
-    const { handleFilterChange } = useContext(FiltersContext);
+    const { handleFilterChange, applyFilters } = useContext(FiltersContext);
 
     return <>
         <div className={classes.mainContainer}>
@@ -75,7 +75,7 @@ export default function Filters() {
                     </div>
                 </div>
                 <div>
-                    <Button classes={classes.searchButton}>Search</Button>
+                    <Button classes={classes.searchButton} onHandleClick={applyFilters}  >Search</Button>
                 </div>
             </div>
         </div>

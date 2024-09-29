@@ -7,10 +7,6 @@ export default function ShoppingCartItem({ item }) {
 
     const price = item.price * item.quantity;
 
-    function handleAddItemToCart(item) {
-        addItem(item, item.size, item.quantity);
-    }
-
     return <tr key={item.id}>
         <td>
             <div className={classes.product}>
@@ -29,7 +25,7 @@ export default function ShoppingCartItem({ item }) {
             <div className={classes.quantityContainer}>
                 <button>-</button>
                 <p>{item.quantity}</p>
-                <button onClick={() => handleAddItemToCart(item)}>+</button>
+                <button onClick={() =>  addItem(item, item.size, item.quantity)}>+</button>
             </div>
         </td>
         <td>

@@ -2,7 +2,7 @@ import classes from './Products.module.css';
 import ProductCard from '../../UI/ProductCard';
 import NavButton from '../../UI/NavigationButton';
 import filter from '../../assets/filter.png';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { fetchSneakers } from '../../http';
 import CartContext from '../../context/CartContext';
@@ -11,31 +11,30 @@ import Filters from './Filters'
 import Modal from '../../UI/Modal';
 import CloseButton from '../../UI/CloseButton';
 import { useModal } from '../../hooks/useModal';
+import { useFilter } from '../../hooks/useFilter';
+import { FiltersContext } from '../../context/FiltersContext';
 
 export default function ProductsCollection() {
-    const cartContext = useContext(CartContext);
+    const { addItem } = useContext(CartContext);
     const { fetchedData: sneakers, isFetching, error } = useFetch(fetchSneakers, []);
-    const [filteredSneakers, setFilteredSneakers] = useState([]);
     const { isFiltersModalOpen, toggleFilters } = useModal();
+    const { filterMens, filterWomen, filteredSneakers: filteredGender } = useFilter(sneakers);
+    const { filteredSneakers, setSneakersData } = useContext(FiltersContext);
 
     useEffect(() => {
         if (sneakers.length > 0) {
-            setFilteredSneakers(sneakers); // Initially display all sneakers
+            setSneakersData(sneakers);  // Set the sneakers data in context
         }
-    }, [sneakers]);
+    }, [sneakers, setSneakersData]);
 
-    function handleAddItemToCart(item) {
-        cartContext.addItem(item);
-    }
+    var sneakersArray = [];
 
-    function filterMens() {
-        const menSneakers = sneakers.filter(item => item.gender === 'men');
-        setFilteredSneakers(menSneakers);
-    }
-
-    function filterWomen() {
-        const womenSneakers = sneakers.filter(item => item.gender === 'women');
-        setFilteredSneakers(womenSneakers);
+    if (filteredGender) {
+        sneakersArray = filteredGender;
+    } if (filteredSneakers) {
+        sneakersArray = filteredSneakers;
+    } else {
+        sneakersArray = sneakers;
     }
 
     if (isFetching) return <p>Loading sneakers...</p>;
@@ -58,7 +57,7 @@ export default function ProductsCollection() {
             />
         </div>
         <div className={classes.container}>
-            {filteredSneakers.map((sneaker) =>
+            {sneakersArray.map((sneaker) =>
                 <ProductCard
                     key={sneaker.id}
                     id={sneaker.id}
@@ -66,7 +65,7 @@ export default function ProductsCollection() {
                     image={sneaker.photos[0]}
                     name={sneaker.name}
                     price={sneaker.price}
-                    onHandleClick={() => handleAddItemToCart(sneaker)}
+                    onHandleClick={() => addItem(sneaker)}
                 />
             )}
         </div>
@@ -74,6 +73,5 @@ export default function ProductsCollection() {
             <CloseButton onHandleClick={() => toggleFilters()} />
             <Filters />
         </Modal> : null}
-
     </>
 }
