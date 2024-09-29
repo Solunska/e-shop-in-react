@@ -1,7 +1,7 @@
-import Product from "../components/ProductDetails/ProductDetails";
+import ProductDetails from "../components/ProductDetails/ProductDetails";
 
 export default function ProductDetailsPage() {
     return <>
-        <Product />
+        <ProductDetails />
     </>
 }

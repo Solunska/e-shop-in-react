@@ -2,45 +2,49 @@ import classes from './Products.module.css';
 import ProductCard from '../../UI/ProductCard';
 import NavButton from '../../UI/NavigationButton';
 import filter from '../../assets/filter.png';
-import { ModalContext } from '../../context/ModalContext';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { fetchSneakers } from '../../http';
 import CartContext from '../../context/CartContext';
 import Button from '../../UI/Button';
 import Filters from './Filters'
 import Modal from '../../UI/Modal';
+import CloseButton from '../../UI/CloseButton';
+import { useModal } from '../../hooks/useModal';
 
 export default function ProductsCollection() {
     const cartContext = useContext(CartContext);
     const { fetchedData: sneakers, isFetching, error } = useFetch(fetchSneakers, []);
-    const { isFiltersModalOpen, setIsFiltersModalOpen } = useContext(ModalContext);
+    const [filteredSneakers, setFilteredSneakers] = useState([]);
+    const { isFiltersModalOpen, toggleFilters } = useModal();
+
+    useEffect(() => {
+        if (sneakers.length > 0) {
+            setFilteredSneakers(sneakers); // Initially display all sneakers
+        }
+    }, [sneakers]);
 
     function handleAddItemToCart(item) {
         cartContext.addItem(item);
     }
-    useEffect(() => {
 
-        if (isFiltersModalOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
-        }
+    function filterMens() {
+        const menSneakers = sneakers.filter(item => item.gender === 'men');
+        setFilteredSneakers(menSneakers);
+    }
 
-        return () => {
-            document.body.style.overflow = 'auto';
-        };
-    }, [isFiltersModalOpen]);
-
-    const toggleFilter = () => setIsFiltersModalOpen(!isFiltersModalOpen);
+    function filterWomen() {
+        const womenSneakers = sneakers.filter(item => item.gender === 'women');
+        setFilteredSneakers(womenSneakers);
+    }
 
     if (isFetching) return <p>Loading sneakers...</p>;
     if (error) return <p>{error.message}</p>;
 
     return <>
         <div className={classes.categories}>
-            <Button variant="secondary" border="off" size='large'>Men</Button>
-            <Button variant="secondary" border="off" size='large'>Women</Button>
+            <Button variant="secondary" border="off" size='large' onHandleClick={() => filterMens()}>Men</Button>
+            <Button variant="secondary" border="off" size='large' onHandleClick={() => filterWomen()}>Women</Button>
             <Button variant="secondary" border="off" size='large'>Kids</Button>
         </div>
         <div className={classes.headingContainer}>
@@ -50,11 +54,11 @@ export default function ProductsCollection() {
                 image={filter}
                 alt='categories logo'
                 imgStyles={classes.iconImage}
-                onHandleClick={() => toggleFilter()}
+                onHandleClick={() => toggleFilters()}
             />
         </div>
         <div className={classes.container}>
-            {sneakers.map((sneaker) =>
+            {filteredSneakers.map((sneaker) =>
                 <ProductCard
                     key={sneaker.id}
                     id={sneaker.id}
@@ -66,9 +70,10 @@ export default function ProductsCollection() {
                 />
             )}
         </div>
-
-        <Modal open={isFiltersModalOpen} onClose={() => setIsFiltersModalOpen(false)} modalStyles={classes.modal}>
+        {isFiltersModalOpen ? <Modal open={isFiltersModalOpen} onClose={() => toggleFilters()} modalStyles={classes.modal}>
+            <CloseButton onHandleClick={() => toggleFilters()} />
             <Filters />
-        </Modal>
+        </Modal> : null}
+
     </>
 }

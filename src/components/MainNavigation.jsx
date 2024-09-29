@@ -5,43 +5,15 @@ import profile from '../assets/profile.png';
 import shoppingBag from '../assets/shopping-cart.png';
 import NavButton from '../UI/NavigationButton';
 import styles from './MainNavigation.module.css';
-import { useContext, useEffect } from 'react';
 import Modal from '../UI/Modal';
-import { ModalContext } from '../context/ModalContext';
 import Login from './Auth/Login';
 import Button from '../UI/Button';
 import CloseButton from '../UI/CloseButton';
+import { useModal } from '../hooks/useModal';
 
 export default function MainNavigation() {
-    const { isAuthModalOpen, setIsAuthModalOpen, isMenuModalOpen, setIsMenuModalOpen } = useContext(ModalContext);
-
-    const toggleMenu = () => setIsMenuModalOpen(!isMenuModalOpen);
-
+    const { isAuthModalOpen, isMenuModalOpen, toggleMenu, toggleAuth } = useModal();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const handleResize = () => {
-            const screenWidth = window.innerWidth;
-            if (screenWidth >= 1200) {
-                setIsMenuModalOpen(false);
-            }
-        };
-
-        window.addEventListener('resize', handleResize);
-
-        handleResize();
-
-        if (isAuthModalOpen || isMenuModalOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
-        }
-
-        return () => {
-            document.body.style.overflow = 'auto';
-            window.removeEventListener('resize', handleResize);
-        };
-    }, [setIsMenuModalOpen, isMenuModalOpen, isAuthModalOpen]);
 
     return (
         <nav className={styles.nav}>
@@ -52,13 +24,13 @@ export default function MainNavigation() {
                     </NavLink>
                 </li>
                 <li className={styles['icon-button-container']}>
-                    <button className={styles.burgerMenu} onClick={() => { setIsMenuModalOpen(true) }}>
+                    <button className={styles.burgerMenu} onClick={() => toggleMenu()}>
                         ☰
                     </button>
                     {isMenuModalOpen ?
-                        <Modal open={isMenuModalOpen} onClose={() => setIsMenuModalOpen(false)} modalStyles={styles.modal}>
+                        <Modal open={isMenuModalOpen} onClose={() => toggleMenu()} modalStyles={styles.modal}>
                             <div className={styles.openMenu}>
-                                <CloseButton onHandleClick={() => setIsMenuModalOpen(false)} />
+                                <CloseButton onHandleClick={() => toggleMenu()} />
                                 <p onClick={() => {
                                     navigate('/products')
                                     toggleMenu();
@@ -95,7 +67,7 @@ export default function MainNavigation() {
                         image={profile}
                         alt='profile logo'
                         imgStyles={styles['icon-image']}
-                        onHandleClick={() => { setIsAuthModalOpen(true) }}
+                        onHandleClick={() => toggleAuth()}
                     />
                 </li>
                 <li className={styles['search-bar-container']}>
@@ -105,9 +77,11 @@ export default function MainNavigation() {
                     </div>
                 </li>
             </ul>
-            <Modal open={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} modalStyles={styles.modal}>
+            {isAuthModalOpen ? <Modal open={isAuthModalOpen} onClose={toggleAuth} modalStyles={styles.modal}>
+                <CloseButton onHandleClick={() => toggleAuth()} />
                 <Login />
-            </Modal>
+            </Modal> : null}
+
         </nav>
 
     );

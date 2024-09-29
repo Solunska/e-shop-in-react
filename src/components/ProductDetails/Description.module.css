@@ -1,0 +1,39 @@
+.description {
+    width: 40%;
+    color: #4C4C4C;
+}
+
+.description p:first-child {
+    font-weight: 700;
+}
+
+
+@media (max-width:1200px) {
+    .description p {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width:900) {
+    .description {
+        width: 100%;
+    }
+
+    .description p {
+        margin-bottom: 0;
+    }
+
+}
+
+@media (max-width: 580px) {
+
+    .description p {
+        font-size: 2em;
+    }
+}
+
+@media (max-width:436px) {
+    .description p {
+        font-size: 2.5em;
+    }
+}

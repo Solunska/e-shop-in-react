@@ -2,25 +2,13 @@ import Button from '../../UI/Button'
 import classes from './ProductInfo.module.css'
 import Stars from './Stars'
 import ShoeSizes from './ShoeSizes'
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
+import { useQuantity } from '../../hooks/useQuantity';
 
 export default function ProductInfo({ item, averageRating, reviewCount, availableSizes, predefinedSizes, selectedSize, setSelectedSize }) {
     const { addItem } = useContext(CartContext);
-    const [quantity, setQuantity] = useState(1);
-
-
-    function handleAddItemToCart(item, size, quantity) {
-        addItem(item, size, quantity);
-    }
-
-    function decreaseQuantity() {
-        if (quantity == 1) {
-            return null
-        } else {
-            setQuantity(quantity - 1)
-        }
-    }
+    const { increaseQuantity, decreaseQuantity, quantity } = useQuantity();
 
     return <div className={classes.productInfoContainer}>
         <div className={classes.nameRatingContainer}>
@@ -44,12 +32,12 @@ export default function ProductInfo({ item, averageRating, reviewCount, availabl
                 <div className={classes.quantityContainer}>
                     <button onClick={() => decreaseQuantity()}>-</button>
                     <p>{quantity}</p>
-                    <button onClick={() => setQuantity(quantity + 1)}>+</button>
+                    <button onClick={() => increaseQuantity()}>+</button>
                 </div>
                 <Button
                     variant="primary"
                     size="large"
-                    onHandleClick={() => handleAddItemToCart(item, selectedSize, quantity)}>Add to cart</Button>
+                    onHandleClick={() => addItem(item, selectedSize, quantity)}>Add to cart</Button>
             </div>
         </div>
     </div>

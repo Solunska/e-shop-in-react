@@ -2,11 +2,10 @@ import { createContext, useReducer } from "react";
 
 const CartContext = createContext({
     items: [],
+    subtotal: 0,
     addItem: () => { },
     removeItem: () => { },
     clearCart: () => { },
-    subtotal: 0,
-    setSubtotal: () => { }
 });
 
 function cartReducer(state, action) {

@@ -43,45 +43,6 @@
     justify-content: space-between;
 }
 
-.description {
-    width: 40%;
-    color: #4C4C4C;
-}
-
-.description p:first-child {
-    font-weight: 700;
-}
-
-.sideBar {
-    width: 43.5%;
-    margin-right: 1.4em;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-.rating {
-    background-color: rgba(214, 204, 184, 0.21);
-    height: 20em;
-    padding: 2em 3em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 2em;
-    border-radius: 0.75em;
-}
-
-.benefits {
-    background-color: rgba(214, 204, 184, 0.21);
-    height: 13em;
-    display: flex;
-    justify-content: center;
-    padding: 0 3em;
-    align-items: center;
-    gap: 4em;
-    border-radius: 0.75em;
-}
-
 .progressContainer {
     display: flex;
     align-items: center;
@@ -112,19 +73,6 @@
     background-color: #EACC57;
 }
 
-.starsRatingContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.starsRatingContainer p {
-    margin: 0;
-    font-size: 2em;
-    color: #4C4C4C;
-    font-weight: 600;
-}
-
 .logoLabelContainer {
     display: flex;
     flex-direction: column;
@@ -147,33 +95,9 @@
     pointer-events: none;
 }
 
-@media(max-width: 1470px) {
-    .benefits {
-        gap: 2em;
-    }
-}
-
-@media (max-width:1200px) {
-    .rating {
-        height: 22em;
-    }
-
-    .description p {
-        font-size: 1.5em;
-    }
-
-    .benefits {
-        gap: 1em;
-    }
-}
-
 @media (max-width: 980px) {
     .container {
         font-size: 10px;
-    }
-
-    .rating {
-        height: 25em;
     }
 
     .logoLabelContainer p {
@@ -202,37 +126,13 @@
         gap: 3em;
     }
 
-    .description,
-    .sideBar {
-        width: 100%;
-    }
-
-    .rating {
-        height: 27em;
-    }
-
     .logoLabelContainer p {
         font-size: 1.5em;
     }
 
-    .description p {
-        margin-bottom: 0;
-    }
-
-    .benefits {
-        gap: 4em;
-    }
 }
 
 @media (max-width: 580px) {
-    .rating {
-        height: 30em;
-    }
-
-    .description p {
-        font-size: 2em;
-    }
-
     .progressBar {
         height: 1.4em;
     }
@@ -253,25 +153,5 @@
 
     .logoLabelContainer p {
         font-size: 2em;
-    }
-
-    .rating {
-        height: 36em;
-        justify-content: center;
-    }
-
-    .benefits {
-        height: 20em;
-        gap: 4em;
-    }
-
-    .starsRatingContainer p {
-        font-size: 3em;
-    }
-}
-
-@media (max-width:436px) {
-    .description p {
-        font-size: 2.5em;
     }
 }

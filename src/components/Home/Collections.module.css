@@ -1,3 +1,23 @@
+.collections {
+    transform: translateY(56em);
+    padding: 2em 4em;
+    background-color: #D6C7BE;
+}
+
+h1 {
+    font-size: 3.5em;
+    text-transform: uppercase;
+    margin: 0;
+    color: white;
+}
+
+.container {
+    padding: 2em 0em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 .collectionButton {
     background-color: #ebe7e4b3;
     color: #4C4C4C;
@@ -16,25 +36,6 @@
 
 .collectionButton:hover{
     background-color: #ebe7e4f2;
-}
-
-h1 {
-    font-size: 3.5em;
-    text-transform: uppercase;
-    margin: 0;
-    color: white;
-}
-
-.collections-container {
-    padding: 2em 4em;
-    background-color: #D6C7BE;
-}
-
-.container {
-    padding: 2em 0em;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 .card {
@@ -64,10 +65,6 @@ h1 {
 
 }
 
-.collections {
-    transform: translateY(56em);
-}
-
 @media (max-width: 580px) {
     .container {
         flex-direction: column;
@@ -83,8 +80,6 @@ h1 {
     .container .card:nth-of-type(1) {
         background-position: center;
     }
-
-    
 }
 
 @media(max-width:515px){
