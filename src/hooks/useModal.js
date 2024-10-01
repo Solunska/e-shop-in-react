@@ -4,6 +4,7 @@ export function useModal() {
     const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false);
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
+    const [isAlertModalOpen, setIsAlertModalOpen] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
@@ -17,7 +18,7 @@ export function useModal() {
 
         handleResize();
 
-        if (isAuthModalOpen || isMenuModalOpen || isFiltersModalOpen) {
+        if (isAuthModalOpen || isMenuModalOpen || isFiltersModalOpen, isAlertModalOpen) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'auto';
@@ -27,24 +28,29 @@ export function useModal() {
             document.body.style.overflow = 'auto';
             window.removeEventListener('resize', handleResize);
         };
-    }, [setIsMenuModalOpen, isMenuModalOpen, isAuthModalOpen, isFiltersModalOpen]);
+    }, [setIsMenuModalOpen, isMenuModalOpen, isAuthModalOpen, isFiltersModalOpen, isAlertModalOpen]);
 
 
     function toggleMenu() {
-        setIsMenuModalOpen(!isMenuModalOpen);
-
+        setIsMenuModalOpen((prev) => !prev);
     }
+
     function toggleFilters() {
         setIsFiltersModalOpen(!isFiltersModalOpen);
     }
+
     function toggleAuth() { setIsAuthModalOpen(!isAuthModalOpen); }
+
+    function toggleAlert() { setIsAlertModalOpen(!isAlertModalOpen); }
 
     return {
         isFiltersModalOpen,
         isAuthModalOpen,
         isMenuModalOpen,
+        isAlertModalOpen,
         toggleMenu,
         toggleFilters,
-        toggleAuth
+        toggleAuth,
+        toggleAlert,
     }
 }

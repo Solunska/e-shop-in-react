@@ -38,12 +38,11 @@
 
 
 .modal {
-    width: 25rem;
+    width: 28rem;
     height: 15rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 3em;
     border-radius: 2em;
     background: #a9b5c88a;
     backdrop-filter: blur(10px);
@@ -63,7 +62,7 @@
     font-weight: 500;
     align-items: center;
     justify-content: center;
-    gap: 2em;
+    gap: 0.5em;
 }
 
 .modal input {
@@ -128,6 +127,16 @@
     font-size: 1.5em;
     color: #4C4C4C;
     margin-bottom: 0.2em;
+}
+
+.modalContent{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.modalContent p{
+    margin: 0;
 }
 
 @media (max-width: 900px) {
