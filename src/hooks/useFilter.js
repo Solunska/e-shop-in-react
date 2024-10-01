@@ -8,17 +8,8 @@ export function useFilter() {
 
     useEffect(() => {
         setFilteredSneakers(sneakers);
-    }, [sneakers]);
+    }, [filters, sneakers]);
 
-    function filterMens() {
-        const menSneakers = sneakers.filter(item => item.gender === 'men');
-        setFilteredSneakers(menSneakers);
-    }
-
-    function filterWomen() {
-        const womenSneakers = sneakers.filter(item => item.gender === 'women');
-        setFilteredSneakers(womenSneakers);
-    }
 
     function applyFilters() {
         let updatedSneakers = [...sneakers];
@@ -37,13 +28,13 @@ export function useFilter() {
 
         if (filters.sneakerTypes.length > 0) {
             updatedSneakers = updatedSneakers.filter(item =>
-                filters.sneakerTypes.includes(item.type)
+                filters.sneakerTypes.some(ftype => item.type.includes(ftype))
             );
         }
 
         if (filters.color.length > 0) {
             updatedSneakers = updatedSneakers.filter(item =>
-                filters.color.includes(item.color)
+                filters.color.some(color => item.colours.includes(color))
             );
         }
 
@@ -66,7 +57,15 @@ export function useFilter() {
             });
         }
 
+        if (filters.gender) {
+            updatedSneakers = updatedSneakers.filter(item =>
+                filters.gender === item.gender
+            );
+        }
+
         setFilteredSneakers(updatedSneakers);
+
+        console.log(filteredSneakers);
     }
 
     function setSneakersData(data) {
@@ -74,8 +73,6 @@ export function useFilter() {
     }
 
     return {
-        filterMens,
-        filterWomen,
         setSneakersData,
         applyFilters,
         filteredSneakers,

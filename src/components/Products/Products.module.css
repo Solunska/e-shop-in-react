@@ -44,7 +44,7 @@ a {
     box-shadow: #4532215b 0px 5px 15px;
     transition: transform 0.3s ease;
     aspect-ratio: 1 / 1;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 .image:hover {
@@ -134,6 +134,11 @@ a {
 
 .modal::-webkit-scrollbar-thumb:hover {
     background-color: #555;
+}
+
+.selectedButton {
+    color: #333e4ff6;
+    font-weight: 600;
 }
 
 @media (max-width: 1200px) {

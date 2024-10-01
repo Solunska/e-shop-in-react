@@ -35,11 +35,10 @@ export default function Filters({ applyFilters, toggleFilters }) {
             </div>
             <div className={classes.container}>
                 <div className={classes.categoryContainer}>
-                    <h3 className={classes.category}>Customer Reviews</h3>
-                    <Checkbox label="4 stars & up" checked={filters.customerReviews === "4 stars & up"} type="radio" name="reviews" onChange={(e) => handleFilterChange('customerReviews', e.target.value)} />
-                    <Checkbox label="3 stars & up" checked={filters.customerReviews === "3 stars & up"} type="radio" name="reviews" onChange={(e) => handleFilterChange('customerReviews', e.target.value)} />
-                    <Checkbox label="2 stars & up" checked={filters.customerReviews === "2 stars & up"} type="radio" name="reviews" onChange={(e) => handleFilterChange('customerReviews', e.target.value)} />
-                    <Checkbox label="1 star & up" checked={filters.customerReviews === "1 star & up"} type="radio" name="reviews" onChange={(e) => handleFilterChange('customerReviews', e.target.value)} />
+                    <h3 className={classes.category}>Gender</h3>
+                    <Checkbox label="men" checked={filters.genre === "men"} type="radio" name="gender" onChange={(e) => handleFilterChange('gender', e.target.value)} />
+                    <Checkbox label="women" checked={filters.genre === "women"} type="radio" name="gender" onChange={(e) => handleFilterChange('gender', e.target.value)} />
+                    <Checkbox label="kids" checked={filters.genre === "kids"} type="radio" name="gender" onChange={(e) => handleFilterChange('gender', e.target.value)} />
                 </div>
                 <div className={classes.categoryContainer}>
                     <h3 className={classes.category}>New Arrivals</h3>

@@ -43,7 +43,8 @@ body {
     color: white;
 }
 
-.border-off{
+.border-off {
+    color: #53658095;
     border: none;
 }
 
@@ -82,7 +83,7 @@ body {
     background-color: #c82333;
 }
 
-.border-off:hover{
+.border-off:hover {
     background-color: transparent;
     color: #333e4ff6;
     transform: scale(1.05);
@@ -98,3 +99,95 @@ body {
     color: #30415af6;
     cursor: pointer;
 }
+
+.loading {
+    font-size: 3em;
+    color: #333e4ff6;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    gap: 3em;
+}
+
+.loadingContainer img {
+    width: 40%;
+}
+
+.notFound {
+    font-size: 1.2em;
+    color: #333e4f94;
+    margin: 0;
+}
+
+.notFound:first-child {
+    font-size: 2em;
+    color: #333e4ff6;
+    margin-bottom: 0.5em;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.lds-ring,
+.lds-ring div {
+  box-sizing: border-box;
+}
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid currentColor;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: currentColor transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

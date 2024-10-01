@@ -11,7 +11,8 @@ const startingState = {
     color: [],
     price: null,
     sort: null,
-    category: null
+    category: null,
+    gender: null,
 }
 
 export function FiltersContextProvider({ children }) {
