@@ -36,7 +36,6 @@ export function useModal() {
     }
     function toggleFilters() {
         setIsFiltersModalOpen(!isFiltersModalOpen);
-        console.log("open filters")
     }
     function toggleAuth() { setIsAuthModalOpen(!isAuthModalOpen); }
 

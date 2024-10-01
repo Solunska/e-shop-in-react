@@ -12,30 +12,18 @@ import Modal from '../../UI/Modal';
 import CloseButton from '../../UI/CloseButton';
 import { useModal } from '../../hooks/useModal';
 import { useFilter } from '../../hooks/useFilter';
-import { FiltersContext } from '../../context/FiltersContext';
 
 export default function ProductsCollection() {
     const { addItem } = useContext(CartContext);
     const { fetchedData: sneakers, isFetching, error } = useFetch(fetchSneakers, []);
     const { isFiltersModalOpen, toggleFilters } = useModal();
-    const { filterMens, filterWomen, filteredSneakers: filteredGender } = useFilter(sneakers);
-    const { filteredSneakers, setSneakersData } = useContext(FiltersContext);
+    const { filterMens, filterWomen, setSneakersData, filteredSneakers, applyFilters } = useFilter();
 
     useEffect(() => {
         if (sneakers.length > 0) {
-            setSneakersData(sneakers);  // Set the sneakers data in context
+            setSneakersData(sneakers);
         }
     }, [sneakers, setSneakersData]);
-
-    var sneakersArray = [];
-
-    if (filteredGender) {
-        sneakersArray = filteredGender;
-    } if (filteredSneakers) {
-        sneakersArray = filteredSneakers;
-    } else {
-        sneakersArray = sneakers;
-    }
 
     if (isFetching) return <p>Loading sneakers...</p>;
     if (error) return <p>{error.message}</p>;
@@ -57,7 +45,7 @@ export default function ProductsCollection() {
             />
         </div>
         <div className={classes.container}>
-            {sneakersArray.map((sneaker) =>
+            {filteredSneakers.map((sneaker) =>
                 <ProductCard
                     key={sneaker.id}
                     id={sneaker.id}
@@ -71,7 +59,7 @@ export default function ProductsCollection() {
         </div>
         {isFiltersModalOpen ? <Modal open={isFiltersModalOpen} onClose={() => toggleFilters()} modalStyles={classes.modal}>
             <CloseButton onHandleClick={() => toggleFilters()} />
-            <Filters />
+            <Filters applyFilters={applyFilters} toggleFilters={toggleFilters}/>
         </Modal> : null}
     </>
 }
