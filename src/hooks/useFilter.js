@@ -4,11 +4,28 @@ import { FiltersContext } from "../context/FiltersContext";
 export function useFilter() {
     const [filteredSneakers, setFilteredSneakers] = useState([]);
     const [sneakers, setSneakers] = useState([]);
-    const { filters } = useContext(FiltersContext);
+    const { filters, handleFilterChange } = useContext(FiltersContext);
 
     useEffect(() => {
         setFilteredSneakers(sneakers);
     }, [filters, sneakers]);
+
+    useEffect(() => {
+        applyFilters();
+    }, [filters.gender]);
+
+    
+    function handleFilterMens() {
+        handleFilterChange('gender', 'men');
+    }
+
+    function handleFilterWomen() {
+        handleFilterChange('gender', 'women');
+    }
+
+    function handleFilterKids() {
+        handleFilterChange('gender', 'kids');
+    }
 
 
     function applyFilters() {
@@ -76,5 +93,8 @@ export function useFilter() {
         setSneakersData,
         applyFilters,
         filteredSneakers,
+        handleFilterMens,
+        handleFilterKids,
+        handleFilterWomen
     }
 }

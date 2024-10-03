@@ -1,7 +1,7 @@
-export default function CollectionCard({ label, containerClass, buttonClass }) {
+export default function CollectionCard({ label, containerClass, buttonClass, onHandleClick }) {
     return <>
         <div className={containerClass}>
-            <button className={buttonClass}>{label}</button>
+            <button className={buttonClass} onClick={onHandleClick}>{label}</button>
         </div>
     </>
 }

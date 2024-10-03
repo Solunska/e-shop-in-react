@@ -5,14 +5,12 @@ import ShoeSizes from './ShoeSizes'
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 import { useQuantity } from '../../hooks/useQuantity';
-import Modal from '../../UI/Modal';
 import { useModal } from '../../hooks/useModal';
-import CloseButton from '../../UI/CloseButton';
 
 export default function ProductInfo({ item, averageRating, reviewCount, availableSizes, predefinedSizes, selectedSize, setSelectedSize }) {
     const { addItem } = useContext(CartContext);
     const { increaseQuantity, decreaseQuantity, quantity } = useQuantity();
-    const { isAlertModalOpen, toggleAlert } = useModal();
+    const { isAlertOpen, toggleAlert } = useModal();
 
     return <div className={classes.productInfoContainer}>
         <div className={classes.nameRatingContainer}>
@@ -43,19 +41,15 @@ export default function ProductInfo({ item, averageRating, reviewCount, availabl
                     size="large"
                     onHandleClick={() => {
                         addItem(item, selectedSize, quantity)
-                        toggleAlert()
-                    }
-                    }>Add to cart</Button>
-
+                        toggleAlert();
+                    }}>Add to cart
+                </Button>
             </div>
         </div>
-        {isAlertModalOpen ? <Modal open={isAlertModalOpen} onClose={toggleAlert} modalStyles={classes.modal}>
-            <div className={classes.modalContent}>
-                <CloseButton onHandleClick={() => toggleAlert()} />
-                <p>Added <strong>{item.name}</strong>to the cart!</p>
-                <p>number <strong>{selectedSize}</strong></p>
-                <p>quantity <strong>{quantity}</strong></p>
+        {isAlertOpen ?
+            <div className="alert alert-success" role="alert">
+                <p className='mb-0'>Added <strong>{quantity} {item.name}</strong> to the cart!</p>
             </div>
-        </Modal> : null}
+            : null}
     </div>
 }

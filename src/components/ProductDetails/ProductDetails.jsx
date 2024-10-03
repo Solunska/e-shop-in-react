@@ -10,6 +10,8 @@ import { useProductReviews } from "../../hooks/useProductReviews";
 import Description from "./Description";
 import SideBar from "./SideBar";
 import notfound from '../../assets/not-found.png'
+import Loading from "../../UI/Loading";
+import NotFound from "../../UI/NotFound";
 
 const predefinedSizes = [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47];
 
@@ -23,21 +25,15 @@ export default function ProductDetails() {
     const { selectedSize, setSelectedSize, availableSizes } = useProductSizes(item);
     const { averageRatingFullNumber, averageRating, percentageStars, reviewCount } = useProductReviews(item?.reviews || {});
 
-    if (isFetching) return <div className='loadingContainer'>
-        <p className='loading'>Fetching data...</p>
-        <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-    </div>;
+    if (isFetching) return <Loading text="Fetching data..." />;
     if (error) return <p>{error.message}</p>;
 
     if (!item) {
-        return <div className='loadingContainer'>
-            <img src={notfound} alt="product not found image" />
-            <div className='text'>
-                <p className='notFound'>Product not found</p>
-                <p className='notFound'>The Product that you are looking for doesn&apos;t exist or an other error occured.</p>
-                <p className='notFound'>Go back, or head over to nabistore and choose a new direction</p>
-            </div>
-        </div>;
+        return <NotFound
+            img={notfound}
+            label="Product not found"
+            text="The Product that you are looking for doesn&apos;t exist or an other error occured."
+            explanation="Go back, or head over to nabistore and choose a new direction" />
     }
 
     return <>
@@ -56,7 +52,7 @@ export default function ProductDetails() {
                 setSelectedPhoto={setSelectedPhoto} />
         </div>
         <div className={classes.bottomContainer}>
-            <Description description={item.details} />
+            <Description description={item.details} colors={item.colours} materials={item.material} types={item.type} />
             <SideBar averageRating={averageRating} averageRatingFullNumber={averageRatingFullNumber} percentageStars={percentageStars} />
         </div>
     </>

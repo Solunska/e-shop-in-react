@@ -58,10 +58,6 @@
     margin: 0;
 }
 
-section {
-    margin: auto;
-}
-
 @media (max-width: 1600px) {
     body {
         font-size: 14px;

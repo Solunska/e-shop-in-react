@@ -10,9 +10,11 @@ import Login from './Auth/Login';
 import Button from '../UI/Button';
 import CloseButton from '../UI/CloseButton';
 import { useModal } from '../hooks/useModal';
+import { useFilter } from '../hooks/useFilter';
 
 export default function MainNavigation() {
     const { isAuthModalOpen, isMenuModalOpen, toggleMenu, toggleAuth } = useModal();
+    const { handleFilterKids, handleFilterMens, handleFilterWomen } = useFilter();
     const navigate = useNavigate();
 
     return (
@@ -32,19 +34,22 @@ export default function MainNavigation() {
                             <div className={styles.openMenu}>
                                 <CloseButton onHandleClick={() => toggleMenu()} />
                                 <p onClick={() => {
-                                    navigate('/products')
+                                    navigate('/products');
                                     toggleMenu();
                                 }}>All Products</p>
                                 <p onClick={() => {
-                                    navigate('/products')
+                                    handleFilterMens();
+                                    navigate('/products/mens');
                                     toggleMenu();
                                 }}>Men</p>
                                 <p onClick={() => {
-                                    navigate('/products')
+                                    handleFilterWomen();
+                                    navigate('/products/womens');
                                     toggleMenu();
                                 }}>Women</p>
                                 <p onClick={() => {
-                                    navigate('/products')
+                                    navigate('/products/kids');
+                                    handleFilterKids();
                                     toggleMenu();
                                 }}>Kids</p>
                                 <p>Favorites</p>
@@ -81,8 +86,6 @@ export default function MainNavigation() {
                 <CloseButton onHandleClick={() => toggleAuth()} />
                 <Login />
             </Modal> : null}
-
         </nav>
-
     );
 }

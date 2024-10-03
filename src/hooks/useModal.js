@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export function useModal() {
     const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false);
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
-    const [isAlertModalOpen, setIsAlertModalOpen] = useState(false);
+    const [isAlertOpen, setIsAlertModalOpen] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
@@ -18,7 +18,7 @@ export function useModal() {
 
         handleResize();
 
-        if (isAuthModalOpen || isMenuModalOpen || isFiltersModalOpen, isAlertModalOpen) {
+        if (isAuthModalOpen || isMenuModalOpen || isFiltersModalOpen) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'auto';
@@ -28,8 +28,23 @@ export function useModal() {
             document.body.style.overflow = 'auto';
             window.removeEventListener('resize', handleResize);
         };
-    }, [setIsMenuModalOpen, isMenuModalOpen, isAuthModalOpen, isFiltersModalOpen, isAlertModalOpen]);
+    }, [setIsMenuModalOpen, isMenuModalOpen, isAuthModalOpen, isFiltersModalOpen]);
 
+    const toggleAlert = useCallback(() => {
+        setIsAlertModalOpen(!isAlertOpen);
+    }, [isAlertOpen]);
+
+    useEffect(() => {
+        if (isAlertOpen) {
+            const timeout = setTimeout(() => {
+                toggleAlert();
+            }, 3000)
+
+            return () => {
+                clearTimeout(timeout)
+            }
+        }
+    }, [isAlertOpen, toggleAlert])
 
     function toggleMenu() {
         setIsMenuModalOpen((prev) => !prev);
@@ -41,13 +56,11 @@ export function useModal() {
 
     function toggleAuth() { setIsAuthModalOpen(!isAuthModalOpen); }
 
-    function toggleAlert() { setIsAlertModalOpen(!isAlertModalOpen); }
-
     return {
         isFiltersModalOpen,
         isAuthModalOpen,
         isMenuModalOpen,
-        isAlertModalOpen,
+        isAlertOpen,
         toggleMenu,
         toggleFilters,
         toggleAuth,

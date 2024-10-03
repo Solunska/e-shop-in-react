@@ -16,7 +16,7 @@ export default function Filters({ applyFilters, toggleFilters }) {
                     <Checkbox label="adidas" checked={filters.brand === "adidas"} type="radio" name="brand" onChange={(e) => handleFilterChange('brand', e.target.value)} />
                     <Checkbox label="puma" checked={filters.brand === "puma"} type="radio" name="brand" onChange={(e) => handleFilterChange('brand', e.target.value)} />
                     <Checkbox label="converse" checked={filters.brand === "converse"} type="radio" name="brand" onChange={(e) => handleFilterChange('brand', e.target.value)} />
-                    <Checkbox label="new nalance" checked={filters.brand === "new balance"} type="radio" name="brand" onChange={(e) => handleFilterChange('brand', e.target.value)} />
+                    <Checkbox label="new balance" checked={filters.brand === "new balance"} type="radio" name="brand" onChange={(e) => handleFilterChange('brand', e.target.value)} />
                 </div>
                 <div className={classes.categoryContainer}>
                     <h3 className={classes.category}>Material</h3>
@@ -69,7 +69,6 @@ export default function Filters({ applyFilters, toggleFilters }) {
                         <h3 className={classes.category}>Sort by</h3>
                         <Checkbox label="popularity" checked={filters.sort === "popularity"} type="radio" name="sort" onChange={(e) => handleFilterChange('sort', e.target.value)} />
                         <Checkbox label="prices" checked={filters.sort === "prices"} type="radio" name="sort" onChange={(e) => handleFilterChange('sort', e.target.value)} />
-                        <Checkbox label="newest arrivals" checked={filters.sort === "newest arrivals"} type="radio" name="sort" onChange={(e) => handleFilterChange('sort', e.target.value)} />
                         <Checkbox label="newest arrivals" checked={filters.sort === "newest arrivals"} type="radio" name="sort" onChange={(e) => handleFilterChange('sort', e.target.value)} />
                     </div>
                 </div>

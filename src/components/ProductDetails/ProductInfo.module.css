@@ -176,13 +176,12 @@
         justify-content: space-between;
         align-items: center;
     }
-
-    .addToCartContainer {
-        flex-direction: column;
+    .quantityContainer{
+        width: 35%;
     }
 
     .addToCartContainer button {
-        width: 100%;
+        width: 65%;
     }
 
     .quantityContainer button {

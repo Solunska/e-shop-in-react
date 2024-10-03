@@ -10,8 +10,7 @@ export default function Carousel({ items, scrollLeft, scrollRight, carouselRef }
                     key={item.id}
                     url={item.photos[0]}
                     alt={item.name}
-                    imgStyles={classes.image}
-                />
+                    imgStyles={classes.image} />
             ))}
         </ul>
         <button className={classes.button} onClick={scrollRight}>→</button>
