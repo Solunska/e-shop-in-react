@@ -67,6 +67,12 @@ h1 {
 
 }
 
+@media (max-width:900px){
+    .collections{
+        transform: translateY(49em);
+    }
+}
+
 @media (max-width: 580px) {
     .container {
         flex-direction: column;
@@ -86,6 +92,6 @@ h1 {
 
 @media(max-width:515px){
     .collections{
-        transform: translateY(49em);
+        transform: translateY(36em);
     }
 }

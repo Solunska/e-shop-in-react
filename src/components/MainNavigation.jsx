@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import search from '../assets/search.png';
+import searchImg from '../assets/search.png';
 import profile from '../assets/profile.png';
 import shoppingBag from '../assets/shopping-cart.png';
 import NavButton from '../UI/NavigationButton';
@@ -11,11 +11,28 @@ import Button from '../UI/Button';
 import CloseButton from '../UI/CloseButton';
 import { useModal } from '../hooks/useModal';
 import { useFilter } from '../hooks/useFilter';
+import { useContext, useEffect, useState } from 'react';
+import { SearchContext } from '../context/SearchContext';
 
 export default function MainNavigation() {
     const { isAuthModalOpen, isMenuModalOpen, toggleMenu, toggleAuth } = useModal();
     const { handleFilterKids, handleFilterMens, handleFilterWomen } = useFilter();
     const navigate = useNavigate();
+    const [ query, setQuery ] = useState('');
+    const { search, setSearch } = useContext(SearchContext);
+    console.log(search)
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setSearch(query);
+        }, 500);
+
+        return () => clearTimeout(timeoutId);
+    }, [query, setSearch]);
+
+    function handleOnChange(event) {
+        setQuery(event.target.value);
+    }
 
     return (
         <nav className={styles.nav}>
@@ -57,7 +74,7 @@ export default function MainNavigation() {
                         </Modal>
                         : null}
                     <Button
-                        variant="secondary"
+                        variant="link"
                         size="small"
                         onHandleClick={() => { navigate('/products') }}>All products</Button>
                     <NavButton
@@ -76,9 +93,9 @@ export default function MainNavigation() {
                     />
                 </li>
                 <li className={styles['search-bar-container']}>
-                    <div className={styles['search-bar']}>
-                        <img src={search} alt='search icon' />
-                        <input className={styles.input} type='text' placeholder='Search...' />
+                    <div className={location.pathname === '/products' ? styles['search-bar'] : `${styles['search-bar']} ${styles.hidden}`}>
+                        <img src={searchImg} alt='search icon' />
+                        <input className={styles.input} type='text' placeholder='Search...' onChange={handleOnChange} />
                     </div>
                 </li>
             </ul>

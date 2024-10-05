@@ -1,10 +1,12 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import { FiltersContext } from "../context/FiltersContext";
+import { SearchContext } from "../context/SearchContext";
 
 export function useFilter() {
     const [filteredSneakers, setFilteredSneakers] = useState([]);
     const [sneakers, setSneakers] = useState([]);
     const { filters, handleFilterChange } = useContext(FiltersContext);
+    const { search } = useContext(SearchContext);
 
     useEffect(() => {
         setFilteredSneakers(sneakers);
@@ -94,8 +96,12 @@ export function useFilter() {
             }
         }
 
+        if (search) {
+            updatedSneakers = updatedSneakers.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
+        }
+
         setFilteredSneakers(updatedSneakers);
-    }, [filters, sneakers]);
+    }, [filters, sneakers, search]);
 
     function setSneakersData(data) {
         setSneakers(data);
