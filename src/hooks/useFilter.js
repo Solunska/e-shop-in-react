@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { FiltersContext } from "../context/FiltersContext";
 
 export function useFilter() {
@@ -14,7 +14,7 @@ export function useFilter() {
         applyFilters();
     }, [filters.gender]);
 
-    
+
     function handleFilterMens() {
         handleFilterChange('gender', 'men');
     }
@@ -28,7 +28,7 @@ export function useFilter() {
     }
 
 
-    function applyFilters() {
+    const applyFilters = useCallback(() => {
         let updatedSneakers = [...sneakers];
 
         if (filters.brand) {
@@ -81,9 +81,7 @@ export function useFilter() {
         }
 
         setFilteredSneakers(updatedSneakers);
-
-        console.log(filteredSneakers);
-    }
+    }, [filters, sneakers]);
 
     function setSneakersData(data) {
         setSneakers(data);

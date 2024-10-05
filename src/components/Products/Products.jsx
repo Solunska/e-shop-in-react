@@ -46,7 +46,7 @@ export default function ProductsCollection() {
                 break;
         }
         applyFilters(); // Apply filters after setting the category
-    }, [clearFilters, applyFilters, handleFilterMens, handleFilterWomen, handleFilterKids]);
+}, [location.pathname, applyFilters]);
 
     if (isFetching) return <Loading text="Loading sneakers..." />
     if (error) return <p>{error.message}</p>;
