@@ -67,9 +67,10 @@ export default function Filters({ applyFilters, toggleFilters }) {
                     </div>
                     <div>
                         <h3 className={classes.category}>Sort by</h3>
-                        <Checkbox label="popularity" checked={filters.sort === "popularity"} type="radio" name="sort" onChange={(e) => handleFilterChange('sort', e.target.value)} />
-                        <Checkbox label="prices" checked={filters.sort === "prices"} type="radio" name="sort" onChange={(e) => handleFilterChange('sort', e.target.value)} />
-                        <Checkbox label="newest arrivals" checked={filters.sort === "newest arrivals"} type="radio" name="sort" onChange={(e) => handleFilterChange('sort', e.target.value)} />
+                        <Checkbox label="popularity ascending" value="popularityA" checked={filters.sort === "popularityA"} type="radio" name="sort" onChange={(e) => handleFilterChange('sort', e.target.value)} />
+                        <Checkbox label="popularity descending" value="popularityD" checked={filters.sort === "popularityD"} type="radio" name="sort" onChange={(e) => handleFilterChange('sort', e.target.value)} />
+                        <Checkbox label="prices ascending" value="pricesA" checked={filters.sort === "pricesA"} type="radio" name="sort" onChange={(e) => handleFilterChange('sort', e.target.value)} />
+                        <Checkbox label="prices descending" value="pricesD" checked={filters.sort === "pricesD"} type="radio" name="sort" onChange={(e) => handleFilterChange('sort', e.target.value)} />
                     </div>
                 </div>
                 <div className={classes.btnContainer}>

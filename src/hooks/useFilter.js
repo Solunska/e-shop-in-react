@@ -80,6 +80,20 @@ export function useFilter() {
             );
         }
 
+        if (filters.sort) {
+            if (filters.sort === 'pricesA') {
+                updatedSneakers.sort((a, b) => a.price - b.price);
+            } else if (filters.sort === 'pricesD') {
+                updatedSneakers.sort((a, b) => b.price - a.price);
+            } else if (filters.sort === 'popularityA') {
+                const sum = (obj) => Object.values(obj).reduce((acc, num) => acc + num, 0);
+                updatedSneakers.sort((a, b) => sum(a.reviews) - sum(b.reviews));
+            } else if (filters.sort === 'popularityD') {
+                const sum = (obj) => Object.values(obj).reduce((acc, num) => acc + num, 0);
+                updatedSneakers.sort((a, b) => sum(b.reviews) - sum(a.reviews));
+            }
+        }
+
         setFilteredSneakers(updatedSneakers);
     }, [filters, sneakers]);
 

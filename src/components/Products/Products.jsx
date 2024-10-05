@@ -20,7 +20,7 @@ export default function ProductsCollection() {
     const { fetchedData: sneakers, isFetching, error } = useFetch(fetchSneakers, []);
     const { isFiltersModalOpen, toggleFilters } = useModal();
     const { setSneakersData, filteredSneakers, applyFilters, handleFilterKids, handleFilterMens, handleFilterWomen } = useFilter();
-    const { filters, clearFilters } = useContext(FiltersContext);
+    const { filters } = useContext(FiltersContext);
 
     useEffect(() => {
         if (sneakers.length > 0) {
@@ -39,14 +39,11 @@ export default function ProductsCollection() {
             case '/kids':
                 handleFilterKids();
                 break;
-            case '/products':
-                clearFilters();
-                break;
             default:
                 break;
         }
         applyFilters(); // Apply filters after setting the category
-}, [location.pathname, applyFilters]);
+    }, [location.pathname, applyFilters]);
 
     if (isFetching) return <Loading text="Loading sneakers..." />
     if (error) return <p>{error.message}</p>;
