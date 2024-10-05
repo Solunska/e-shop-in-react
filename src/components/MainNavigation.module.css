@@ -60,10 +60,6 @@ input:focus {
     outline: none;
 }
 
-.hidden{
-    display: none;
-}
-
 .icon-button {
     background-color: transparent;
     border: none;
@@ -111,6 +107,9 @@ input:focus {
     color: white;
     transform: scale(1.05);
 }
+.openMenu p {
+    margin: 0;
+}
 
 .openMenu {
     width: 100%;
@@ -121,7 +120,17 @@ input:focus {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 4em;
+}
+
+.profileContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    padding: 2em 0;
     gap: 2em;
+    margin: 3em 0;
 }
 
 .openMenu p {
@@ -142,7 +151,7 @@ input:focus {
     width: 30rem;
     border: none;
     border-radius: 2em;
-    background: #a9b5c88a;
+    background: #a9b5c8b5;
     backdrop-filter: blur(10px);
 }
 
@@ -155,7 +164,7 @@ input:focus {
 }
 
 @media (max-width: 900px) {
-    .icon-button-container button:nth-of-type(2) {
+    .hidden{
         display: none;
     }
 
@@ -172,7 +181,7 @@ input:focus {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 17em;
+        height: 15em;
     }
 
     .logo-container {
@@ -181,6 +190,7 @@ input:focus {
         left: 0;
         margin: 5em;
         transform: translateY(-5em);
+        margin-bottom: 0;
     }
 
     .icon-button-container {
@@ -191,6 +201,7 @@ input:focus {
         margin: 5em;
         transform: translateY(-5em);
         gap: 1em;
+        margin-bottom: 0;
     }
 
     .icon-image,
@@ -254,7 +265,7 @@ input:focus {
     }
 
     .openMenu p {
-        font-size: 3.5em;
+        font-size: 4.5em;
     }
 
 }

@@ -12,3 +12,17 @@ export async function fetchSneakers() {
 
     return sneakers; 
 }
+
+export async function fetchUsersWithId(userId) {
+    const usersCollection = collection(db, "Users");
+    const snapshot = await getDocs(usersCollection);
+
+    const users = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }));
+
+    const userWithId = users.find(user => user.id === userId)
+
+    return userWithId; 
+}

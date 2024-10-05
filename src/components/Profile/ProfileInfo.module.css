@@ -1,0 +1,86 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+    gap: 3rem;
+}
+
+.mainContainer p,
+.mainContainer label {
+    color: rgb(69, 50, 33);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.imageContainer {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+}
+
+.profileImage {
+    width: 10em;
+    aspect-ratio: 1/1;
+}
+
+.btnContainer {
+    display: flex;
+    gap: 1em;
+    width: 60%;
+    font-size: 0.75em;
+}
+
+.btnContainer button,
+.usernameContainer button {
+    font-size: 1rem;
+}
+
+.usernameContainer {
+    display: flex;
+    align-items: end;
+    gap: 1em;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 65%;
+}
+
+.inputGroup input {
+    background-color: rgb(226, 220, 213);
+    padding: 1.5em 2em;
+    border-radius: 0.75em;
+    color: rgb(44, 44, 44);
+    width: 100%;
+}
+
+.usernameContainer button {
+    height: 3em;
+}
+
+@media (max-width: 980px) {
+    .mainContainer {
+        width: 90%;
+
+    }
+
+    .usernameContainer button {
+        width: 40%;
+    }
+
+    .btnContainer {
+        width: 80%;
+    }
+
+    .btnContainer button {
+        width: 50%;
+    }
+}

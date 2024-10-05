@@ -14,6 +14,10 @@ import { useFilter } from '../hooks/useFilter';
 import { useContext, useEffect, useState } from 'react';
 import { SearchContext } from '../context/SearchContext';
 import { useAuth } from '../context/AuthContext';
+import { doSignOut } from '../auth';
+import profileImg from '../assets/no-profile.png'
+import { FiltersContext } from '../context/FiltersContext';
+
 
 export default function MainNavigation() {
     const { isAuthModalOpen, isMenuModalOpen, toggleMenu, toggleAuth } = useModal();
@@ -22,6 +26,7 @@ export default function MainNavigation() {
     const [query, setQuery] = useState('');
     const { search, setSearch } = useContext(SearchContext);
     const { userLoggedIn } = useAuth();
+    const { clearFilters } = useContext(FiltersContext);
     console.log(search)
 
     useEffect(() => {
@@ -54,6 +59,7 @@ export default function MainNavigation() {
                                 <CloseButton onHandleClick={() => toggleMenu()} />
                                 <p onClick={() => {
                                     navigate('/products');
+                                    clearFilters();
                                     toggleMenu();
                                 }}>All Products</p>
                                 <p onClick={() => {
@@ -71,13 +77,34 @@ export default function MainNavigation() {
                                     handleFilterKids();
                                     toggleMenu();
                                 }}>Kids</p>
-                                <p>Favorites</p>
+                                <div className={styles.profileContainer}>
+                                    <p onClick={() => {
+                                        if (userLoggedIn) {
+                                            navigate('/profile');
+                                            toggleMenu();
+                                        } else {
+                                            toggleMenu();
+                                            toggleAuth();
+                                        }
+                                    }}>Profile</p>
+                                    <p>Favorites</p>
+                                </div>
+                                {userLoggedIn ? <Button variant='danger' onHandleClick={() => {
+                                    doSignOut();
+                                    navigate('/');
+                                    toggleMenu();
+                                }}>Log Out</Button> : null}
                             </div>
                         </Modal>
                         : null}
+                    {userLoggedIn ? <Button variant='danger' size='small' className={styles.hidden} onHandleClick={() => {
+                        doSignOut()
+                        navigate('/')
+                    }}>Log Out</Button> : null}
                     <Button
                         variant="link"
                         size="small"
+                        className={styles.hidden}
                         onHandleClick={() => { navigate('/products') }}>All products</Button>
                     <NavButton
                         styles={styles['icon-button']}
@@ -88,28 +115,28 @@ export default function MainNavigation() {
                     />
                     <NavButton
                         styles={styles['icon-button']}
-                        image={profile}
+                        image={userLoggedIn ? profileImg : profile}
                         alt='profile logo'
-                        imgStyles={styles['icon-image']}
+                        imgStyles={`${styles['icon-image']} ${styles.hidden}`}
                         onHandleClick={() => {
                             if (userLoggedIn) {
-                               navigate('/profile');
+                                navigate('/profile');
                             } else {
                                 toggleAuth();
                             }
                         }}
                     />
                 </li>
-                <li className={styles['search-bar-container']}>
-                    <div className={location.pathname === '/products' ? styles['search-bar'] : `${styles['search-bar']} ${styles.hidden}`}>
+                {location.pathname === '/products' ? <li className={styles['search-bar-container']}>
+                    <div className={styles['search-bar']}>
                         <img src={searchImg} alt='search icon' />
                         <input className={styles.input} type='text' placeholder='Search...' onChange={handleOnChange} />
                     </div>
-                </li>
+                </li> : null}
             </ul>
             {isAuthModalOpen ? <Modal open={isAuthModalOpen} onClose={toggleAuth} modalStyles={styles.modal}>
                 <CloseButton onHandleClick={() => toggleAuth()} />
-                <Login />
+                <Login toggleAuth={toggleAuth} />
             </Modal> : null}
         </nav>
     );

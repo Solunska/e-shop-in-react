@@ -6,7 +6,7 @@ import { doCreateUserWithEmailAndPassword, doSignInWithEmailAndPassword } from '
 import { auth, db } from '../../firebase';
 import { setDoc, doc } from 'firebase/firestore';
 
-export default function Login() {
+export default function Login({ toggleAuth }) {
     const [isNewUser, setIsNewUser] = useState(false);
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
@@ -43,7 +43,7 @@ export default function Login() {
                 console.log(user)
                 alert("Logged in successfully");
             }
-
+            toggleAuth();
         } catch (error) {
             setErrorMessage(error.message);
         } finally {
@@ -92,7 +92,7 @@ export default function Login() {
                     </div>
                     {errorMessage && <p className={styles.error}>{errorMessage}</p>}
                     <div className={styles.actions}>
-                        <Button variant={isSigningIn ? "disabled" : "primary"} type="submit" size="medium" onHandleClick={handleSubmit}>
+                        <Button variant={isSigningIn ? "disabled" : "primary"} type="submit" size="medium" >
                             {isNewUser ? 'Register' : 'Login'}
                         </Button>
                         <Button
