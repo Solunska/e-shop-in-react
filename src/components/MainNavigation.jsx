@@ -13,13 +13,15 @@ import { useModal } from '../hooks/useModal';
 import { useFilter } from '../hooks/useFilter';
 import { useContext, useEffect, useState } from 'react';
 import { SearchContext } from '../context/SearchContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function MainNavigation() {
     const { isAuthModalOpen, isMenuModalOpen, toggleMenu, toggleAuth } = useModal();
     const { handleFilterKids, handleFilterMens, handleFilterWomen } = useFilter();
     const navigate = useNavigate();
-    const [ query, setQuery ] = useState('');
+    const [query, setQuery] = useState('');
     const { search, setSearch } = useContext(SearchContext);
+    const { userLoggedIn } = useAuth();
     console.log(search)
 
     useEffect(() => {
@@ -89,7 +91,13 @@ export default function MainNavigation() {
                         image={profile}
                         alt='profile logo'
                         imgStyles={styles['icon-image']}
-                        onHandleClick={() => toggleAuth()}
+                        onHandleClick={() => {
+                            if (userLoggedIn) {
+                               navigate('/profile');
+                            } else {
+                                toggleAuth();
+                            }
+                        }}
                     />
                 </li>
                 <li className={styles['search-bar-container']}>
