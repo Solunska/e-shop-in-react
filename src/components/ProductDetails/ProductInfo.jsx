@@ -1,55 +1,68 @@
-import Button from '../../UI/Button'
-import classes from './ProductInfo.module.css'
-import Stars from './Stars'
-import ShoeSizes from './ShoeSizes'
-import { useContext } from 'react';
+import Button from '../../UI/Button';
+import classes from './ProductInfo.module.css';
+import Stars from './Stars';
+import ShoeSizes from './ShoeSizes';
+import { useContext, useEffect, useState } from 'react';
 import CartContext from '../../context/CartContext';
 import { useQuantity } from '../../hooks/useQuantity';
-import { useModal } from '../../hooks/useModal';
+import Alert from '../../UI/Alert'; // Import the Alert component
 
 export default function ProductInfo({ item, averageRating, reviewCount, availableSizes, predefinedSizes, selectedSize, setSelectedSize }) {
     const { addItem } = useContext(CartContext);
     const { increaseQuantity, decreaseQuantity, quantity } = useQuantity();
-    const { isAlertOpen, toggleAlert } = useModal();
+    const [alertMessage, setAlertMessage] = useState('');
 
-    return <div className={classes.productInfoContainer}>
-        <div className={classes.nameRatingContainer}>
-            <p className={classes.name}>{item.name}</p>
-            <Stars
-                averageRating={averageRating}
-                containerClass={classes.reviewsContainer}
-                label={`${reviewCount} reviews`}
-                labelClass={classes.reviews}
-                size="24px" />
-        </div>
-        <p className={classes.price}>${item.price}.00</p>
-        <ShoeSizes
-            availableSizes={availableSizes}
-            predefinedSizes={predefinedSizes}
-            selectedSize={selectedSize}
-            setSelectedSize={setSelectedSize} />
-        <div>
-            <p className={classes.quantity}>Choose quantity</p>
-            <div className={classes.addToCartContainer}>
-                <div className={classes.quantityContainer}>
-                    <button onClick={() => decreaseQuantity()}>-</button>
-                    <p>{quantity}</p>
-                    <button onClick={() => increaseQuantity()}>+</button>
+    // Effect to automatically close the alert after 3 seconds
+    useEffect(() => {
+        if (alertMessage) {
+            const timer = setTimeout(() => {
+                setAlertMessage(''); // Clear the alert message after 3 seconds
+            }, 2000);
+
+            return () => clearTimeout(timer); // Cleanup the timer on unmount or when alertMessage changes
+        }
+    }, [alertMessage]);
+
+    const handleAddToCart = () => {
+        addItem(item, selectedSize, quantity);
+        setAlertMessage(`Added ${quantity} ${item.name} to the cart!`); // Set the alert message
+    };
+
+    return (
+        <div className={classes.productInfoContainer}>
+            <div className={classes.nameRatingContainer}>
+                <p className={classes.name}>{item.name}</p>
+                <Stars
+                    averageRating={averageRating}
+                    containerClass={classes.reviewsContainer}
+                    label={`${reviewCount} reviews`}
+                    labelClass={classes.reviews}
+                    size="24px" />
+            </div>
+            <p className={classes.price}>${item.price}.00</p>
+            <ShoeSizes
+                availableSizes={availableSizes}
+                predefinedSizes={predefinedSizes}
+                selectedSize={selectedSize}
+                setSelectedSize={setSelectedSize} />
+            <div>
+                <p className={classes.quantity}>Choose quantity</p>
+                <div className={classes.addToCartContainer}>
+                    <div className={classes.quantityContainer}>
+                        <button onClick={() => decreaseQuantity()}>-</button>
+                        <p>{quantity}</p>
+                        <button onClick={() => increaseQuantity()}>+</button>
+                    </div>
+                    <Button
+                        variant="primary"
+                        size="large"
+                        onHandleClick={handleAddToCart}> {/* Updated click handler */}
+                        Add to cart
+                    </Button>
                 </div>
-                <Button
-                    variant="primary"
-                    size="large"
-                    onHandleClick={() => {
-                        addItem(item, selectedSize, quantity)
-                        toggleAlert();
-                    }}>Add to cart
-                </Button>
             </div>
+            {/* Use the Alert component here */}
+            {alertMessage && <Alert className={classes.alert} message={alertMessage} onClose={() => setAlertMessage('')} />}
         </div>
-        {isAlertOpen ?
-            <div className="alert alert-success" role="alert">
-                <p className='mb-0'>Added <strong>{quantity} {item.name}</strong> to the cart!</p>
-            </div>
-            : null}
-    </div>
+    );
 }

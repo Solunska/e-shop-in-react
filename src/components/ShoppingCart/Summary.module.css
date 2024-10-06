@@ -72,6 +72,16 @@
     margin: 0;
 }
 
+.modal {
+    background-color: white;
+    height: 80vh;
+    width: 30rem;
+    border: none;
+    border-radius: 2em;
+    background: #a9b5c8b5;
+    backdrop-filter: blur(10px);
+}
+
 @media(max-width:1200px) {
     .summary {
         height: 40em;
@@ -100,6 +110,11 @@
     .discount,
     .total {
         font-size: 2.5em;
+    }
+
+    .modal {
+        width: 80%;
+
     }
 }
 

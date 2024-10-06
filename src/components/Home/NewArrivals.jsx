@@ -1,13 +1,11 @@
 import classes from './NewArrivals.module.css';
 import Button from '../../UI/Button';
 import { useFetch } from '../../hooks/useFetch';
-import { useCarousel } from '../../hooks/useCarousel';
 import { fetchSneakers } from '../../http';
 import Carousel from './Carousel';
 
 export default function NewArrivals() {
     const { fetchedData: sneakers, isFetching, error } = useFetch(fetchSneakers, []);
-    const { carouselRef, scrollLeft, scrollRight } = useCarousel()
 
     if (isFetching) return <p>Loading sneakers...</p>;
     if (error) return <p>{error.message}</p>;
@@ -20,9 +18,6 @@ export default function NewArrivals() {
             </div>
             <Carousel
                 items={sneakers}
-                scrollLeft={scrollLeft}
-                scrollRight={scrollRight}
-                carouselRef={carouselRef}
             />
             <div className={classes.btnContainer}>
                 <Button

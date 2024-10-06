@@ -15,8 +15,6 @@ export default function Filters({ applyFilters, toggleFilters }) {
                     <Checkbox label="nike" checked={filters.brand === "nike"} type="radio" name="brand" onChange={(e) => handleFilterChange('brand', e.target.value)} />
                     <Checkbox label="adidas" checked={filters.brand === "adidas"} type="radio" name="brand" onChange={(e) => handleFilterChange('brand', e.target.value)} />
                     <Checkbox label="puma" checked={filters.brand === "puma"} type="radio" name="brand" onChange={(e) => handleFilterChange('brand', e.target.value)} />
-                    <Checkbox label="converse" checked={filters.brand === "converse"} type="radio" name="brand" onChange={(e) => handleFilterChange('brand', e.target.value)} />
-                    <Checkbox label="new balance" checked={filters.brand === "new balance"} type="radio" name="brand" onChange={(e) => handleFilterChange('brand', e.target.value)} />
                 </div>
                 <div className={classes.categoryContainer}>
                     <h3 className={classes.category}>Material</h3>
@@ -40,15 +38,15 @@ export default function Filters({ applyFilters, toggleFilters }) {
                     <Checkbox label="women" checked={filters.genre === "women"} type="radio" name="gender" onChange={(e) => handleFilterChange('gender', e.target.value)} />
                     <Checkbox label="kids" checked={filters.genre === "kids"} type="radio" name="gender" onChange={(e) => handleFilterChange('gender', e.target.value)} />
                 </div>
-                <div className={classes.categoryContainer}>
-                    <h3 className={classes.category}>New Arrivals</h3>
-                    <Checkbox label="latest Trends" checked={filters.newArrivals.includes("latest Trends")} type="checkbox" onChange={(e) => handleFilterChange('newArrivals', e.target.value)} />
-                    <Checkbox label="recently Launched" checked={filters.newArrivals.includes("recently Launched")} type="checkbox" onChange={(e) => handleFilterChange('newArrivals', e.target.value)} />
-                </div>
+
                 <div className={classes.categoryContainer}>
                     <h3 className={classes.category}>Colour</h3>
                     <Checkbox label="black" checked={filters.color.includes("black")} type="checkbox" onChange={(e) => handleFilterChange('color', e.target.value)} />
                     <Checkbox label="white" checked={filters.color.includes("white")} type="checkbox" onChange={(e) => handleFilterChange('color', e.target.value)} />
+                    <Checkbox label="brown" checked={filters.color.includes("brown")} type="checkbox" onChange={(e) => handleFilterChange('color', e.target.value)} />
+                    <Checkbox label="beige" checked={filters.color.includes("beige")} type="checkbox" onChange={(e) => handleFilterChange('color', e.target.value)} />
+                    <Checkbox label="grey" checked={filters.color.includes("grey")} type="checkbox" onChange={(e) => handleFilterChange('color', e.target.value)} />
+                    <Checkbox label="orange" checked={filters.color.includes("orange")} type="checkbox" onChange={(e) => handleFilterChange('color', e.target.value)} />
                     <Checkbox label="blue" checked={filters.color.includes("blue")} type="checkbox" onChange={(e) => handleFilterChange('color', e.target.value)} />
                     <Checkbox label="pink" checked={filters.color.includes("pink")} type="checkbox" onChange={(e) => handleFilterChange('color', e.target.value)} />
                     <Checkbox label="green" checked={filters.color.includes("green")} type="checkbox" onChange={(e) => handleFilterChange('color', e.target.value)} />

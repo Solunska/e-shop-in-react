@@ -1,0 +1,70 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 0 auto;
+    gap: 1.5em;
+    padding: 3em 5em;
+    border: 1px solid #bdbdbd;
+    border-radius: 1em;
+    margin-bottom: 2em;
+}
+
+.summary {
+    width: 100%;
+    height: auto;
+}
+
+.inputGroupClass {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.inputGroupClass input {
+    background-color: #ece9e9;
+    padding: 1.5em 1em;
+    width: 100%;
+    border-radius: 0.75em;
+}
+
+.inputGroupClass label{
+    font-size: 1rem;
+}
+
+.dateCVV {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.dateCVV .inputGroupClass {
+    width: 50%;
+}
+
+.dateCVV input {
+    width: 100%;
+}
+
+.saveCardOption{
+    display: flex;
+}
+
+.saveCardOption input{
+   width: 5%;
+}
+
+
+@media (max-width:1200px) {
+    .mainContainer {
+        width: 50%;
+    }
+
+}
+
+@media (max-width:770px) {
+    .mainContainer {
+        width: 90%;
+    }
+
+}

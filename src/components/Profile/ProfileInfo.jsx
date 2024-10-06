@@ -6,6 +6,7 @@ import classes from './ProfileInfo.module.css'
 import Button from '../../UI/Button';
 import profile from '../../assets/no-profile.png'
 import InputGroup from '../../UI/InputGroup';
+import Loading from '../../UI/Loading';
 
 export default function ProfileInfo() {
     const userId = auth.currentUser?.uid;
@@ -14,8 +15,8 @@ export default function ProfileInfo() {
 
     const { fetchedData: user, isFetching, error } = useFetch(fetchUser, null);
 
-    if (isFetching) return <p>Loading...</p>;
-    if (error) return <p>Error: {error.message}</p>;
+    if (isFetching) return <Loading text="Loading..." />
+    if (error) return <p>{error.message}</p>;
     if (!user) return <p>No user data found.</p>;
 
     return (

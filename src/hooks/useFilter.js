@@ -77,9 +77,11 @@ export function useFilter() {
         }
 
         if (filters.gender) {
-            updatedSneakers = updatedSneakers.filter(item =>
-                filters.gender === item.gender
-            );
+            if (filters.gender === 'kids') {
+                updatedSneakers = updatedSneakers.filter(item => item.kids === true);
+            } else {
+                updatedSneakers = updatedSneakers.filter(item => filters.gender === item.gender && item.kids === false);
+            }
         }
 
         if (filters.sort) {

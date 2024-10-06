@@ -3,7 +3,7 @@ import classes from './ShoppingCartItem.module.css';
 import CartContext from '../../context/CartContext';
 
 export default function ShoppingCartItem({ item }) {
-    const { addItem } = useContext(CartContext);
+    const { addItem, removeItem } = useContext(CartContext);
 
     const price = item.price * item.quantity;
 
@@ -23,13 +23,14 @@ export default function ShoppingCartItem({ item }) {
 
         <td>
             <div className={classes.quantityContainer}>
-                <button>-</button>
+                <button onClick={() => removeItem(item.id, item.size)}>-</button>
                 <p>{item.quantity}</p>
-                <button onClick={() =>  addItem(item, item.size, item.quantity)}>+</button>
+                <button onClick={() => addItem(item, item.size, item.quantity)}>+</button>
             </div>
         </td>
         <td>
             <p className={classes.price}>${price}.00</p>
         </td>
+        
     </tr>
 }

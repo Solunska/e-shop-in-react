@@ -3,9 +3,10 @@ import ShoppingCartItem from './ShoppingCartItem';
 import Summary from './Summary';
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
+import Button from '../../UI/Button';
 
 export default function ShoppingCart() {
-    const cartContext = useContext(CartContext);
+    const { items, clearCart } = useContext(CartContext);
 
     return <div className={classes.mainContainer}>
         <div className={classes.shoppingCartItems}>
@@ -19,11 +20,14 @@ export default function ShoppingCart() {
                     </tr>
                 </thead>
                 <tbody>
-                    {cartContext.items.map(item =>
+                    {items.map(item =>
                         <ShoppingCartItem key={item} item={item} />
                     )}
                 </tbody>
             </table>
+        </div>
+        <div>
+            <Button variant='primary' size='medium' className={classes.clearCart} onHandleClick={clearCart}>Clear cart</Button>
         </div>
         <Summary />
     </div >

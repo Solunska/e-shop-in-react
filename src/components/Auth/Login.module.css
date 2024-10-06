@@ -50,3 +50,7 @@
     justify-content: end;
     gap: 1.5em;
 }
+
+.error{
+    color: #8b333c;
+}

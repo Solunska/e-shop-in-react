@@ -36,9 +36,15 @@
         font-size: 3.5em;
     }
 }
+@media (max-width: 900px) {
+    .container {
+        transform: translateY(50em);
+    }
+}
+
 
 @media (max-width: 515px) {
     .container {
-        transform: translateY(49em);
+        transform: translateY(37em);
     }
 }

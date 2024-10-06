@@ -1,6 +1,6 @@
 .mainContainer {
     display: flex;
-    margin: 3rem 13rem;
+    margin: 3rem 9rem;
     gap: 3em;
 }
 
@@ -13,6 +13,11 @@
 
 .shoppingCartItems {
     width: 70%;
+}
+
+.clearCart {
+    margin-top: 8em;
+    width: 10em;
 }
 
 td {
@@ -64,6 +69,10 @@ tr td:last-child {
 
 
 @media(max-width:1200px) {
+    .clearCart {
+        margin-top: 1em;
+    }
+
     .mainContainer {
         flex-direction: column;
         margin: 3rem;

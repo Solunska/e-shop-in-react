@@ -139,6 +139,17 @@
     margin: 0;
 }
 
+.alert{
+    background-color: rgb(152, 173, 206);
+    border: none;
+    box-shadow: 0 2px 10px rgb(152, 173, 206);
+    color: white;
+}
+
+.alert button:hover {
+    color: #283242;
+}
+
 @media (max-width: 900px) {
     .productInfoContainer {
         width: 100%;

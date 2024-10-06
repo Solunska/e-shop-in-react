@@ -33,6 +33,33 @@ function cartReducer(state, action) {
 
         return { ...state, items: updatedItems, subtotal: newSubtotal }
     }
+
+    if (action.type === 'REMOVE_ITEM') {
+        const shoeSize = action.size;
+        const existingCartItemWithSizeIndex = state.items.findIndex((item) => item.id === action.id && item.size === shoeSize);
+
+        const existingCartItem = state.items[existingCartItemWithSizeIndex];
+        const updatedItems = [...state.items];
+
+        if (existingCartItem.quantity === 1) {
+            updatedItems.splice(existingCartItem, 1);
+        } else {
+            const updatedItem = {
+                ...existingCartItem,
+                quantity: existingCartItem.quantity - 1,
+            };
+
+            updatedItems[existingCartItemWithSizeIndex] = updatedItem;
+        }
+
+        return { ...state, items: updatedItems };
+    }
+
+    if (action.type === 'CLEAR_CART') {
+        return { ...state, items: [] };
+    }
+
+    return state;
 }
 
 export function CartContextProvider({ children }) {
@@ -47,10 +74,26 @@ export function CartContextProvider({ children }) {
         });
     }
 
+    function removeItem(id, size) {
+        dispatchCartAction({
+            type: 'REMOVE_ITEM',
+            id,
+            size,
+        });
+    }
+
+    function clearCart() {
+        dispatchCartAction({
+            type: 'CLEAR_CART',
+        });
+    }
+
     const cartContext = {
         items: cart.items,
         addItem,
-        subtotal: cart.subtotal, 
+        subtotal: cart.subtotal,
+        removeItem,
+        clearCart
     }
 
     console.log(cartContext);

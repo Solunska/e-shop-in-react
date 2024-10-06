@@ -20,7 +20,7 @@ export default function ProductsCollection() {
     const { fetchedData: sneakers, isFetching, error } = useFetch(fetchSneakers, []);
     const { isFiltersModalOpen, toggleFilters } = useModal();
     const { setSneakersData, filteredSneakers, applyFilters, handleFilterKids, handleFilterMens, handleFilterWomen } = useFilter();
-    const { filters } = useContext(FiltersContext);
+    const { filters, clearFilters } = useContext(FiltersContext);
 
     useEffect(() => {
         if (sneakers.length > 0) {
@@ -50,6 +50,7 @@ export default function ProductsCollection() {
 
     return <>
         <div className={classes.categories}>
+        <Button variant="secondary" border="off" size='large' onHandleClick={clearFilters} className={filters.gender === null ? classes.selectedButton : ''} >All Products</Button>
             <Button variant="secondary" border="off" size='large' onHandleClick={handleFilterMens} className={filters.gender === 'men' ? classes.selectedButton : ''} >Men</Button>
             <Button variant="secondary" border="off" size='large' onHandleClick={handleFilterWomen} className={filters.gender === 'women' ? classes.selectedButton : ''}>Women</Button>
             <Button variant="secondary" border="off" size='large' onHandleClick={handleFilterKids} className={filters.gender === 'kids' ? classes.selectedButton : ''}>Kids</Button>

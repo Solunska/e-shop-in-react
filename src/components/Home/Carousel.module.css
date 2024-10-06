@@ -1,9 +1,52 @@
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
-    position: relative;
+    margin: 2em 4em;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 0.5em;
+    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.193);
+    margin: 2em 1em;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff;
+    /* Set button color */
+    z-index: 10;
+    /* Ensure the buttons are above other elements */
+    width: 30px;
+    /* Set a specific width */
+    height: 30px;
+    /* Set a specific height */
+    transition: color 0.3s;
+}
+
+.swiper-button-next {
+    position: absolute;
+    right: 10000px;
+    /* Positioning */
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+    left: var(--swiper-navigation-sides-offset, 33px);
+    right: auto;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+    right: var(--swiper-navigation-sides-offset, 150px);
+    left: auto;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: #4658ff;
+    /* Change color on hover */
 }
 
 .button {
@@ -20,6 +63,7 @@
     outline: none;
     position: absolute;
     margin: 0 2.5em;
+    z-index: 1000;
 }
 
 .button:nth-of-type(2) {
@@ -31,51 +75,10 @@
     background-color: #2b3a50;
 }
 
-.carousel {
-    margin-left: 3.5rem;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    width: 95%;
-    overflow: hidden;
-    display: flex;
-    width: 100%;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    flex-grow: 1;
-    height: 36em;
-}
-
-.image {
-    width: 27vw;
-    height: 27vw;
-    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.193);
-    border-radius: 0.5em;
-    margin-right: 3em;
-    flex-shrink: 0;
-    margin-left: 1em;
-}
-
-
 @media (max-width: 580px) {
-
     .image {
-        width: 75vw;
-        height: 75vw;
-        margin-left: 4em;
-    }
-
-    .carousel {
-        height: 68em;
-        margin-left: 0.5rem;
-    }
-
-    .button:nth-of-type(2) {
-        margin: 0 2em;
-    }
-
-    .button {
-        width: 3.5em;
-        height: 3.5em;
-        margin: 0 3.5em;
+        width: 85vw;
+        height: auto;
+        margin: 4em 3em;
     }
 }
