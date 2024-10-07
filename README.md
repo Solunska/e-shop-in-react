@@ -18,7 +18,7 @@ The application follows best practices in modern React development, leveraging f
 ## 📥 Installation
 Clone the repository:
 ```bash
-git clone https://github.com/yourusername/nabi-store.git
+git clone https://github.com/Solunska/e-shop-in-react
 ```
 Navigate to the project directory:
 ```bash
