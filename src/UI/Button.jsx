@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function Button({
     children,
     variant = 'primary',
@@ -18,13 +20,15 @@ export default function Button({
   `.trim();
 
     return (
-        <button
+        <motion.button
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: 'spring', stiffness: 150, }}
             className={buttonClass}
             type={type}
             onClick={onHandleClick}
             disabled={disabled}
         >
             {children}
-        </button>
+        </motion.button>
     );
 }

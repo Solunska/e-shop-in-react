@@ -63,9 +63,9 @@
         font-size: 14px;
     }
 
-    .hero-shoe {
+    /* .hero-shoe {
         transform: translateY(18em) translateX(7em);
-    }
+    } */
 }
 
 @media (max-width: 1200px) {
@@ -79,7 +79,7 @@
         transform: translateX(-4em) translateY(-10em);
     }
 
-    .hero-shoe {
+    /* .hero-shoe {
         transform: translateY(11em) translateX(7em);
     }
 
@@ -89,7 +89,7 @@
 
     .rectangle-blue {
         transform: translateY(37em);
-    }
+    } */
 }
 
 @media (max-width: 979px) {
@@ -118,11 +118,11 @@
 }
 @media (max-width: 515px) {
 
-    .hero-shoe,
+    /* .hero-shoe,
     .rectangle-beige,
     .rectangle-blue {
         display: none;
-    }
+    } */
 
     .hero-heading p:nth-of-type(1) {
         font-size: 5em;
