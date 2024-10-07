@@ -26,7 +26,7 @@ export default function Carousel({ items }) {
                     1024: {
                         slidesPerView: 3,
                     },
-                    1440: { // Add a breakpoint for larger screens
+                    1440: { 
                         slidesPerView: 4,
                     },
                 }}

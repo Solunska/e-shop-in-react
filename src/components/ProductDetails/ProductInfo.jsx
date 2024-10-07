@@ -12,20 +12,19 @@ export default function ProductInfo({ item, averageRating, reviewCount, availabl
     const { increaseQuantity, decreaseQuantity, quantity } = useQuantity();
     const [alertMessage, setAlertMessage] = useState('');
 
-    // Effect to automatically close the alert after 3 seconds
     useEffect(() => {
         if (alertMessage) {
             const timer = setTimeout(() => {
-                setAlertMessage(''); // Clear the alert message after 3 seconds
+                setAlertMessage(''); 
             }, 2000);
 
-            return () => clearTimeout(timer); // Cleanup the timer on unmount or when alertMessage changes
+            return () => clearTimeout(timer);
         }
     }, [alertMessage]);
 
     const handleAddToCart = () => {
         addItem(item, selectedSize, quantity);
-        setAlertMessage(`Added ${quantity} ${item.name} to the cart!`); // Set the alert message
+        setAlertMessage(`Added ${quantity} ${item.name} to the cart!`); 
     };
 
     return (

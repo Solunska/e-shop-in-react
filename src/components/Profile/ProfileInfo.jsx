@@ -1,24 +1,39 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useFetch } from "../../hooks/useFetch";
-import { fetchUsersWithId } from "../../http";
+import { fetchOrdersOfUser, fetchUsersWithId } from "../../http";
 import { auth } from "../../firebase";
 import classes from './ProfileInfo.module.css'
 import Button from '../../UI/Button';
 import profile from '../../assets/no-profile.png'
 import InputGroup from '../../UI/InputGroup';
 import Loading from '../../UI/Loading';
+import Orders from './Orders';
 
 export default function ProfileInfo() {
+    const [username, setUsername] = useState('');
+
     const userId = auth.currentUser?.uid;
 
     const fetchUser = useCallback(() => fetchUsersWithId(userId), [userId]);
 
-    const { fetchedData: user, isFetching, error } = useFetch(fetchUser, null);
+    const { fetchedData: user, isFetching: isFetchingUser, error: userFetchingError } = useFetch(fetchUser, null);
 
-    if (isFetching) return <Loading text="Loading..." />
-    if (error) return <p>{error.message}</p>;
+    const fetchOrders = useCallback(() => fetchOrdersOfUser(userId), [userId]);
+    const { fetchedData: orders, isFetching: isFetchingOrders, error: ordersFetchingError } = useFetch(fetchOrders, null);
+
+    useEffect(() => {
+        if (user && user.username) {
+            setUsername(user.username);
+        }
+    }, [user]);
+
+
+    if (isFetchingUser || isFetchingOrders) return <Loading text="Loading..." />
+    if (userFetchingError || ordersFetchingError) return <p>{userFetchingError.message}</p>;
     if (!user) return <p>No user data found.</p>;
+    if (!orders) return <p>No user data found.</p>;
 
+    console.log(orders);
     return (
         <div className={classes.mainContainer}>
             <div className={classes.container}>
@@ -32,12 +47,12 @@ export default function ProfileInfo() {
                 </div>
             </div>
             <div className={classes.usernameContainer}>
-                <InputGroup label="Profile username" type='text' value={user.username} inputGroupClass={classes.inputGroup} />
+                <InputGroup label="Profile username" type='text' value={username} inputGroupClass={classes.inputGroup} onChange={(e) => setUsername(e.target.value)} />
                 <Button variant='primary' size='medium' >Save</Button>
             </div>
             <div className={classes.container}>
-                <p>Your Orders</p>
-
+                {orders.length === 0 ? <p className={classes.noOrders}>You have no orders yet.</p> :
+                    <Orders orders={orders} />}
             </div>
         </div>
     );

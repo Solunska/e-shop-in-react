@@ -26,3 +26,17 @@ export async function fetchUsersWithId(userId) {
 
     return userWithId; 
 }
+
+export async function fetchOrdersOfUser(userId) {
+    const ordersCollection = collection(db, "Orders");
+    const snapshot = await getDocs(ordersCollection);
+
+    const orders = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }));
+
+    const filteredOrders = orders.filter(order => order.orderDetails.userId === userId);
+
+    return filteredOrders; 
+}

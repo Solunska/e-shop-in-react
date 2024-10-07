@@ -4,9 +4,14 @@ import Summary from './Summary';
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 import Button from '../../UI/Button';
+import EmptyShoppingCart from './EmptyShoppingCart';
 
 export default function ShoppingCart() {
     const { items, clearCart } = useContext(CartContext);
+
+    if(items.length === 0){
+        return <EmptyShoppingCart/>
+    }
 
     return <div className={classes.mainContainer}>
         <div className={classes.shoppingCartItems}>

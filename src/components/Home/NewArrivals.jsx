@@ -16,9 +16,7 @@ export default function NewArrivals() {
                 <h1 className={classes.heading}>New Arrivals</h1>
                 <p className={classes.paragraph}>Stay Ahead in Style with Our Latest Comfy Sneakers</p>
             </div>
-            <Carousel
-                items={sneakers}
-            />
+            <Carousel items={sneakers} />
             <div className={classes.btnContainer}>
                 <Button
                     variant="primary"

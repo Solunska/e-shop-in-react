@@ -25,10 +25,10 @@ export default function Summary({ styles, btnLabel, hidden, btntype, disabled })
                     <p>Subtotal</p>
                     <p>${subtotal}.00</p>
                 </div>
-                <div className={classes.discount}>
+                {/* <div className={classes.discount}>
                     <p>Discount</p>
                     <p>${discount}</p>
-                </div>
+                </div> */}
             </div>
             <div className={classes.totalCheckout}>
                 <div className={classes.total}>

@@ -4,6 +4,7 @@
     width: 60%;
     margin: 0 auto;
     gap: 3rem;
+    margin-bottom: 2em;
 }
 
 .mainContainer p,
@@ -55,15 +56,20 @@
 }
 
 .inputGroup input {
-    background-color: rgb(226, 220, 213);
+    background-color: #F6F6F6;
     padding: 1.5em 2em;
     border-radius: 0.75em;
-    color: rgb(44, 44, 44);
+    color: rgba(44, 44, 44, 0.788);
     width: 100%;
 }
 
 .usernameContainer button {
     height: 3em;
+}
+
+.noOrders{
+    font-size: 1.75rem !important;
+    color: #60759494 !important;
 }
 
 @media (max-width: 980px) {
