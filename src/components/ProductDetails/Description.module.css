@@ -6,10 +6,6 @@
     gap: 1em;
 }
 
-.separator {
-    margin: 0 0.5em;
-}
-
 .detailsContainer {
     display: flex;
     gap: 1em;

@@ -5,7 +5,7 @@ import ShoeSizes from './ShoeSizes';
 import { useContext, useEffect, useState } from 'react';
 import CartContext from '../../context/CartContext';
 import { useQuantity } from '../../hooks/useQuantity';
-import Alert from '../../UI/Alert'; // Import the Alert component
+import Alert from '../../UI/Alert';
 
 export default function ProductInfo({ item, averageRating, reviewCount, availableSizes, predefinedSizes, selectedSize, setSelectedSize }) {
     const { addItem } = useContext(CartContext);
@@ -15,7 +15,7 @@ export default function ProductInfo({ item, averageRating, reviewCount, availabl
     useEffect(() => {
         if (alertMessage) {
             const timer = setTimeout(() => {
-                setAlertMessage(''); 
+                setAlertMessage('');
             }, 2000);
 
             return () => clearTimeout(timer);
@@ -24,7 +24,7 @@ export default function ProductInfo({ item, averageRating, reviewCount, availabl
 
     const handleAddToCart = () => {
         addItem(item, selectedSize, quantity);
-        setAlertMessage(`Added ${quantity} ${item.name} to the cart!`); 
+        setAlertMessage(`Added ${quantity} ${item.name} to the cart!`);
     };
 
     return (
@@ -55,13 +55,15 @@ export default function ProductInfo({ item, averageRating, reviewCount, availabl
                     <Button
                         variant="primary"
                         size="large"
-                        onHandleClick={handleAddToCart}> {/* Updated click handler */}
+                        onHandleClick={handleAddToCart}>
                         Add to cart
                     </Button>
                 </div>
             </div>
-            {/* Use the Alert component here */}
-            {alertMessage && <Alert className={classes.alert} message={alertMessage} onClose={() => setAlertMessage('')} />}
+            {alertMessage && <Alert
+                className={classes.alert}
+                message={alertMessage}
+                onClose={() => setAlertMessage('')} />}
         </div>
     );
 }

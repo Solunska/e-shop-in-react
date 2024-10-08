@@ -18,11 +18,12 @@ export default function Hero() {
                     alt='beige rectangle' />
                 <img
                     className={styles['hero-shoe']}
-                    src={shoe} alt='shoe' />
+                    src={shoe}
+                    alt='shoe' />
             </div>
             <header className={styles['hero-heading']}>
                 <motion.h1
-                    initial={{ opacity: 0, y: 10}}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ type: 'spring', stiffness: 50 }}>Step Into Style</motion.h1>
@@ -30,8 +31,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 10, }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    transition={{ type: 'spring', stiffness: 50 }}
-                >Discover Your Perfect Sneakers</motion.p>
+                    transition={{ type: 'spring', stiffness: 50 }}>Discover Your Perfect Sneakers</motion.p>
                 <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}

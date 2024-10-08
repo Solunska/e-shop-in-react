@@ -26,11 +26,10 @@ export default function Carousel({ items }) {
                     1024: {
                         slidesPerView: 3,
                     },
-                    1440: { 
+                    1440: {
                         slidesPerView: 4,
                     },
-                }}
-            >
+                }}>
                 {items.map((item) => (
                     <SwiperSlide key={item.id}>
                         <CardImage

@@ -53,8 +53,15 @@ export default function ProductDetails() {
                 setSelectedPhoto={setSelectedPhoto} />
         </div>
         <div className={classes.bottomContainer}>
-            <Description description={item.details} colors={item.colours} materials={item.material} types={item.type} />
-            <SideBar averageRating={averageRating} averageRatingFullNumber={averageRatingFullNumber} percentageStars={percentageStars} />
+            <Description
+                description={item.details}
+                colors={item.colours}
+                materials={item.material}
+                types={item.type} />
+            <SideBar
+                averageRating={averageRating}
+                averageRatingFullNumber={averageRatingFullNumber}
+                percentageStars={percentageStars} />
         </div>
     </>
 }
