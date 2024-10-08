@@ -1,0 +1,114 @@
+.headingContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3rem;
+    align-items: center;
+}
+
+.headingContainer button {
+    margin-right: 0.5em;
+}
+
+.heding {
+    margin: 0 1em;
+    font-size: 1.5em !important;
+    color: #453221;
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.iconButton {
+    background-color: transparent;
+    border: none;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+}
+
+.iconImage {
+    width: 2rem;
+    height: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.iconImage:hover {
+    transform: scale(1.2);
+}
+
+.modal {
+    background: transparent;
+    width: 94%;
+    height: 90vh;
+    border: none;
+    border-radius: 2em;
+    background: #a9b5c88a;
+    backdrop-filter: blur(10px);
+    padding: 6rem 4rem;
+}
+
+.modal::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+@media (max-width: 1200px) {
+    .heding {
+        margin: 1em 0;
+        font-size: 2em !important;
+    }
+
+    .modal {
+        height: 80vh;
+        padding: 4rem 2rem;
+    }
+}
+
+@media(max-width:980px) {
+    .modal {
+        height: 60vh;
+    }
+}
+
+@media(max-width:900px) {
+    .modal {
+        padding: 2rem;
+        width: 80%;
+    }
+}
+
+@media (max-width: 750px) {
+    .headingContainer {
+        margin: 0 2.5rem;
+    }
+
+    .heding {
+        margin: 1em 0;
+        font-size: 2.5em !important;
+    }
+
+    .modal {
+        height: 80vh;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .iconButton,
+    .iconImage {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}

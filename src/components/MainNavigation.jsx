@@ -3,7 +3,7 @@ import logo from '../assets/logo.png';
 import searchImg from '../assets/search.png';
 import profile from '../assets/profile.png';
 import shoppingBag from '../assets/shopping-cart.png';
-import NavButton from '../UI/NavigationButton';
+import IconButton from '../UI/IconButton';
 import styles from './MainNavigation.module.css';
 import Modal from '../UI/Modal';
 import Login from './Auth/Login';
@@ -17,7 +17,6 @@ import { useAuth } from '../context/AuthContext';
 import { doSignOut } from '../auth';
 import profileImg from '../assets/no-profile.png'
 import { FiltersContext } from '../context/FiltersContext';
-
 
 export default function MainNavigation() {
     const { isAuthModalOpen, isMenuModalOpen, toggleMenu, toggleAuth } = useModal();
@@ -106,14 +105,14 @@ export default function MainNavigation() {
                         size="small"
                         className={styles.hidden}
                         onHandleClick={() => { navigate('/products') }}>All products</Button>
-                    <NavButton
+                    <IconButton
                         styles={styles['icon-button']}
                         image={shoppingBag}
                         alt='shopping bag logo'
                         imgStyles={styles['icon-image']}
                         onHandleClick={() => { navigate('/shopping-cart') }}
                     />
-                    <NavButton
+                    <IconButton
                         styles={styles['icon-button']}
                         image={userLoggedIn ? profileImg : profile}
                         alt='profile logo'

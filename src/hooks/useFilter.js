@@ -17,6 +17,7 @@ export function useFilter() {
     }, [filters.gender]);
 
 
+
     function handleFilterMens() {
         handleFilterChange('gender', 'men');
     }
@@ -104,6 +105,23 @@ export function useFilter() {
 
         setFilteredSneakers(updatedSneakers);
     }, [filters, sneakers, search]);
+
+    useEffect(() => {
+        switch (location.pathname) {
+            case '/mens':
+                handleFilterMens();
+                break;
+            case '/womens':
+                handleFilterWomen();
+                break;
+            case '/kids':
+                handleFilterKids();
+                break;
+            default:
+                break;
+        }
+        applyFilters();
+    }, [location.pathname, applyFilters]);
 
     function setSneakersData(data) {
         setSneakers(data);

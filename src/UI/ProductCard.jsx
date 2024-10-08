@@ -9,7 +9,6 @@ export default function ProductCard({ id, image, alt, name, price, }) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ y: 30, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 50 }}>
-
         <Link to={`/products/${id}`} >
             <img src={image} alt={alt} className={classes.image} />
         </Link>

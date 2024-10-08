@@ -1,0 +1,21 @@
+.categories {
+    display: flex;
+    justify-content: center;
+    background-color: #ece9e9;
+    margin-bottom: 1em;
+}
+
+.categories button {
+    padding: 1rem;
+}
+
+.selectedButton {
+    color: #333e4ff6;
+    font-weight: 600;
+}
+
+@media(max-width:900px) {
+    .categories {
+        display: none;
+    }
+}

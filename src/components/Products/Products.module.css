@@ -1,22 +1,3 @@
-.categories {
-    display: flex;
-    justify-content: center;
-    background-color: #ece9e9;
-    margin-bottom: 1em;
-}
-
-.categories button {
-    padding: 1rem;
-}
-
-.heding {
-    margin: 0 1em;
-    font-size: 1.5em !important;
-    color: #453221;
-    margin-top: 0;
-    font-weight: 600;
-}
-
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -78,77 +59,19 @@ a {
     background-color: #3C4C64;
 }
 
-.headingContainer {
+.noProducts {
     display: flex;
-    justify-content: space-between;
-    margin: 0 3rem;
+    flex-direction: column;
     align-items: center;
-}
-
-.headingContainer button {
-    margin-right: 0.5em;
-}
-
-.iconButton {
-    background-color: transparent;
-    border: none;
-    height: 2rem;
-    width: 2rem;
-    cursor: pointer;
-}
-
-.iconImage {
-    width: 2rem;
-    height: 2rem;
-    transition: transform 0.3s ease;
-}
-
-.iconImage:hover {
-    transform: scale(1.2);
-}
-
-.modal {
-    background: transparent;
-    width: 94%;
-    height: 90vh;
-    border: none;
-    border-radius: 2em;
-    background: #a9b5c88a;
-    backdrop-filter: blur(10px);
-    padding: 6rem 4rem;
-}
-
-.modal::-webkit-scrollbar {
-    width: 6px;
-}
-
-.modal::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 10px;
-}
-
-.modal::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 10px;
-}
-
-.modal::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-}
-
-.selectedButton {
-    color: #333e4ff6;
-    font-weight: 600;
+    justify-content: center;
+    height: 60vh;
+    font-size: 2rem;
+    color: #3C4C64;
 }
 
 @media (max-width: 1200px) {
     .cardContainer {
         width: 33%;
-    }
-
-    .heding {
-        margin: 1em 0;
-        font-size: 2em !important;
     }
 
     .name,
@@ -163,45 +86,12 @@ a {
     .button {
         font-size: 1.3em;
     }
-
-    .modal {
-        height: 80vh;
-        padding: 4rem 2rem;
-    }
-}
-
-@media(max-width:980px) {
-    .modal {
-        height: 60vh;
-    }
-}
-
-
-@media(max-width:900px) {
-    .categories {
-        display: none;
-    }
-
-    .modal {
-        padding: 2rem;
-        width: 80%;
-    }
 }
 
 @media (max-width: 750px) {
-
-    .modal {
-        height: 80vh;
-    }
-
     .cardContainer {
         width: 50%;
         margin-bottom: 4em;
-    }
-
-    .heding {
-        margin: 1em 0;
-        font-size: 2.5em !important;
     }
 
     .name,
@@ -216,15 +106,9 @@ a {
     .button {
         font-size: 2em;
     }
-
-    .headingContainer {
-        margin: 0 2.5rem;
-    }
-
 }
 
 @media (max-width: 500px) {
-
     a {
         width: 94%;
     }
@@ -241,11 +125,5 @@ a {
 
     .button {
         font-size: 2.5em;
-    }
-
-    .iconButton,
-    .iconImage {
-        height: 1.5rem;
-        width: 1.5rem;
     }
 }
