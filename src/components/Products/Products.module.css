@@ -65,7 +65,8 @@ a {
     align-items: center;
     justify-content: center;
     height: 60vh;
-    font-size: 2rem;
+    font-size: 2em;
+    font-weight: 600;
     color: #3C4C64;
 }
 
