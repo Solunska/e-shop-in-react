@@ -22,6 +22,7 @@
 .itemContainer p {
     margin: 0;
     font-size: 1rem;
+    font-weight: 500;
 }
 
 .itemContainer:nth-of-type(2n) {
@@ -33,6 +34,12 @@
     justify-content: space-between;
     font-size: 1.3rem;
     align-items: center;
+}
+
+.totalContainer p:first-child,
+.itemContainer p:last-child {
+  color: rgba(0, 0, 0, 0.727);
+  font-weight: 400;
 }
 
 .price{

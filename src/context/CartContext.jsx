@@ -40,9 +40,11 @@ function cartReducer(state, action) {
 
         const existingCartItem = state.items[existingCartItemWithSizeIndex];
         const updatedItems = [...state.items];
+        let newSubtotal = state.subtotal;
 
         if (existingCartItem.quantity === 1) {
             updatedItems.splice(existingCartItem, 1);
+            newSubtotal -= existingCartItem.price;
         } else {
             const updatedItem = {
                 ...existingCartItem,
@@ -50,13 +52,14 @@ function cartReducer(state, action) {
             };
 
             updatedItems[existingCartItemWithSizeIndex] = updatedItem;
+            newSubtotal -= existingCartItem.price;
         }
 
-        return { ...state, items: updatedItems };
+        return { ...state, items: updatedItems, subtotal: newSubtotal  };
     }
 
     if (action.type === 'CLEAR_CART') {
-        return { ...state, items: [] };
+        return { items: [], subtotal: 0 }; 
     }
 
     return state;
