@@ -58,13 +58,7 @@
     color: #30415af6;
 }
 
-.category {
-    font-weight: 600;
-    font-size: 1.5em;
-    color: #30415af6;
-    margin: 0;
-    margin-bottom: 0.5em;
-}
+
 
 .price {
     margin-bottom: 2em;
@@ -91,10 +85,6 @@
 
 @media (max-width: 1200px) {
 
-    .category {
-        font-size: 1.75em;
-    }
-
     .labelParagraph {
         font-size: 1.5em;
     }
@@ -117,10 +107,6 @@
         width: 100% !important;
         gap: 2em;
         margin-left: 0;
-    }
-
-    .category {
-        font-size: 3.5em;
     }
 
     .labelParagraph {
