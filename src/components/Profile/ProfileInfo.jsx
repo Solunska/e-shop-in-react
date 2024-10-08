@@ -9,9 +9,14 @@ import InputGroup from '../../UI/InputGroup';
 import Loading from '../../UI/Loading';
 import Orders from './Orders';
 import { motion } from "framer-motion";
+import { useModal } from '../../hooks/useModal';
+import Modal from '../../UI/Modal';
+import OrderDetails from './OrderDetails';
 
 export default function ProfileInfo() {
     const [username, setUsername] = useState('');
+    const [orderDetails, setOrderDetails] = useState({});
+    const { isOrderModalOpen, toggleOrder } = useModal();
 
     const userId = auth.currentUser?.uid;
 
@@ -33,6 +38,7 @@ export default function ProfileInfo() {
     if (!orders) return <p>No user data found.</p>;
 
     console.log(orders);
+    console.log(orderDetails);
     return (
         <motion.div
             className={classes.mainContainer}
@@ -55,8 +61,12 @@ export default function ProfileInfo() {
                 <Button variant='primary' size='medium' >Save</Button>
             </div>
             <div className={classes.container}>
-                {orders.length === 0 ? <p className={classes.noOrders}>You have no orders yet.</p> : <Orders orders={orders} />}
+                {orders.length === 0 ? <p className={classes.noOrders}>You have no orders yet.</p> : <Orders orders={orders} toggleOrder={toggleOrder} setOrderDetails={setOrderDetails}/>}
             </div>
+            {isOrderModalOpen &&
+                <Modal open={isOrderModalOpen} modalStyles={classes.modal} onClose={toggleOrder} >
+                    <OrderDetails orderDetails={orderDetails} toggleOrder={toggleOrder}/>
+                </Modal>}
         </motion.div>
     );
 }

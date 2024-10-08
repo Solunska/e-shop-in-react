@@ -150,7 +150,7 @@ input:focus {
     height: 80vh;
     width: 30rem;
     border: none;
-    border-radius: 2em;
+    border-radius: 1em;
     background: #a9b5c8b5;
     backdrop-filter: blur(10px);
 }

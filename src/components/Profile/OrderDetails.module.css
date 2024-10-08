@@ -1,0 +1,42 @@
+.itemsContainer,
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.container {
+    gap: 2em;
+}
+
+.container h3 {
+    color: #384457;
+}
+
+.itemContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+}
+
+.itemContainer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.itemContainer:nth-of-type(2n) {
+    background-color: #97a4bab5;
+}
+
+.totalContainer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    align-items: center;
+}
+
+.price{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #384457;
+}

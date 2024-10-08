@@ -72,6 +72,17 @@
     color: #60759494 !important;
 }
 
+.modal {
+    background-color: white;
+    width: 30rem;
+    border: none;
+    border-radius: 1em;
+    background: #a9b5c8b5;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+
 @media (max-width: 980px) {
     .mainContainer {
         width: 90%;

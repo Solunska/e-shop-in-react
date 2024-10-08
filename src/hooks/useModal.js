@@ -4,6 +4,7 @@ export function useModal() {
     const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false);
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
+    const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
     const [isAlertOpen, setIsAlertModalOpen] = useState(false);
 
     useEffect(() => {
@@ -18,7 +19,7 @@ export function useModal() {
 
         handleResize();
 
-        if (isAuthModalOpen || isMenuModalOpen || isFiltersModalOpen) {
+        if (isAuthModalOpen || isMenuModalOpen || isFiltersModalOpen || isOrderModalOpen) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'auto';
@@ -28,7 +29,7 @@ export function useModal() {
             document.body.style.overflow = 'auto';
             window.removeEventListener('resize', handleResize);
         };
-    }, [setIsMenuModalOpen, isMenuModalOpen, isAuthModalOpen, isFiltersModalOpen]);
+    }, [setIsMenuModalOpen, isMenuModalOpen, isAuthModalOpen, isFiltersModalOpen, isOrderModalOpen]);
 
     const toggleAlert = useCallback(() => {
         setIsAlertModalOpen(!isAlertOpen);
@@ -46,24 +47,24 @@ export function useModal() {
         }
     }, [isAlertOpen, toggleAlert])
 
-    function toggleMenu() {
-        setIsMenuModalOpen((prev) => !prev);
-    }
+    function toggleMenu() { setIsMenuModalOpen((prev) => !prev); }
 
-    function toggleFilters() {
-        setIsFiltersModalOpen(!isFiltersModalOpen);
-    }
+    function toggleFilters() { setIsFiltersModalOpen(!isFiltersModalOpen); }
 
     function toggleAuth() { setIsAuthModalOpen(!isAuthModalOpen); }
+
+    function toggleOrder() { setIsOrderModalOpen(!isOrderModalOpen); }
 
     return {
         isFiltersModalOpen,
         isAuthModalOpen,
         isMenuModalOpen,
         isAlertOpen,
+        isOrderModalOpen,
         toggleMenu,
         toggleFilters,
         toggleAuth,
         toggleAlert,
+        toggleOrder
     }
 }

@@ -1,7 +1,8 @@
 import Button from '../../UI/Button'
 import classes from './Orders.module.css'
 
-export default function Orders({orders}) {
+export default function Orders({ orders, toggleOrder, setOrderDetails }) {
+
     return <>
         <p>Your Orders</p>
         <table className={classes.table}>
@@ -20,7 +21,13 @@ export default function Orders({orders}) {
                         <td>{new Date(order.createdAt.seconds * 1000).toLocaleDateString()}</td>
                         <td className={classes.price}>${order.orderDetails.total.toFixed(2)}</td>
                         <td>
-                            <Button variant='secondary' size='small' onClick={() => { }}>
+                            <Button variant='secondary' size='small' onHandleClick={() => {
+                                toggleOrder()
+                                setOrderDetails({
+                                    items: order.orderDetails.items,
+                                    total: order.orderDetails.total
+                                })
+                            }}>
                                 View Details
                             </Button>
                         </td>

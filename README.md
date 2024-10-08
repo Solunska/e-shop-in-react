@@ -135,5 +135,4 @@ The application utilizes React Portals to render modal components outside the ma
 The following features are currently in development and not fully functional yet:
 
 - **Account Management**: The account management features, including user profile editing and password reset functionalities, are still being implemented.
-- **Viewing Order Details**: The functionality for viewing order details on the profile page is still not complete.
 - **Checkout Confirmation**: The checkout confirmation feature is also not done yet.
