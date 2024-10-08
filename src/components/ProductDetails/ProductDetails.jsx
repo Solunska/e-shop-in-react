@@ -12,9 +12,7 @@ import SideBar from "./SideBar";
 import notfound from '../../assets/not-found.png'
 import Loading from "../../UI/Loading";
 import NotFound from "../../UI/NotFound";
-
-const predefinedSizes = [35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47];
-const kidsSizes = [5, 6, 7, 8, 9, 10, 11, 12, 13];
+import { PREDEFINED_SIZES, KIDS_SIZES } from '../../constants'
 
 export default function ProductDetails() {
     const { productId } = useParams();
@@ -44,7 +42,7 @@ export default function ProductDetails() {
                 averageRating={averageRatingFullNumber}
                 reviewCount={reviewCount}
                 availableSizes={availableSizes}
-                predefinedSizes={item.kids ? kidsSizes : predefinedSizes}
+                predefinedSizes={item.kids ? KIDS_SIZES : PREDEFINED_SIZES}
                 selectedSize={selectedSize}
                 setSelectedSize={setSelectedSize} />
             <ProductPhotos

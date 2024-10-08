@@ -3,11 +3,9 @@ import { useFormFields } from "./useFormFields";
 import { doCreateUserWithEmailAndPassword, doSignInWithEmailAndPassword } from "../auth";
 import { auth, db } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
+import { EMAIL_REGEX, PASSWORD_REGEX } from '../constants'
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-export function useAuthForm(toggleAuth){
+export function useAuthForm(toggleAuth) {
     const [isNewUser, setIsNewUser] = useState(false);
     const [isSigningIn, setIsSigningIn] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -94,7 +92,7 @@ export function useAuthForm(toggleAuth){
         isSigningIn,
         errorMessage,
         handleSubmit,
-        formFields, 
+        formFields,
         handleFieldChange
     };
 }
