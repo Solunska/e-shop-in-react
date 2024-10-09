@@ -26,6 +26,7 @@
 }
 
 .profileImage {
+    border-radius: 50%;
     width: 10em;
     aspect-ratio: 1/1;
 }
@@ -33,13 +34,43 @@
 .btnContainer {
     display: flex;
     gap: 1em;
-    width: 60%;
     font-size: 0.75em;
+    align-items: center;
+}
+
+.btnContainer input {
+    display: none;
+}
+
+.btnContainer p {
+    margin: 0;
+}
+
+.btnContainer label {
+    display: inline-block;
+    padding: 10px;
+    background-color: #1166c0;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    max-height: 3rem;
+    min-width: 12rem;
+}
+
+.btnContainer label:hover {
+    background-color: #023a75;
 }
 
 .btnContainer button,
 .usernameContainer button {
     font-size: 1rem;
+}
+
+.uploadedFileName{
+    margin-top: 1em;
 }
 
 .usernameContainer {
@@ -67,7 +98,7 @@
     height: 3em;
 }
 
-.noOrders{
+.noOrders {
     font-size: 1.75rem !important;
     color: #60759494 !important;
 }
@@ -82,6 +113,41 @@
     backdrop-filter: blur(10px);
 }
 
+.flashingText {
+    animation: flash 2s infinite;
+}
+
+.iconButton {
+    border: none;
+    background-color: rgb(163, 82, 82);
+    width: 3rem;
+    height: 3rem;
+    padding: 1em;
+    aspect-ratio: 1/1;
+    border-radius: 0.5rem;
+}
+
+.iconButton:hover {
+    background-color: rgb(114, 56, 56);
+}
+
+.iconButton img{
+    width: 1.5em;
+    object-fit: cover; 
+    object-position: center; 
+}
+
+@keyframes flash {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
 
 @media (max-width: 980px) {
     .mainContainer {
@@ -91,13 +157,5 @@
 
     .usernameContainer button {
         width: 40%;
-    }
-
-    .btnContainer {
-        width: 80%;
-    }
-
-    .btnContainer button {
-        width: 50%;
     }
 }

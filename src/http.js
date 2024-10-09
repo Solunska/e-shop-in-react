@@ -1,5 +1,7 @@
-import { collection, getDocs } from "firebase/firestore";
-import { db } from './firebase'; 
+import { collection, doc, getDocs, updateDoc } from "firebase/firestore";
+import { db } from './firebase';
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { updateProfile } from "firebase/auth";
 
 export async function fetchSneakers() {
     const sneakersCollection = collection(db, "sneakers");
@@ -10,7 +12,7 @@ export async function fetchSneakers() {
         ...doc.data()
     }));
 
-    return sneakers; 
+    return sneakers;
 }
 
 export async function fetchUsersWithId(userId) {
@@ -24,7 +26,7 @@ export async function fetchUsersWithId(userId) {
 
     const userWithId = users.find(user => user.id === userId)
 
-    return userWithId; 
+    return userWithId;
 }
 
 export async function fetchOrdersOfUser(userId) {
@@ -38,5 +40,24 @@ export async function fetchOrdersOfUser(userId) {
 
     const filteredOrders = orders.filter(order => order.orderDetails.userId === userId);
 
-    return filteredOrders; 
+    return filteredOrders;
+}
+
+export async function updateUserProfile(userId, updateData) {
+    const userDocRef = doc(db, 'Users', userId);
+    await updateDoc(userDocRef, updateData);
+}
+
+const storage = getStorage();
+
+export async function uploadProfilePhoto(file, currentUser, setLoading) {
+    const fileRef = ref(storage, currentUser.uid + '.png');
+    setLoading(true);
+    const snapshot = await uploadBytes(fileRef, file);
+    const photoURL = await getDownloadURL(fileRef);
+
+    updateProfile(currentUser, { photoURL: photoURL });
+    setLoading(false);
+    alert("Uploaded file");
+    window.location.reload(); 
 }

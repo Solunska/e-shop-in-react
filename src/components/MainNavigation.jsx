@@ -15,18 +15,26 @@ import { useContext, useEffect, useState } from 'react';
 import { SearchContext } from '../context/SearchContext';
 import { useAuth } from '../context/AuthContext';
 import { doSignOut } from '../auth';
-import profileImg from '../assets/no-profile.png'
 import { FiltersContext } from '../context/FiltersContext';
+import { auth } from '../firebase';
 
 export default function MainNavigation() {
     const { isAuthModalOpen, isMenuModalOpen, toggleMenu, toggleAuth } = useModal();
     const { handleFilterKids, handleFilterMens, handleFilterWomen } = useFilter();
+    const [photoURL, setPhotoURL] = useState('https://i.pinimg.com/736x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg');
     const navigate = useNavigate();
     const [query, setQuery] = useState('');
     const { search, setSearch } = useContext(SearchContext);
     const { userLoggedIn } = useAuth();
     const { clearFilters } = useContext(FiltersContext);
+    const currentUser = auth.currentUser
     console.log(search)
+
+    useEffect(() => {
+        if (currentUser?.photoURL) {
+            setPhotoURL(currentUser.photoURL);
+        }
+    }, [currentUser]);
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
@@ -113,8 +121,8 @@ export default function MainNavigation() {
                         onHandleClick={() => { navigate('/shopping-cart') }}
                     />
                     <IconButton
-                        styles={styles['icon-button']}
-                        image={userLoggedIn ? profileImg : profile}
+                        styles={userLoggedIn ? `${styles['profile-icon-button']} ${styles['picture-icon']}` : styles['icon-button']}
+                        image={userLoggedIn ? photoURL : profile}
                         alt='profile logo'
                         imgStyles={`${styles['icon-image']} ${styles.hidden}`}
                         onHandleClick={() => {
