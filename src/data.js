@@ -10,7 +10,7 @@ export const FILTER_OPTIONS_1 = {
         { label: 'Mesh', value: 'mesh' },
         { label: 'Recycled Materials', value: 'recycled materials' },
     ],
-    sneakerTypes: [
+    sneakertypes: [
         { label: 'Slip-On', value: 'slip-on' },
         { label: 'Lace-Up', value: 'lace-up' },
         { label: 'High Tops', value: 'high tops' },

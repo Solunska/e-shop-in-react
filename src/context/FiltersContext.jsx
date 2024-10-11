@@ -5,7 +5,7 @@ export const FiltersContext = createContext();
 const startingState = {
     brand: null,
     material: [],
-    sneakerTypes: [],
+    sneakertypes: [],
     customerReviews: null,
     newArrivals: [],
     color: [],

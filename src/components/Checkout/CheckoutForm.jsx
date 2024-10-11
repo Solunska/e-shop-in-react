@@ -2,6 +2,7 @@ import InputGroup from '../../UI/InputGroup';
 import classes from './CheckoutForm.module.css';
 import Summary from '../ShoppingCart/Summary';
 import { useCheckoutForm } from '../../hooks/useCheckoutForm';
+import Loading from '../../UI/Loading';
 
 export default function CheckoutForm() {
     const {
@@ -15,7 +16,7 @@ export default function CheckoutForm() {
         handleFieldChange
     } = useCheckoutForm();
 
-    if (isFetching) return <p>Loading...</p>;
+    if (isFetching) return <Loading text="Loading..." />;
     if (error) return <p>Error: {error.message}</p>;
 
     return (
@@ -60,6 +61,7 @@ export default function CheckoutForm() {
                 inputGroupClass={classes.saveCardOption}
                 onChange={(e) => setSaveCard(e.target.checked)}
                 type='checkbox'
+                required={false}
             />
             <Summary styles={classes.summary} btnLabel={isSubmitting ? 'Processing...' : 'Make payment'} hidden btntype='submit' disabled={isSubmitting} />
         </form>

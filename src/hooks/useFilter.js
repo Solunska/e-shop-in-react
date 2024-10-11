@@ -16,8 +16,6 @@ export function useFilter() {
         applyFilters();
     }, [filters.gender]);
 
-
-
     function handleFilterMens() {
         handleFilterChange('gender', 'men');
     }
@@ -46,9 +44,9 @@ export function useFilter() {
             );
         }
 
-        if (filters.sneakerTypes.length > 0) {
+        if (filters.sneakertypes.length > 0) {
             updatedSneakers = updatedSneakers.filter(item =>
-                filters.sneakerTypes.some(ftype => item.type.includes(ftype))
+                filters.sneakertypes.some(ftype => item.type.includes(ftype))
             );
         }
 
